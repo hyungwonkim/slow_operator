@@ -63,9 +63,9 @@ The time scale of energy relaxation is discussed below, where we construct opera
 $D k^2$, where $D$ is diffusivity and the momentum $k$ is inversely proportional to the interval length.
 However, numerically we find that the time scale for the slowest operator that we constructed diverges as a {\it faster} power of length than the decay of the operators associated with energy fluctuations, and for the observed system sizes, the time scale is quantitatively larger.
 
-To further understand the presence of such approximately conserved quantities we then turn to a Floquet system where energy is not a local conserved quantity.
+To further understand the presence of such approximately conserved quantities we then turn to a Floquet system where energy is not a local conserved quantity.  
 Nevertheless, we observe some slowly relaxating operators in the Floquet system.
-To test this, we also consider several random unitaries constructed from local quantum circuits, and in every case we again find slowly relaxing operators.
+To test this, we also consider several random unitaries constructed from local quantum circuits, and in every case we again find slowly relaxing operators. 
 In fact, we argue that such slow relaxing operators must be present in any Floquet system or in any quantum circuit.  However, these slowly relaxing operators are in a sense morally similar to the slowly relaxing operator in a Hamiltonian system describing energy fluctuations: these operators are present in any such system, so long as locality is present.  They themselves do not inhibit relaxation of the local density matrices ``as fast as possible" (i.e., on a time scale proportional to the length of the interval; see Ref.~\onlinecite{Brandao:2012} for a proof that this happens for random local circuits).  Thus, the real surprise is our numerical observation that there are other operators in some Hamiltonian systems with even slower relaxation.
 
 %\section{Model and Method}
@@ -134,7 +134,7 @@ this minimization already gives nontrivial results as we report below.
 
 
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{semi_infinite_full_optimal.pdf}
+\includegraphics[width=1.0\linewidth]{figures/semi_infinite_full_optimal.pdf}
 \centering
 \caption{(color online) $\lambda$ is the minimum of Eq. \eqref{eq:minimize} for given $M$. As we increase $M$, the commutator with Hamiltonian decreases
 and thus the local operator relaxes slowly. The decreasing form can be well-fitted by both a power-law and $1/(M\log(M))^2$. }
@@ -148,7 +148,7 @@ In either case,
 the rate of decrease with $M$ is {\it faster} than $1/M^2$, which is the scaling of the slowest diffusive energy mode as we show now.
 
 \begin{figure}
-\includegraphics[width=1.00\linewidth]{Hamiltonian_only.pdf}
+\includegraphics[width=1.00\linewidth]{figures/Hamiltonian_only.pdf}
 \centering
 \caption{(color online) (a) $\lambda$ is the minimum of Eq. \eqref{eq:minimize} when only terms in Hamiltonian ($\sigma^x_i$,$\sigma^z_i$, and $\sigma^z_i\sigma^z_{i+1}$ are used. As hydrodynamics suggests, it decreases with $1/M^2$. (b) Structure of the optimal operator of $M = 12$.
 We locate $\sigma^z_i \sigma^z_{i+1}$ term at site $i+1/2$. We normalize the coefficients by square norm ($\sum_\ell c_\ell^2 = 1$).
@@ -220,7 +220,7 @@ the local operator {\it faster}. Since the only apparent difference between the 
 is the existence of the energy conservation, we attribute this fast relaxation to the absence of conservation law.
 
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{semi_infinite_floquet_only.pdf}
+\includegraphics[width=1.0\linewidth]{figures/semi_infinite_floquet_only.pdf}
 \centering
 \caption{(color online) $\lambda$ is the minimum value of Eq. \eqref{eq:floquet_minimize}. In comparison with Figure \ref{fig:full_optimal}, the Floquet system relaxes a local operator faster than the Hamiltonian system for having rather moderate decay tendency.
 %(b) Decomposition of optimal operators sorted by the distance from the free edge ($M+1$'th site). Most weight is in the farthest site.}
@@ -242,7 +242,7 @@ To determine whether this phenomenon is more generally true, we also studied a f
 
 
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{circuit.pdf}
+\includegraphics[width=1.0\linewidth]{figures/circuit.pdf}
 \centering
 \caption{$\lambda$ as a function of $M$ for a random circuit model.  $13$ realizations are shown.  In all cases, $\lambda$ decreases with $M$.}
 \label{fig:lz}
@@ -399,7 +399,7 @@ and we still found nontrivial results.
 
 \subsection{Results of another set of parameters in Hamiltonian}
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{semi_infinite_full_optimal_other_parameter.pdf}
+\includegraphics[width=1.0\linewidth]{figures/semi_infinite_full_optimal_other_parameter.pdf}
 \centering
 \caption{(color online) $\lambda$ is the minimum value of the Frobenius norm of the commutator with Hamiltonian for given $M$.
 Here we choose the parameters to be $(g,h) = (-1.05, 0.5)$. $\lambda$ still decreases faster than $1/M^2$. }
@@ -416,7 +416,7 @@ except that $\lambda(M)$ (minimum of the Frobenius norm of the commutator with H
 which is the scaling of the diffusive energy mode.
 
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{X_Z_ZZ_only_two_parameters.pdf}
+\includegraphics[width=1.0\linewidth]{figures/X_Z_ZZ_only_two_parameters.pdf}
 \centering
 \caption{(color online) $\lambda$ is the minimum value of Eq. \eqref{eq:minimize} when only terms in Hamiltonian are used. We see that $1/M^2$ scaling, which comes from the energy modulation holds for both parameter choices. }
 \label{fig:Ham_only_two_parameters}
@@ -434,7 +434,7 @@ This may hint us that the mechanism of slowing down the relaxation in the Floque
 could be universal.
 
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{semi_infinite_floquet_two_parameters_extended.pdf}
+\includegraphics[width=1.0\linewidth]{figures/semi_infinite_floquet_two_parameters_extended.pdf}
 \centering
 \caption{(color online) }
 \label{fig:floquet_two_parameters}
