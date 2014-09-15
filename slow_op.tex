@@ -39,7 +39,6 @@
 \affiliation{Physics Department, Princeton University, Princeton, NJ 08544, USA}
 
 \begin{abstract}
-Modified.
 We numerically construct slowly thermalizing local operators in one-dimensional chain of spin-1/2 with a nonintegrable Hamiltonian.
 Restricting the support of operators to $M$, we exhaustively search for the operator that minimizes the Frobenius norm of the commutator
 with the Hamiltonian and thus changes slowly.  We find that operators are present with significantly slower relaxation than would be
@@ -160,14 +159,21 @@ It shows a clear energy modulation with the wavelength $4(M-1)$. The relative we
 A slowly relaxing energy mode can be constructed by considering an energy modulation of wavelength $4M$:
 \begin{align}
 \hat{E}_M &= \sum_{i=1}^{M} \cos\left(\frac{(i-1)\pi}{2(M-1)}\right)(g \sigma^x_i + h\sigma^z_i)\nonumber\\
-&+ \sum_{i=1}^{M-1} \cos\left(\frac{(i-1/2)\pi}{2(M-1)}\right)\sigma^z_i\sigma^z_{i+1}
+&+ \sum_{i=1}^{M-1} \cos\left(\frac{(i-1/2)\pi}{2(M-1)}\right)\sigma^z_i\sigma^z_{i+1}\\
+&= \sum_i c_M(i) h_i ~, 
 \label{eq:energy_modulation}
 \end{align}
-Combining the continuity equation and the Heisenberg equation of motion, we have the following.
+where $h_i$ is the energy density operator ($g \sigma^x_i + h\sigma^z_i + 1/2(\sigma^z_{i-1}\sigma^z_i + \sigma^z_i\sigma^z_{i+1}$))
+and $c_M(i)$ is the cosine modulation function restricted in $[1,M]$. 
+Since the energy is a conserved density, we can use the continuity equation: 
+$d h_i/dt = -\nabla \cdot {\bf j}_i$, where $h_i$ and ${\bf j}_i$ is the energy density and the energy current density at site $i$, respectively.
+It is straightforward to show that ${\bf j}_i = g(\sigma^y_i \sigma^z_{i+1} - \sigma^y_{i+1} \sigma^z_i)$. 
+Combining this with the Heisenberg equation of motion, we have the following.  
 \begin{align}
-\frac{d}{dt} \hat{E}_M = i[H,\hat{E}_M] = -\nabla\cdot {\bf J}_E \sim {\bf k} \cdot {\bf J}_E({\bf k}) ~,
+ i[H,\hat{E}_M] &= \frac{d}{dt} \hat{E}_M = -\sum_i c_M(i) \partial_i \cdot {\bf j}_i \\
+ &= \sum_i {\bf j}_i \partial_i c_M(i) \simeq -\frac{1}{M} \sum_i s_M(i) h_i,  
 \end{align}
-where ${\bf J}_E$ is the energy current operator and the last relation is written in Fourier space, where $|{\bf k}| \sim 1/M$.
+where $\partial_i$ is the discrete derivative and $s_M(i)$ the sine modulation function.  
 Therefore, the squared Frobenius norm of the commutator of $\hat{E}_M$ should scale as $1/M^2$.  In this case, one can explicitly compute the commutator and verify this result.
 
 Here, we adapt a slightly more conservative approach.
@@ -214,11 +220,13 @@ where $\hat{A}_M(\tau) = U_F^\dag \hat{A}_M(0) U_F$.
 When $\hat{A}_M$ changes little by the initial driving, Eq. \eqref{eq:floquet_minimize} is small.
 Therefore, we search for a local operator of length $M$ that retains the most of information about the initial state
 after one Floquet cycle.
-Figure \ref{fig:floquet} (a) is the plot of $\lambda$ (the minimum value of Eq. \ref{eq:floquet_minimize}) as a function of $M$.
-Comparing to Figure \ref{fig:full_optimal} and Figure \ref{fig:ham_only},
+Figure \ref{fig:floquet} is the plot of $\lambda$ (the minimum value of Eq. \ref{eq:floquet_minimize}) as a function of $M$.
+Comparing Figure \ref{fig:floquet} with Figures \ref{fig:full_optimal} and \ref{fig:ham_only},
 we see that $\lambda$ decreases {\it slower} than Hamiltonian cases, which implies that the Floquet system thermalizes
 the local operator {\it faster}. Since the only apparent difference between the Hamiltonian system and the Floquet system
 is the existence of the energy conservation, we attribute this fast relaxation to the absence of conservation law.
+Nevertheless, Figure \ref{fig:floquet} clearly exhibits that the rate of relaxation in the Floquet system 
+becomes slower as the support $M$ increases. 
 
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{semi_infinite_floquet_only.pdf}
@@ -229,21 +237,21 @@ is the existence of the energy conservation, we attribute this fast relaxation t
 \label{fig:floquet}
 \end{figure}
 
-Figure \ref{fig:floquet}, however, shows that $\hat{A}_M$ remembers more about the initial condition as the support $M$ increases.
-To analyze the structure of this operator, we organize the basis operators of the optimal operator that minimize Eq. \eqref{eq:floquet_minimize}
-by the distance from the free edge ($M+1$'th site) of a first non-identity operator. For example, when $M = 3$,
-the basis operator $\sigma^x_1 \sigma^0_2 \sigma^x_3$ has distance 1 and $\sigma^x_1 \sigma^z_2 \sigma^0_3$ has distance 2.
-We sort the basis operators by distance and sum the square of coefficients of the same distance.
-Figure \ref{fig:floquet} (b) is the plot of such decomposition.
-We see that more weights are placed in the sites farther from the free edge although number of such basis operators are exponentially smaller.
+%Figure \ref{fig:floquet}, however, shows that $\hat{A}_M$ remembers more about the initial condition as the support $M$ increases.
+%To analyze the structure of this operator, we organize the basis operators of the optimal operator that minimize Eq. \eqref{eq:floquet_minimize}
+%by the distance from the free edge ($M+1$'th site) of a first non-identity operator. For example, when $M = 3$,
+%the basis operator $\sigma^x_1 \sigma^0_2 \sigma^x_3$ has distance 1 and $\sigma^x_1 \sigma^z_2 \sigma^0_3$ has distance 2.
+%We sort the basis operators by distance and sum the square of coefficients of the same distance.
+%Figure \ref{fig:floquet} (b) is the plot of such decomposition.
+%We see that more weights are placed in the sites farther from the free edge although number of such basis operators are exponentially smaller.
 
 To determine whether this phenomenon is more generally true, we also studied a family of quantum circuits, each composed of two rounds, where in the first round, gates act on pairs of sites $...,(1,2),(3,4),...$ and on the second round gates act on pairs $...,(0,1),(2,3),(4,5),...$  We consider now an infinite, rather than semi-infinite chain.  We choose all gates in a given round to be the same, but chose them randomly.  The results are shown in Fig.~\ref{fig:lz}.  We find again that even in this random case, slow operators are present.
 
 
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{circuit.pdf}
+\includegraphics[width=1.0\linewidth]{random_circuit.pdf}
 \centering
-\caption{$\lambda$ as a function of $M$ for a random circuit model.  $13$ realizations are shown.  In all cases, $\lambda$ decreases with $M$.}
+\caption{$\lambda$ as a function of $M$ for a random circuit model. Each line of connected circles represents a realization of a random circuit (10 realizations are shown). In all cases, $\lambda$ decreases with $M$. Inset: $\lambda(M)/\lambda(4)$ vs. $M$. Once scaled by $\lambda(4)$, the decay behavior is similar for each random circuit. }
 \label{fig:lz}
 \end{figure}
 
@@ -354,6 +362,18 @@ which is not precisely what we want. Ideally, we want to find a local operator
 that relaxes the slowest in the long time.
 For that purpose, we need to consider the operator norm (the largest eigenvalue in magnitude).
 
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{op_norm.pdf}
+\centering
+\caption{(color online) Normalized magnitude of $[\hat{A}_M, H]$ ($\lambda$) measured by the Frobenius norm and the operator norm. 
+$\hat{A}_M$ is obtained by minimizing the Frobenius norm of the commutator with Hamiltonian as is in the main text. 
+The operator norm decreases similarly with the Frobenius norm within the range of support we computed. 
+}
+\label{fig:op_norm}
+\end{figure}
+
+
+
 Assuming that $\hat{A}_M$ satisfies the following:
 \begin{align}
 ||[\hat{A}_M, H]|| \leq \chi(M),
@@ -389,14 +409,16 @@ the time scale of thermalization of $\hat{A}_M$ is
 \begin{align}
 \tau_M \sim \frac{\gamma(M)}{\chi(M)} ~.
 \end{align}
-In particular, if $\chi(M) \sim \exp(-\alpha M)$ with some positive $\alpha$ and $\gamma(M)$ does not decrease exponentially,
-thermalization may take exponentially long with $M$ as opposed to polynomially long in case of diffusion.
+In particular, if $\chi(M)$ decrease faster than a power law with $M$,
+thermalization may take longer than polynomially time in the case of diffusion.
 
-However, optimizing the operator norm is numerically very challenging.
-Therefore, we used the Frobenius norm, which is much simpler to compute, to construct slowly relaxing local operators
-and we still found nontrivial results.
+Optimizing the operator norm numerically, however, is very challenging. Therefore, we used the (square of) Frobenius norm in the main text. 
+Figure \ref{fig:op_norm} plots the decay of the Frobenius norm and the operator norm of $[\hat{A}_M,H]$, 
+where $\hat{A}_M$ is obtained in the main text by minimizing the Frobenius norm. 
+It shows that the values of $\lambda$ measured by the operator norm is numerically similar to that of the Frobenius norm.  
 
-\subsection{Results of another set of parameters in Hamiltonian}
+
+\subsection{Results of another set of parameters}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{semi_infinite_full_optimal_other_parameter.pdf}
 \centering
@@ -428,9 +450,11 @@ Therefore, we again explicitly demonstrate that the longest wavelength energy mo
 
 
 Figure \ref{fig:floquet_two_parameters} shows the minimum value of the commutator with the Floquet operator in the Flobenius norm.
-We see that the $M$ scaling does not depend on the parameter choice, unlike Hamiltonian system.
-This may hint us that the mechanism of slowing down the relaxation in the Floquet system, where no local conservation law is present,
-could be universal.
+The behavior of decrease with $M$ is very similar to each other, 
+and thus the slow relaxation is not specific to a certain parameter choice. 
+%We see that the $M$ scaling does not depend on the parameter choice, unlike Hamiltonian system.
+%This may hint us that the mechanism of slowing down the relaxation in the Floquet system, where no local conservation law is present,
+%could be universal.
 
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{semi_infinite_floquet_two_parameters_extended.pdf}
@@ -443,4 +467,4 @@ could be universal.
 
 
 
-\end{document} 
+\end{document}
