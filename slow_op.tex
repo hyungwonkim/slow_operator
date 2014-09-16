@@ -15,6 +15,8 @@
 
 \newcommand{\ket}[1]{|#1\rangle}
 \newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
 
 
 
@@ -72,6 +74,7 @@ In fact, we argue that such slow relaxing operators must be present in any Floqu
 %\subsection{Model}
 %\subsection{Method}
 
+{\it Hamiltonian System Numerical Results---}
 As a nonintegrable model Hamiltonian, we choose a semi-infinite spin-1/2 Ising chain with both longitudinal and transverse fields.
 \footnote{We have also performed similar analysis in the infinite chain with translation invariance. Most of our main results (figure \ref{fig:full_optimal})
 remains true. Since translation non-invariant system is easier to visualize the local operators and to directly compare with diffusive energy mode, here we present the results on the semi-infinite chain.}
@@ -156,6 +159,7 @@ It shows a clear energy modulation with the wavelength $4(M-1)$. The relative we
 \label{fig:ham_only}
 \end{figure}
 
+{\it Hydrodynamics---}
 A slowly relaxing energy mode can be constructed by considering an energy modulation of wavelength $4M$:
 \begin{align}
 \hat{E}_M &= \sum_{i=1}^{M} \cos\left(\frac{(i-1)\pi}{2(M-1)}\right)(g \sigma^x_i + h\sigma^z_i)\nonumber\\
@@ -187,13 +191,10 @@ The structure is exactly the same as the energy modulation form of Eq. \eqref{eq
 This clearly shows that indeed the slowest mode of the conserved quantity is the modulation of the longest wavelength.
 
 
-We have shown that we can numerically construct a series of local operators that relax slower (at least at early times) than
-diffusive mode of the same locality. In fact, it turns out that this fully optimized local operator remains relaxing slower than diffusion for
-all times.
 
-Next, by moving into the Floquet system (for thermalization in the Floquet system, see Refs.~\onlinecite{Dalessio:2014, Lazarides:2014, Ponte:2014}),
-we test whether the energy conservation is important in the slow relaxation of local operators.
-As an energy non-conserving Floquet operator, we adopt the same operator used in Ref.~\onlinecite{Kim_ETH}:
+{\it Floquet System---}
+Next, we consider a Floquet system (for thermalization in the Floquet system, see Refs.~\onlinecite{Dalessio:2014, Lazarides:2014, Ponte:2014}) andtest whether the energy conservation is important in the slow relaxation of local operators.
+We adopt the same Floquet operator used in Ref.~\onlinecite{Kim_ETH}:
 \begin{align}
 U_F = \exp(-i H_x \tau) \exp(-i H_z \tau) ~,
 \end{align}
@@ -218,8 +219,7 @@ difference of the expectation value of $\hat{A}_M$ between the initial state and
 \end{align}
 where $\hat{A}_M(\tau) = U_F^\dag \hat{A}_M(0) U_F$.
 When $\hat{A}_M$ changes little by the initial driving, Eq. \eqref{eq:floquet_minimize} is small.
-Therefore, we search for a local operator of length $M$ that retains the most of information about the initial state
-after one Floquet cycle.
+
 Figure \ref{fig:floquet} is the plot of $\lambda$ (the minimum value of Eq. \ref{eq:floquet_minimize}) as a function of $M$.
 Comparing Figure \ref{fig:floquet} with Figures \ref{fig:full_optimal} and \ref{fig:ham_only},
 we see that $\lambda$ decreases {\it slower} than Hamiltonian cases, which implies that the Floquet system thermalizes
@@ -245,7 +245,9 @@ becomes slower as the support $M$ increases.
 %Figure \ref{fig:floquet} (b) is the plot of such decomposition.
 %We see that more weights are placed in the sites farther from the free edge although number of such basis operators are exponentially smaller.
 
-To determine whether this phenomenon is more generally true, we also studied a family of quantum circuits, each composed of two rounds, where in the first round, gates act on pairs of sites $...,(1,2),(3,4),...$ and on the second round gates act on pairs $...,(0,1),(2,3),(4,5),...$  We consider now an infinite, rather than semi-infinite chain.  We choose all gates in a given round to be the same, but chose them randomly.  The results are shown in Fig.~\ref{fig:lz}.  We find again that even in this random case, slow operators are present.
+To determine whether this phenomenon is more generally true, we also studied a family of quantum circuits, each composed of two rounds, where in the first round, gates act on pairs of sites $...,(1,2),(3,4),...$ and on the second round gates act on pairs $...,(0,1),(2,3),(4,5),...$  We consider now an infinite, rather than semi-infinite chain.  We choose all gates in a given round to be the same, but chose them randomly.  The results are shown in Fig.~\ref{fig:lz}.  We find again that even in this random case, slow operators are present.  This study was performed using a Lanczos method.
+
+
 
 
 \begin{figure}
@@ -255,9 +257,13 @@ To determine whether this phenomenon is more generally true, we also studied a f
 \label{fig:lz}
 \end{figure}
 
+To extend to larger systems, we used a matrix product method.  In this case, we consider operators in the space spanned by $U^n O U^{-n}$ for $O$ a Pauli operator and taking a finite number of powers of $U$.  We found the optimal operator of the form $A=\sum_m c_n U^n O U^{-n}$.  This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace, but here we used a matrix product method to approximate the traces ${\rm tr}(O^\dagger U^n O U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}).
+The results are shown in Fig. FIGURE.
+The weights $c_n$ approximately follow a cosine shape and $\lambda$ decays as roughly $1/M^2$.  Such a decay $1/M^2$ would be exact if
+${\rm tr}(O^\dagger U^n O U^{-n})=0$ for all $n \neq 0$.
+ We are unable to prove this decay in general but show weaker results in the supplemental.
 
-
-{\it Summary.}
+{\it Summary---}
 We have numerically constructed a series of local operators that relax slower than local energy fluctuations do.
 We have also performed the same analysis in the similar system without energy conservation,
 the Floquet system and for a family of quantum circuits, again finding slowly relaxing operators.
@@ -462,7 +468,38 @@ and thus the slow relaxation is not specific to a certain parameter choice.
 \label{fig:floquet_two_parameters}
 \end{figure}
 
+\subsection{Slow Operators for Arbitrary Quantum Circuits}
+We now show that a slowly relaxing operator must always exist, on an interval of length $M$ with the relaxation rate going to zero as $M$ gets large.  Let $U$ be the unitary of the quantum circuit restricted to an interval of length slightly larger than $M$ (in this way, we can consider only finite dimensional spaces).
 
+Let ${\cal E}(O)$ be a super-operator defined by${\cal E}(O)=UOU^\dagger$.  The space of operators can be regarded as a vector space, with inner product $(A,B)={\rm tr}(A^\dagger B)$, and with ${\cal E}(O)$ being a linear operator on this space.  The operator ${\cal E}$ is non-Hermitian but it is a normal operator, since its Hermitian conjugate is equal to ${\cal E}^\dagger(O)=U^\dagger O U$ and ${\cal E}({\cal E}^\dagger(O))={\cal E}^\dagger({\cal E}(O))=O$ and so $[{\cal E},{\cal E}^\dagger]=0$.  
+Let ${\cal E}_h=\frac{1}{2}({\cal E}+{\cal E}^\dagger)$ and ${\cal E}_a=\frac{1}{2i}({\cal E}+{\cal E}^\dagger)$.
+
+We begin by constructing an operator $O$ supported on an interval of length $M$ such that ${\cal E}_h(O)= x O+\epsilon$ for some $x$ and for $\epsilon={\cal O}(1/M)$.  Let $A$ be any traceless operator supported on a single site in the center of the interval.  We consider the Krylov space generated by the vectors $A, {\cal E}_h(A), {\cal E}_h^2(A),...$.  Let $K$ be the number of vectors we take; $K$ will be proportional to $M$ and will be chosen such that all these operators are supported on the interval of length $M$.
+Since ${\cal E}_h$ is Hermitian, using the Lanczos procedure, we can write it as a tridiagonal matrix $T$ in this Krylov space.   We claim that that there exists a vector $v$ supported on the first $K-1$ vectors $w_1,...,w_{K-1}$ such that $|Tv-xv|^2/|v|^2\leq {\cal O}(1/K^2)$.  To verify this claim, let $\psi$ be any eigenvector of $T$ with at least half its weight on the first $K/2$ vectors with $\psi=\sum_k a_k v_k$; let $x$ be the corresponding eigenvalue; let $v=\sum_k a_k (1-k/K) v_k$.
+The basis in which the matrix is tridiagonal has basis vectors $w_1,w_2,...$, with $w_k$ being in the span of the first $k$ vectors $A, {\cal E}_h(A),...$
+Hence, the vector $v$ gives us the desired operator $O$.
+
+Now consider the operators
+\be
+O_{\pm}=(\sqrt{1-x^2} \pm {\cal E}_a) O,
+\ee
+with $O$ normalized such that $|O|=1$.
+Note that ${\cal E}(O_{\pm})={\cal E}_h(O_{\pm}+i {\cal E}_a(O_{\pm}))=xO_{\pm}+i(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) O + {\cal O}(1/M)$.  Using 
+the fact that ${\cal E}_h^2+{\cal E}_a^2$ is equal to the identity super-operator, $(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) O=\sqrt{1-x^2}{\cal E}_a \pm (1-x^2) ) O +{\cal O}(1/M)=\pm\sqrt{1-x^2}O_{\pm}+{\cal O}(1/M)$. 
+Hence,
+\be
+{\cal E}(O_{\pm})=z O_{\pm}+{\cal O}(1/M)
+\ee
+with
+\be
+z=x\pm i \sqrt{1-x^2},
+\ee
+so that $|z|=1$.
+At least one of the two operators $O_{\pm}$ must have non-negligible norm.  Let $X$ be the corresponding operator, normalized to have norm $1$.  Hence, we have constructed an operator $X$ supported on the interval of length $M$ such that ${\cal E}(X)=z X + {\cal O}(1/M)$.
+
+This already implies that there is some operator $X$ which is slowly relaxing but perhaps oscillating; i.e., since $X$ is an approximate eigenoperator of ${\cal E}$, if $z=1$ then $X$ changes slowly over time, while if $z \neq 1$, then the expectation value of $X$ oscillates.
+
+In fact, we can always construct an operator $Y$ which is an approximate eigenoperator of ${\cal E}$.  Here is one way.  Consider many disjoint intervals of length $M$.  Let $X_1,X_2,...$ be the operators on these intervals with eigenvalues $z_1,z_2,...$  Choose some subset $S$ of these intervals such that the product of the $z_i$ on that subset is close to $1$: $\prod_{i \in S} z_i \approx 1$.  Then, let $Y=\prod_{i \in S} X_i$.  This requires some analytic estimates to determine the support of $Y$ required: since $Y$ is a product of many operators, the error (in that each $X_i$ is only an approximate eigenoperator) may add, so the support of $Y$ may scale as a fairly large polynomial in the error.  We leave this estimate for later.
 
 
 
