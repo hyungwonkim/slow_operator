@@ -25,7 +25,7 @@
 
 \author{Hyungwon Kim}
 \affiliation{Physics Department, Princeton University, Princeton, NJ 08544, USA}
-%\affiliation{Max-Planck-Institut f$ {\ddot{u}}$r Quantenoptik, Hans-Kopfermann-Str. 1, 85748 Garching, Germany}
+\affiliation{Department of Physics and Astronomy, Rutgers University, Piscataway, NJ 08854, USA}
 
 \author{Mari Carmen Ba${\rm{\tilde n}}$uls}
 \affiliation{Max-Planck-Institut f$ {\ddot{u}}$r Quantenoptik, Hans-Kopfermann-Str. 1, 85748 Garching, Germany}
@@ -125,7 +125,7 @@ where $Z$ is the normalization factor, $I$ is the identity, and $\epsilon$ is a 
 $\hat{A}_M$ serves as a small inhomogeneity in the infinite temperature ensemble.
 Now we look at how $\hat{A}_M$ decays as a function of time:
 $\langle \hat{A}_M(t) \rangle = \mathrm{tr(\rho e^{iHt} \hat{A}_M e^{-iHt})} = (\epsilon/Z)\mathrm{tr(\hat{A}_M e^{iHt} \hat{A}_M e^{-iHt})}$.
-In other words, we look at the two-point correlation of $\hat{A}_M$ in the time domain with the infinite temperature background.
+This is a two-point correlation of $\hat{A}_M$ in the time domain with the infinite temperature background.
 Trivially, the first order time derivative at $t = 0$ is zero. The second order time derivative at $t = 0$ is
 \begin{align}
 \frac{d^2}{dt^2}\langle \hat{A}_M(t)\rangle\bigg|_{t=0} = \frac{\epsilon}{Z}\mathrm{tr([\hat{A}_M,H][\hat{A}_M,H]^\dag)} ~.
@@ -164,20 +164,20 @@ A slowly relaxing energy mode can be constructed by considering an energy modula
 \begin{align}
 \hat{E}_M &= \sum_{i=1}^{M} \cos\left(\frac{(i-1)\pi}{2(M-1)}\right)(g \sigma^x_i + h\sigma^z_i)\nonumber\\
 &+ \sum_{i=1}^{M-1} \cos\left(\frac{(i-1/2)\pi}{2(M-1)}\right)\sigma^z_i\sigma^z_{i+1}\\
-&= \sum_i c_M(i) h_i ~, 
+&= \sum_i c_M(i) h_i ~,
 \label{eq:energy_modulation}
 \end{align}
 where $h_i$ is the energy density operator ($g \sigma^x_i + h\sigma^z_i + 1/2(\sigma^z_{i-1}\sigma^z_i + \sigma^z_i\sigma^z_{i+1}$))
-and $c_M(i)$ is the cosine modulation function restricted in $[1,M]$. 
-Since the energy is a conserved density, we can use the continuity equation: 
+and $c_M(i)$ is the cosine modulation function restricted in $[1,M]$.
+Since the energy is a conserved density, we can use the continuity equation:
 $d h_i/dt = -\nabla \cdot {\bf j}_i$, where $h_i$ and ${\bf j}_i$ is the energy density and the energy current density at site $i$, respectively.
-It is straightforward to show that ${\bf j}_i = g(\sigma^y_i \sigma^z_{i+1} - \sigma^y_{i+1} \sigma^z_i)$. 
-Combining this with the Heisenberg equation of motion, we have the following.  
+It is straightforward to show that ${\bf j}_i = g(\sigma^y_i \sigma^z_{i+1} - \sigma^y_{i+1} \sigma^z_i)$.
+Combining this with the Heisenberg equation of motion, we have the following.
 \begin{align}
  i[H,\hat{E}_M] &= \frac{d}{dt} \hat{E}_M = -\sum_i c_M(i) \partial_i \cdot {\bf j}_i \\
- &= \sum_i {\bf j}_i \partial_i c_M(i) \simeq -\frac{1}{M} \sum_i s_M(i) h_i,  
+ &= \sum_i {\bf j}_i \partial_i c_M(i) \simeq -\frac{1}{M} \sum_i s_M(i) h_i,
 \end{align}
-where $\partial_i$ is the discrete derivative and $s_M(i)$ the sine modulation function.  
+where $\partial_i$ is the discrete derivative and $s_M(i)$ the sine modulation function.
 Therefore, the squared Frobenius norm of the commutator of $\hat{E}_M$ should scale as $1/M^2$.  In this case, one can explicitly compute the commutator and verify this result.
 
 Here, we adapt a slightly more conservative approach.
@@ -190,44 +190,6 @@ Figure \ref{fig:ham_only} (b) depicts the structure of the optimal operator in t
 The structure is exactly the same as the energy modulation form of Eq. \eqref{eq:energy_modulation} with the same wavelength and relative weights.
 This clearly shows that indeed the slowest mode of the conserved quantity is the modulation of the longest wavelength.
 
-
-
-{\it Floquet System---}
-Next, we consider a Floquet system (for thermalization in the Floquet system, see Refs.~\onlinecite{Dalessio:2014, Lazarides:2014, Ponte:2014}) andtest whether the energy conservation is important in the slow relaxation of local operators.
-We adopt the same Floquet operator used in Ref.~\onlinecite{Kim_ETH}:
-\begin{align}
-U_F = \exp(-i H_x \tau) \exp(-i H_z \tau) ~,
-\end{align}
-where $H_x$ is the $\sigma^x$ part ($\sum_i g \sigma^x_i$) and $H_z$ is the $\sigma^z$ part ($\sum_i h \sigma^z_i +\sigma^z_i \sigma^z_{i+1}$)
-of the Hamiltonian. We choose $\tau = 0.8$.
-Although $U_F$ does not conserve energy, it acts {\it locally} on the system.
-$U_F$ is shown to thermalize a local operator at infinite temperature ensemble \cite{Kim_ETH}.
-Ref.~\onlinecite{Prosen:2002} has studied a different decomposition of the same model and reports the chaotic behavior of eigenstates.
-
-We minimize the Frobenius norm of the commutator with the Floquet operator.
-Similar to Eq. \eqref{eq:minimize}, we search for the coefficients $\{ c_\ell \}$ that minimize the following:
-\begin{align}\label{eq:floquet_minimize}
-\frac{\mathrm{tr([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)}}{\mathrm{tr(\hat{A}_M\hat{A}^\dag_M)}} = \sum_{\ell,k}\frac{c_\ell c_k \mathrm{tr([\hat{O}_{M,\ell},U_F][\hat{O}_{M,k},U_F]^\dag)}}{\sum_j c_j ^2 \mathrm{tr((\hat{O}_{M,j})^2)}} ~.
-\end{align}
-Let us first understand the physical meaning of this quantity.
-As in the case of Hamiltonian system, we consider the same initial state, Eq. \eqref{eq:initial}.
-It is straightforward to show that Eq. \eqref{eq:floquet_minimize} is twice of the
-difference of the expectation value of $\hat{A}_M$ between the initial state and the state after one Floquet driving
-[Note that time is discrete (integer multiple of $\tau$) in the Floquet system.].
-\begin{align}
-2\left(\langle \hat{A}_M(0) \rangle - \langle \hat{A}_M(\tau) \rangle \right) = \frac{\epsilon}{Z}\mathrm{tr([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)} ~,
-\end{align}
-where $\hat{A}_M(\tau) = U_F^\dag \hat{A}_M(0) U_F$.
-When $\hat{A}_M$ changes little by the initial driving, Eq. \eqref{eq:floquet_minimize} is small.
-
-Figure \ref{fig:floquet} is the plot of $\lambda$ (the minimum value of Eq. \ref{eq:floquet_minimize}) as a function of $M$.
-Comparing Figure \ref{fig:floquet} with Figures \ref{fig:full_optimal} and \ref{fig:ham_only},
-we see that $\lambda$ decreases {\it slower} than Hamiltonian cases, which implies that the Floquet system thermalizes
-the local operator {\it faster}. Since the only apparent difference between the Hamiltonian system and the Floquet system
-is the existence of the energy conservation, we attribute this fast relaxation to the absence of conservation law.
-Nevertheless, Figure \ref{fig:floquet} clearly exhibits that the rate of relaxation in the Floquet system 
-becomes slower as the support $M$ increases. 
-
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{semi_infinite_floquet_only.pdf}
 \centering
@@ -237,6 +199,51 @@ becomes slower as the support $M$ increases.
 \label{fig:floquet}
 \end{figure}
 
+{\it Floquet System---}
+Next, we consider a Floquet system (for thermalization in the Floquet system, see Refs.~\onlinecite{Dalessio:2014, Lazarides:2014, Ponte:2014}) and test whether the energy conservation is important in the slow relaxation of local operators.
+We adopt the same Floquet operator used in Ref.~\onlinecite{Kim_ETH}:
+\begin{align}
+U_F = \exp(-i H_x \tau) \exp(-i H_z \tau) ~,
+\end{align}
+where $H_x$ is the $\sigma^x$ part ($\sum_i g \sigma^x_i$) and $H_z$ is the $\sigma^z$ part ($\sum_i h \sigma^z_i +\sigma^z_i \sigma^z_{i+1}$)
+of the Hamiltonian. We choose $\tau = 0.8$.
+Although $U_F$ does not conserve energy, it acts {\it locally} on the system.
+This type of Floquet operator is shown to thermalize a local operator at infinite temperature ensemble \cite{Kim_ETH,Prosen:2002}.
+%Ref.~\onlinecite{Prosen:2002} has studied a different decomposition of the same model and reports the chaotic behavior of eigenstates.
+
+Again we minimize the square of the Frobenius norm of the commutator with the Floquet operator.
+This time we use a Lanczos method to find the $2^M \times 2^M$ matrix $\hat{A}_M$ 
+that minimizes \footnote{Unlike the Hamiltonian, the Floquet operator makes the matrix of dimension $4^M-1$ in Eq. \eqref{eq:minimize} dense and thus
+limits the largest $M$ that can be explored by the same method to 8. A Lanczos method enables us to access at least up to $M = 11$ exactly.}:
+\begin{align}\label{eq:floquet_minimize}
+\lambda(M) = \frac{\mathrm{tr}([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)}{\mathrm{tr}(\hat{A}_M\hat{A}_M^\dag)} ~.
+\end{align}
+ 
+%Similar to Eq. \eqref{eq:minimize}, we search for the coefficients $\{ c_\ell \}$ that minimize the following:
+%\begin{align}\label{eq:floquet_minimize}
+%\frac{\mathrm{tr([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)}}{\mathrm{tr(\hat{A}_M\hat{A}^\dag_M)}} = \sum_{\ell,k}\frac{c_\ell c_k \mathrm{tr([\hat{O}_{M,\ell},U_F][\hat{O}_{M,k},U_F]^\dag)}}{\sum_j c_j ^2 \mathrm{tr((\hat{O}_{M,j})^2)}} ~.
+%\end{align}
+Let us understand the physical meaning of this quantity.
+As in the case of Hamiltonian system, we consider the same initial state, Eq. \eqref{eq:initial}.
+It is straightforward to show that $\lambda(M)$ is twice of the
+difference of the expectation value of $\hat{A}_M$ between the initial state and the state after one Floquet driving
+[Note that time is discrete (integer multiple of $\tau$) in the Floquet system.].
+\begin{align}
+2\left(\langle \hat{A}_M(0) \rangle - \langle \hat{A}_M(\tau) \rangle \right) = \frac{\epsilon}{Z}\mathrm{tr([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)} ~,
+\end{align}
+where $\hat{A}_M(\tau) = U_F^\dag \hat{A}_M(0) U_F$.
+When $\hat{A}_M$ changes little by the initial driving, $\lambda(M)$ is small. %Eq. \eqref{eq:floquet_minimize} is small.
+
+Figure \ref{fig:floquet} is the plot of $\lambda$ (the minimum value of Eq. \ref{eq:floquet_minimize}) as a function of $M$.
+Comparing Figure \ref{fig:floquet} with Figures \ref{fig:full_optimal} and \ref{fig:ham_only},
+we see that $\lambda$ decreases {\it slower} than Hamiltonian cases, which implies that the Floquet system thermalizes
+the local operator {\it faster}. Since the only apparent difference between the Hamiltonian system and the Floquet system
+is the existence of the energy conservation, we attribute this fast relaxation to the absence of conservation law.
+Nevertheless, Figure \ref{fig:floquet} clearly exhibits that the rate of relaxation in the Floquet system
+becomes slower as the support $M$ increases.
+
+
+
 %Figure \ref{fig:floquet}, however, shows that $\hat{A}_M$ remembers more about the initial condition as the support $M$ increases.
 %To analyze the structure of this operator, we organize the basis operators of the optimal operator that minimize Eq. \eqref{eq:floquet_minimize}
 %by the distance from the free edge ($M+1$'th site) of a first non-identity operator. For example, when $M = 3$,
@@ -245,29 +252,42 @@ becomes slower as the support $M$ increases.
 %Figure \ref{fig:floquet} (b) is the plot of such decomposition.
 %We see that more weights are placed in the sites farther from the free edge although number of such basis operators are exponentially smaller.
 
-To determine whether this phenomenon is more generally true, we also studied a family of quantum circuits, each composed of two rounds, where in the first round, gates act on pairs of sites $...,(1,2),(3,4),...$ and on the second round gates act on pairs $...,(0,1),(2,3),(4,5),...$  We consider now an infinite, rather than semi-infinite chain.  We choose all gates in a given round to be the same, but chose them randomly.  The results are shown in Fig.~\ref{fig:lz}.  We find again that even in this random case, slow operators are present.  This study was performed using a Lanczos method.
-
-
-
+To determine whether this phenomenon is more generally true, we also study a family of quantum circuits, each composed of two rounds, where in the first round, gates act on pairs of sites $...,(1,2),(3,4),...$ and on the second round gates act on pairs $...,(0,1),(2,3),(4,5),...$  We consider now an infinite, rather than semi-infinite chain.  We choose all gates in a given round to be the same, but choose them randomly.  The results are shown in Fig.~\ref{fig:lz}.  We find again that even in this random case, slow operators are present. %This study was performed using a Lanczos method.
 
 \begin{figure}
-\includegraphics[width=1.0\linewidth]{random_circuit.pdf}
+\includegraphics[width=1.0\linewidth]{random_circuit_no_inset.pdf}
 \centering
-\caption{$\lambda$ as a function of $M$ for a random circuit model. Each line of connected circles represents a realization of a random circuit (10 realizations are shown). In all cases, $\lambda$ decreases with $M$. Inset: $\lambda(M)/\lambda(4)$ vs. $M$. Once scaled by $\lambda(4)$, the decay behavior is similar for each random circuit. }
+\caption{$\lambda$ as a function of $M$ for a random circuit model. Each line of connected circles represents a realization of a random circuit (10 realizations are shown). In all cases, $\lambda$ decreases with $M$.} %Inset: $\lambda(M)/\lambda(4)$ vs. $M$. Once scaled by $\lambda(4)$, the decay behavior is similar for each random circuit. }
 \label{fig:lz}
 \end{figure}
 
-To extend to larger systems, we used a matrix product method.  In this case, we consider operators in the space spanned by $U^n O U^{-n}$ for $O$ a Pauli operator and taking a finite number of powers of $U$.  We found the optimal operator of the form $A=\sum_m c_n U^n O U^{-n}$.  This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace, but here we used a matrix product method to approximate the traces ${\rm tr}(O^\dagger U^n O U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}).
-The results are shown in Fig. FIGURE.
-The weights $c_n$ approximately follow a cosine shape and $\lambda$ decays as roughly $1/M^2$.  Such a decay $1/M^2$ would be exact if
-${\rm tr}(O^\dagger U^n O U^{-n})=0$ for all $n \neq 0$.
- We are unable to prove this decay in general but show weaker results in the supplemental.
+To extend to larger systems, we use a matrix product method.  In this case, we consider operators in the space spanned by $U^n \hat{O} U^{-n}$ for $O$ a
+Pauli operator ({\bf which Pauli? any traceless hermitian acting on one site would work?}) 
+and taking a finite number of powers of $U$.  We find the optimal operator of the form $\tilde{A}=\sum_{n=-M}^M c_n U^n \hat{O} U^{-n}$ 
+that minimize $\tilde{\lambda} = \mathrm{tr}([\tilde{A},U][\tilde{A},U]^\dag)$.  
+This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace, but here we use a matrix product method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}).
+The results are shown in Figure \ref{fig:mpo}.
+The weights $c_n$ approximately follow a cosine shape and $\lambda$ decays as roughly $1/M^2$.  
+Such a decay $1/M^2$ would be exact if
+${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})=0$ for all $n \neq 0$.
+We are unable to prove this decay in general but show weaker results in the supplemental.
+
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{random_circuit_MPO.pdf}
+\centering
+\caption{(a) (color online) $\tilde{\lambda}$ as a function of $M$ for a random circuit model computed by matrix product method averaged by 50 realizations of random circuits. The data well converged at the bond dimension $D = 80$. For $M \geq 20$, the errors are less than $5\%$ of averages so errorbars are omitted.   (b) Structure of optimal $c_n$'s of randomly chosen three realizations for each $M$ = 10, 40, and 100. The cosine curves (lines) agrees well with data (dots). }
+\label{fig:mpo}
+\end{figure}
 
 {\it Summary---}
 We have numerically constructed a series of local operators that relax slower than local energy fluctuations do.
 We have also performed the same analysis in the similar system without energy conservation,
 the Floquet system and for a family of quantum circuits, again finding slowly relaxing operators.
-The structure of the operators found displays some spatial modulation, with smaller coefficients for terms nears the edge.  However the operators involve complicated many-body terms (if we restrict to just the terms in the Hamiltonian, we only obtain simpler operators related to energy currents) and so their origin remains unclear.
+%The structure of the operators found displays some spatial modulation, with smaller coefficients for terms nears the edge.  
+The structure of the operators found turn out to be very complicated, involving all basis operators 
+(if we restrict to just the terms in the Hamiltonian, we only obtain simpler operators related to energy currents), 
+and so their origin remains unclear. 
+%However the operators involve complicated many-body terms (if we restrict to just the terms in the Hamiltonian, we only obtain simpler operators related to energy currents) and so their origin remains unclear.
 These operators present a new class of observables; if they can be studied experimentally, they may reveal unsuspected slow relaxation.
 
 %\section{Results}
@@ -370,9 +390,9 @@ For that purpose, we need to consider the operator norm (the largest eigenvalue 
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{op_norm.pdf}
 \centering
-\caption{(color online) Normalized magnitude of $[\hat{A}_M, H]$ ($\lambda$) measured by the Frobenius norm and the operator norm. 
-$\hat{A}_M$ is obtained by minimizing the Frobenius norm of the commutator with Hamiltonian as is in the main text. 
-The operator norm decreases similarly with the Frobenius norm within the range of support we computed. 
+\caption{(color online) Normalized magnitude of $[\hat{A}_M, H]$ ($\lambda$) measured by the Frobenius norm and the operator norm.
+$\hat{A}_M$ is obtained by minimizing the Frobenius norm of the commutator with Hamiltonian as is in the main text.
+The operator norm decreases similarly with the Frobenius norm within the range of support we computed.
 }
 \label{fig:op_norm}
 \end{figure}
@@ -408,7 +428,7 @@ Now we can estimate the distance between thermal expectation value and expectati
 where $\langle \ldots \rangle_t$ is expectation value at time $t$.
 Therefore, if we have a sequence of $M$-body operators $\{ \hat{A}_M \}$
 whose operator norm of the commutator with Hamiltonian decays fast with $M$
-\footnote{When $M\rightarrow\infty$, $\hat{A}_M$ can be a projection onto an eigenstate of Hamiltonian so it commutes with $H$.},
+%\footnote{When $M\rightarrow\infty$, $\hat{A}_M$ can be a projection onto an eigenstate of Hamiltonian so it commutes with $H$.},
 and an initial state which does not allow fast decrease of $\gamma(M)$,
 the time scale of thermalization of $\hat{A}_M$ is
 \begin{align}
@@ -417,10 +437,11 @@ the time scale of thermalization of $\hat{A}_M$ is
 In particular, if $\chi(M)$ decrease faster than a power law with $M$,
 thermalization may take longer than polynomially time in the case of diffusion.
 
-Optimizing the operator norm numerically, however, is very challenging. Therefore, we used the (square of) Frobenius norm in the main text. 
-Figure \ref{fig:op_norm} plots the decay of the Frobenius norm and the operator norm of $[\hat{A}_M,H]$, 
-where $\hat{A}_M$ is obtained in the main text by minimizing the Frobenius norm. 
-It shows that the values of $\lambda$ measured by the operator norm is numerically similar to that of the Frobenius norm.  
+Optimizing the operator norm numerically is, however, very challenging. Therefore, we used the (square of) Frobenius norm in the main text.
+Nevertheless, once we have an operator, it is easy compute the operator norm of the commutator with Hamiltonian.
+Figure \ref{fig:op_norm} plots the decay of the Frobenius norm and the operator norm of $[\hat{A}_M,H]$,
+where $\hat{A}_M$ is obtained in the main text by minimizing the Frobenius norm.
+It shows that the values of $\lambda$ measured by the operator norm is numerically similar to that of the Frobenius norm.
 
 
 \subsection{Results of another set of parameters}
@@ -431,15 +452,15 @@ It shows that the values of $\lambda$ measured by the operator norm is numerical
 Here we choose the parameters to be $(g,h) = (-1.05, 0.5)$. $\lambda$ still decreases faster than $1/M^2$. }
 \label{fig:full_optimal_other}
 \end{figure}
-In this section, we show that the main results in the main body do not depend on the parameter choice.
+In this section, we show that the results in the main body do not depend on the parameter choice.
 We choose another set of parameters $(g,h) = (-1.05, 0.5)$, which is the parameter choice of Ref.~\onlinecite{Banuls:2011}.
 
 Figure \ref{fig:full_optimal_other} is the minimum value of Eq. \eqref{eq:minimize} with the other parameter choice.
 We can see that it decays faster than $1/M^2$. As is the case of the parameter choice in the main body,
 the data can be well-fitted by two methods; a power-law and a logarithmic correction to $1/M^2$.
 Since the power-law exponent could depend on the parameter choice, we do not attempt to draw a strong conclusion from this data
-except that $\lambda(M)$ (minimum of the Frobenius norm of the commutator with Hamiltonian) decreases faster than $1/M^2$,
-which is the scaling of the diffusive energy mode.
+except that $\lambda(M)$ decreases faster than $1/M^2$,
+the scaling of the diffusive energy mode.
 
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{X_Z_ZZ_only_two_parameters.pdf}
@@ -455,8 +476,8 @@ Therefore, we again explicitly demonstrate that the longest wavelength energy mo
 
 
 Figure \ref{fig:floquet_two_parameters} shows the minimum value of the commutator with the Floquet operator in the Flobenius norm.
-The behavior of decrease with $M$ is very similar to each other, 
-and thus the slow relaxation is not specific to a certain parameter choice. 
+The behavior of decrease with $M$ is very similar to each other,
+and thus the slow relaxation is not specific to a certain parameter choice.
 %We see that the $M$ scaling does not depend on the parameter choice, unlike Hamiltonian system.
 %This may hint us that the mechanism of slowing down the relaxation in the Floquet system, where no local conservation law is present,
 %could be universal.
@@ -464,14 +485,14 @@ and thus the slow relaxation is not specific to a certain parameter choice.
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{semi_infinite_floquet_two_parameters_extended.pdf}
 \centering
-\caption{(color online) }
+\caption{(color online) $\lambda$ is the minimum value of Eq. \eqref{eq:floquet_minimize}. We see that decay behaviors of $\lambda$ are similar for both parameter choices. }
 \label{fig:floquet_two_parameters}
 \end{figure}
 
 \subsection{Slow Operators for Arbitrary Quantum Circuits}
 We now show that a slowly relaxing operator must always exist, on an interval of length $M$ with the relaxation rate going to zero as $M$ gets large.  Let $U$ be the unitary of the quantum circuit restricted to an interval of length slightly larger than $M$ (in this way, we can consider only finite dimensional spaces).
 
-Let ${\cal E}(O)$ be a super-operator defined by${\cal E}(O)=UOU^\dagger$.  The space of operators can be regarded as a vector space, with inner product $(A,B)={\rm tr}(A^\dagger B)$, and with ${\cal E}(O)$ being a linear operator on this space.  The operator ${\cal E}$ is non-Hermitian but it is a normal operator, since its Hermitian conjugate is equal to ${\cal E}^\dagger(O)=U^\dagger O U$ and ${\cal E}({\cal E}^\dagger(O))={\cal E}^\dagger({\cal E}(O))=O$ and so $[{\cal E},{\cal E}^\dagger]=0$.  
+Let ${\cal E}(O)$ be a super-operator defined by ${\cal E}(O)=UOU^\dagger$.  The space of operators can be regarded as a vector space, with inner product $(A,B)={\rm tr}(A^\dagger B)$, and with ${\cal E}(O)$ being a linear operator on this space.  The operator ${\cal E}$ is non-Hermitian but it is a normal operator, since its Hermitian conjugate is equal to ${\cal E}^\dagger(O)=U^\dagger O U$ and ${\cal E}({\cal E}^\dagger(O))={\cal E}^\dagger({\cal E}(O))=O$ and so $[{\cal E},{\cal E}^\dagger]=0$.
 Let ${\cal E}_h=\frac{1}{2}({\cal E}+{\cal E}^\dagger)$ and ${\cal E}_a=\frac{1}{2i}({\cal E}+{\cal E}^\dagger)$.
 
 We begin by constructing an operator $O$ supported on an interval of length $M$ such that ${\cal E}_h(O)= x O+\epsilon$ for some $x$ and for $\epsilon={\cal O}(1/M)$.  Let $A$ be any traceless operator supported on a single site in the center of the interval.  We consider the Krylov space generated by the vectors $A, {\cal E}_h(A), {\cal E}_h^2(A),...$.  Let $K$ be the number of vectors we take; $K$ will be proportional to $M$ and will be chosen such that all these operators are supported on the interval of length $M$.
@@ -484,8 +505,8 @@ Now consider the operators
 O_{\pm}=(\sqrt{1-x^2} \pm {\cal E}_a) O,
 \ee
 with $O$ normalized such that $|O|=1$.
-Note that ${\cal E}(O_{\pm})={\cal E}_h(O_{\pm}+i {\cal E}_a(O_{\pm}))=xO_{\pm}+i(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) O + {\cal O}(1/M)$.  Using 
-the fact that ${\cal E}_h^2+{\cal E}_a^2$ is equal to the identity super-operator, $(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) O=\sqrt{1-x^2}{\cal E}_a \pm (1-x^2) ) O +{\cal O}(1/M)=\pm\sqrt{1-x^2}O_{\pm}+{\cal O}(1/M)$. 
+Note that ${\cal E}(O_{\pm})={\cal E}_h(O_{\pm}+i {\cal E}_a(O_{\pm}))=xO_{\pm}+i(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) O + {\cal O}(1/M)$.  Using
+the fact that ${\cal E}_h^2+{\cal E}_a^2$ is equal to the identity super-operator, $(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) O=\sqrt{1-x^2}{\cal E}_a \pm (1-x^2) ) O +{\cal O}(1/M)=\pm\sqrt{1-x^2}O_{\pm}+{\cal O}(1/M)$.
 Hence,
 \be
 {\cal E}(O_{\pm})=z O_{\pm}+{\cal O}(1/M)
