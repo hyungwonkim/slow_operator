@@ -269,11 +269,11 @@ Inset: Structure of optimal $c_n$'s of randomly chosen three realizations for ea
 \label{fig:mpo}
 \end{figure}
 To extend to larger systems, we use a matrix product method.  In this case, we consider operators in the space spanned by $U^n \hat{O} U^{-n}$ for $\hat{O}$ a
-Pauli operator ({\bf which Pauli? any traceless hermitian acting on one site would work?})
+traceless hermitian operator acting on a single site. 
 and taking a finite number of powers of $U$.  We find the optimal operator of the form $\tilde{A}=\sum_{n=-M}^M c_n U^n \hat{O} U^{-n}$
 that minimize $\tilde{\lambda} = \mathrm{tr}([\tilde{A},U][\tilde{A},U]^\dag)/\mathrm{tr}(\tilde{A}\tilde{A}^\dag)$.
-This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace, but here we use a matrix product method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}). 
-Thus $\tilde{\lambda}$ is a variational upper bound of the true minimum $\lambda$. 
+This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace, but here we use a matrix product method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}).
+Thus $\tilde{\lambda}$ is a variational upper bound of the true minimum $\lambda$.
 The results are shown in Figure \ref{fig:mpo}.
 The weights $c_n$ approximately follow a cosine shape and $\lambda$ decays as roughly $1/M^2$.
 Such a decay $1/M^2$ would be exact if
