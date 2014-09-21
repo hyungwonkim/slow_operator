@@ -264,23 +264,23 @@ To determine whether this phenomenon is more generally true, we also study a fam
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{random_circuits.pdf}
 \centering
-\caption{ (color online) (a) $\lambda$ as a function of $M$ for a random circuit model. Each $\lambda$ is averaged over 50 realizations. 
-$\lambda$ also decreases in this model.  
- (b) $\tilde{\lambda}$ as a function of $N$ (operator is supported on $M$ = $4N$ sites) for a random circuit model computed by matrix product method with assuming a specific form of operators as Eq. \eqref{eq:filter}. We averaged by 50 realizations of random circuits. The data well converged at the bond dimension $D = 80$.
+\caption{ (color online) (a) $\lambda$ as a function of $M$ for a random circuit model. Each $\lambda$ is averaged over 50 realizations.
+$\lambda$ also decreases in this model.
+ (b) $\tilde{\lambda}$ as a function of $N$ (operator is supported on $M$ = $4N+1$ sites) for a random circuit model computed by matrix product method with assuming a specific form of operators as Eq. \eqref{eq:filter}. We averaged by 50 realizations of random circuits. The data well converged at the bond dimension $D = 80$.
 Inset: Structure of optimal $c_n$'s of randomly chosen three realizations for each $N$ = 10 (blue), 40 (red), and 100 (black). Each case the largest magnitude $c_n$ is normalized to one. Within the same $N$, $c_n$'s of three realizations are almost indistinguishable. }
 \label{fig:random_circuit}
 \end{figure}
 
-To extend to larger systems, we use a matrix product method.  In this case, we consider operators in the space spanned by $U^n \hat{O} U^{\dag n}$ for $\hat{O}$ a traceless hermitian operator acting on a single site and taking a finite number of powers of $U$. 
-We find the optimal operator of the form, 
+To extend to larger systems, we use a matrix product method and assume a specific form of the optimal operator.  We consider operators in the space spanned by $U^n \hat{O} U^{\dag n}$ for $\hat{O}$ a traceless hermitian operator acting on a single site and taking a finite number of powers of $U$.
+We find the optimal operator of the form,
 \begin{align}
  \tilde{A}_N=\sum_{n=-N}^N c_n U^n \hat{O} U^{\dag n} ~,
  \label{eq:filter}
 \end{align}
 that minimize $\tilde{\lambda} = \mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U]^\dag)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)$.
 This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace, but here we use a matrix product method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}).
-Thus $\tilde{\lambda}$ is a variational upper bound of the true minimum $\lambda$. 
-Note that each $U^n \hat{O} U^{-n}$ is supported on $4n$ sites so $\tilde{A}_N$ has the range $M = 4N$. 
+Thus $\tilde{\lambda}$ is a variational upper bound of the true minimum $\lambda$.
+Note that each $U^n \hat{O} U^{\dag n} + U^{\dag n} \hat{O} U^n$ is supported on $4n+1$ sites so $\tilde{A}_N$ has the range $M = 4N+1$.
 The results are shown in Figure \ref{fig:random_circuit} (b).
 The weights $c_n$ approximately follow a cosine shape and $\lambda$ decays as roughly $1/M^2$.
 Such a decay $1/M^2$ would be exact if
