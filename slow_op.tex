@@ -281,8 +281,9 @@ that minimize $\tilde{\lambda} = \mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U]^\dag
 This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace, but here we use a matrix product method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}).
 Thus $\tilde{\lambda}$ is a variational upper bound of the true minimum $\lambda$.
 Note that each $U^n \hat{O} U^{\dag n} + U^{\dag n} \hat{O} U^n$ is supported on $4n+1$ sites so $\tilde{A}_N$ has the range $M = 4N+1$.
+We choose $\hat{O} = 1/2\sigma^z$ as a single site hermitian.
 The results are shown in Figure \ref{fig:random_circuit} (b).
-The weights $c_n$ approximately follow a cosine shape and $\lambda$ decays as roughly $1/M^2$.
+The weights $c_n$ approximately follow a cosine shape and $\lambda$ decays roughly as $1/M^2$.
 Such a decay $1/M^2$ would be exact if
 ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{\dag n})=0$ for all $n \neq 0$.
 We are unable to prove this decay in general but show weaker results in the supplemental.
