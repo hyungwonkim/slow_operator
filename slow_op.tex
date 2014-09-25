@@ -271,21 +271,21 @@ Inset: Structure of optimal $c_n$'s of randomly chosen three realizations for ea
 \label{fig:random_circuit}
 \end{figure}
 
-To extend to larger systems, we use a matrix product method and assume a specific form of the optimal operator.  We consider operators in the space spanned by $U^n \hat{O} U^{\dag n}$ for $\hat{O}$ a traceless hermitian operator acting on a single site and taking a finite number of powers of $U$.
+To extend to larger systems, we use a matrix product method and assume a specific form of the optimal operator.  We consider operators in the space spanned by $U^n \hat{O} U^{\dag n}$ for $\hat{O}$ a traceless hermitian operator acting on a single site and taking a finite number of powers of unitary operator of the random circuit $U$.
 We find the optimal operator of the form,
 \begin{align}
- \tilde{A}_N=\sum_{n=-N}^N c_n U^n \hat{O} U^{\dag n} ~,
+ \tilde{A}_N=\sum_{n=-N}^N c_n U^n \hat{O} U^{- n} ~,
  \label{eq:filter}
 \end{align}
 that minimize $\tilde{\lambda} = \mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U]^\dag)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)$.
 This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace, but here we use a matrix product method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}).
 Thus $\tilde{\lambda}$ is a variational upper bound of the true minimum $\lambda$.
-Note that each $U^n \hat{O} U^{\dag n} + U^{\dag n} \hat{O} U^n$ is supported on $4n+1$ sites so $\tilde{A}_N$ has the range $M = 4N+1$.
+Note that each $U^n \hat{O} U^{- n} + U^{- n} \hat{O} U^n$ is supported on $4n+1$ sites so $\tilde{A}_N$ has the range $M = 4N+1$.
 We choose $\hat{O} = 1/2\sigma^z$ as a single site hermitian.
 The results are shown in Figure \ref{fig:random_circuit} (b).
 The weights $c_n$ approximately follow a cosine shape and $\lambda$ decays roughly as $1/M^2$.
 Such a decay $1/M^2$ would be exact if
-${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{\dag n})=0$ for all $n \neq 0$.
+${\rm tr}(\hat{O} U^n \hat{O} U^{- n})=0$ for all $n \neq 0$.
 We are unable to prove this decay in general but show weaker results in the supplemental.
 
 
@@ -533,6 +533,28 @@ This already implies that there is some operator $X$ which is slowly relaxing bu
 
 In fact, we can always construct an operator $Y$ which is an approximate eigenoperator of ${\cal E}$.  Here is one way.  Consider many disjoint intervals of length $M$.  Let $X_1,X_2,...$ be the operators on these intervals with eigenvalues $z_1,z_2,...$  Choose some subset $S$ of these intervals such that the product of the $z_i$ on that subset is close to $1$: $\prod_{i \in S} z_i \approx 1$.  Then, let $Y=\prod_{i \in S} X_i$.  This requires some analytic estimates to determine the support of $Y$ required: since $Y$ is a product of many operators, the error (in that each $X_i$ is only an approximate eigenoperator) may add, so the support of $Y$ may scale as a fairly large polynomial in the error.  We leave this estimate for later.
 
+\subsection{$1/M^2$ scaling of filtered operators}
+We show $1/M^2$ scaling of filtered operators of the form Eq. \eqref{eq:filter} if $\mathrm{tr}(\hat{O}U^n \hat{O}U^{-n}) = 0$ for all $n\neq 0$. 
+First, observe that 
+\begin{align}
+& \frac{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U])}{\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)} \nonumber\\
+&=2 - \bigg(\sum_{n,m = -N}^{N}c_n c_m \mathrm{tr}(U^{n-m-1}\hat{O}U^{-n+m+1}\hat{O} \nonumber\\
+&\quad\quad\quad\quad\quad + U^{n-m+1}\hat{O}U^{-n+m-1}\hat{O})\bigg)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag) ~.
+\end{align}
+Therefore, if $\mathrm{tr}(\hat{O}U^n \hat{O}U^{-n}) = \delta_{n,0}\mathrm{tr}(\hat{O}\hat{O}^\dag)$, 
+the above expression simplifies to 
+\begin{align}
+\frac{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U])}{\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)}=2\left(1 - \frac{\sum_{n=-N}^{N-1}c_n c_{n+1}}{\sum_{n=-N}^N c_n^2}\right) ~.
+\end{align}
+This is a trivial quadratic optimization problem and the solution is $c_n = \cos(n\pi/(2N))$. 
+Therefore, the minimum value $\tilde{\lambda}$ for sufficiently large $N$ is 
+\begin{align}
+\tilde{\lambda} &= \mathrm{min}\left[\frac{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U])}{\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)} \right] \nonumber\\
+&= 2 - 2\cos\left(\frac{\pi}{2N}\right) \simeq \frac{\pi^2}{4N^2} \sim \frac{1}{M^2} ~, 
+\end{align}
+where we used the fact that the support $M = 4N +1 $. 
+Although the condition that $\mathrm{tr}(\hat{O}U^n \hat{O}U^{-n}) = \delta_{n,0}\mathrm{tr}(\hat{O}\hat{O}^\dag)$ 
+cannot be satisfied for a general random circuit, Figure \ref{fig:random_circuit} (b) is very close to this scaling and to the structure of $\{c_n\}$. 
 
 
 \end{document}
