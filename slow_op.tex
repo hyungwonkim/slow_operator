@@ -27,7 +27,7 @@
 \affiliation{Physics Department, Princeton University, Princeton, NJ 08544, USA}
 \affiliation{Department of Physics and Astronomy, Rutgers University, Piscataway, NJ 08854, USA}
 
-\author{Mari Carmen Ba${\rm{\tilde n}}$uls}
+\author{Mari Carmen Ba\~{n}uls}
 \affiliation{Max-Planck-Institut f$ {\ddot{u}}$r Quantenoptik, Hans-Kopfermann-Str. 1, 85748 Garching, Germany}
 
 \author{J. Ignacio Cirac}
@@ -76,6 +76,21 @@ In fact, we argue that such slow relaxing operators must be present in any Floqu
 %\subsection{Model}
 %\subsection{Method}
 
+
+
+\begin{figure}
+\includegraphics[width=0.95\linewidth]{fig_hamiltonian.pdf}
+\centering
+\caption{(color online) (a) $\lambda(M)$ is the minimum of Eq. \eqref{eq:minimize}. As we increase $M$, the commutator with Hamiltonian decreases
+and thus the local operator relaxes slowly. The decreasing form can be well-fitted by both a power-law and $1/(M\log(M))^2$.
+(b)$\lambda_E(M)$ is the minimum of Eq. \eqref{eq:minimize} when only terms in Hamiltonian are used. As hydrodynamics suggests, it decreases with $1/M^2$. Inset: Structure of the optimal operator of $M = 11$. $X$, $Z$, and $ZZ$, are
+abbreviations of $\sigma^x_i$, $\sigma^z_i$, and $\sigma^z_i \sigma^z_{i+1}$, respectively.
+We locate $\sigma^z_i \sigma^z_{i+1}$ term at site $i+1/2$. The coefficients are normalized to have unit square norm ($\sum_\ell c_\ell^2 = 1$).
+It shows a clear energy modulation with the wavelength $2M$ with the relative ratios equal to those of parameters of Hamiltonian. }
+\label{fig:hamiltonian}
+\end{figure}
+
+
 {\it Hamiltonian System Numerical Results---}
 As a nonintegrable model Hamiltonian, we choose a spin-1/2 Ising chain with both longitudinal and transverse fields:
 \begin{align}
@@ -85,7 +100,7 @@ H = \sum_{i}^{\infty} g\sigma^x_i + h\sigma^z_i + \sigma^z_i \sigma^z_{i+1} ~,
 where $\sigma^x_i$ and $\sigma^z_i$ are Pauli matrices of the spin at site $i$.
 Ref.~\onlinecite{Banuls:2011} has found a nonthermalizing state for this model within the accessible time scale.
 We choose $(g,h) = (0.905, 0.809)$, at which this model is known to be robustly nonintegrable even for a relatively small system size \cite{Kim:2013}
-\footnote{see Supplementary material for another choice of parameters}. 
+\footnote{see Supplementary material for another choice of parameters}.
 
 We consider local operators supported on a finite interval; an operator supported on consecutive $M$ sites is said to have ``range $M$".
 For simplicity, we do not assume translation invariance
@@ -139,18 +154,6 @@ Although we instead want a slowly relaxing operator at long time,
 this minimization already gives nontrivial results as we report below.
 
 
-\begin{figure}
-\includegraphics[width=0.95\linewidth]{fig_hamiltonian.pdf}
-\centering
-\caption{(color online) (a) $\lambda(M)$ is the minimum of Eq. \eqref{eq:minimize}. As we increase $M$, the commutator with Hamiltonian decreases
-and thus the local operator relaxes slowly. The decreasing form can be well-fitted by both a power-law and $1/(M\log(M))^2$.
-(b)$\lambda_E(M)$ is the minimum of Eq. \eqref{eq:minimize} when only terms in Hamiltonian are used. As hydrodynamics suggests, it decreases with $1/M^2$. Inset: Structure of the optimal operator of $M = 11$. $X$, $Z$, and $ZZ$, are
-abbreviations of $\sigma^x_i$, $\sigma^z_i$, and $\sigma^z_i \sigma^z_{i+1}$, respectively.
-We locate $\sigma^z_i \sigma^z_{i+1}$ term at site $i+1/2$. The coefficients are normalized to have unit square norm ($\sum_\ell c_\ell^2 = 1$).
-It shows a clear energy modulation with the wavelength $2M$ with the relative ratios equal to those of parameters of Hamiltonian. }
-\label{fig:hamiltonian}
-\end{figure}
-
 Figure \ref{fig:hamiltonian} (a) plots $\lambda (M)$, defined to be the minimum value of Eq. \eqref{eq:minimize}.
 It is clear that $\lambda$ decreases with $M$.
 The data can be well-fitted by two functional forms; power-law decay with exponent $2.62$ and a logarithmic correction to $1/M^2$, which is $1/(M\log(M))^2$.
@@ -197,11 +200,21 @@ from the local conservation law.
 %\label{fig:floquet}
 %\end{figure}
 
+
+\begin{figure}
+\includegraphics[width=0.95\linewidth]{fig_floquet.pdf}
+\centering
+\caption{(color online) (a) $\lambda(M)$ (blue X) is the exact minimum from exhaustive search and $\tilde{\lambda}(M)$ (green dot) is a variational upper bound from the form of Eq. \eqref{eq:filter}. The fractional difference between $\lambda(M)$ and $\tilde{\lambda}(M)$ is less than 1/200 for $M$ = 3,5,7,9, and 11. $\tilde{\lambda}(M)$ decreases close to $M^{-2}$ asymptotically. (b) Structure of coefficients $c_n$ (dots) for $N$ = 20 (blue, most narrow) ,60 (red, intermediate width) , and 100 (black, widest). They all can be well fitted by a cosine function with wavelength $4N+2$ (solid lines) except near $n = 0$ of $N = 20$. }
+\label{fig:floquet}
+\end{figure}
+
+
 {\it Floquet System---}
 Next, we consider a Floquet system (for thermalization in the Floquet system, see Refs.~\onlinecite{Dalessio:2014, Lazarides:2014, Ponte:2014}) and test whether the energy conservation is important in the slow relaxation of local operators.
 We adopt the same Floquet operator used in Ref.~\onlinecite{Kim_ETH}:
 \begin{align}
 U_F = \exp(-i H_x \tau) \exp(-i H_z \tau) ~,
+\label{eq:floquet_op}
 \end{align}
 where $H_x$ is the $\sigma^x$ part ($\sum_i g \sigma^x_i$) and $H_z$ is the $\sigma^z$ part ($\sum_i h \sigma^z_i +\sigma^z_i \sigma^z_{i+1}$)
 of the Hamiltonian. We choose $\tau = 0.8$.
@@ -217,10 +230,6 @@ limits the largest $M$ that can be explored by the same method to 8. A Lanczos m
 \lambda(M) = \frac{\mathrm{tr}([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)}{\mathrm{tr}(\hat{A}_M\hat{A}_M^\dag)} ~.
 \end{align}
 
-%Similar to Eq. \eqref{eq:minimize}, we search for the coefficients $\{ c_\ell \}$ that minimize the following:
-%\begin{align}\label{eq:floquet_minimize}
-%\frac{\mathrm{tr([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)}}{\mathrm{tr(\hat{A}_M\hat{A}^\dag_M)}} = \sum_{\ell,k}\frac{c_\ell c_k \mathrm{tr([\hat{O}_{M,\ell},U_F][\hat{O}_{M,k},U_F]^\dag)}}{\sum_j c_j ^2 \mathrm{tr((\hat{O}_{M,j})^2)}} ~.
-%\end{align}
 Let us understand the physical meaning of this quantity.
 As in the case of Hamiltonian system, we consider the same initial state, Eq. \eqref{eq:initial}.
 It is straightforward to show that $\lambda(M)$ is twice of the
@@ -232,61 +241,63 @@ difference of the expectation value of $\hat{A}_M$ between the initial state and
 where $\hat{A}_M(\tau) = U_F^\dag \hat{A}_M(0) U_F$.
 When $\hat{A}_M$ changes little by the initial driving, $\lambda(M)$ is small. %Eq. \eqref{eq:floquet_minimize} is small.
 
-To extend to larger systems, we use a matrix product method and assume a specific form of the optimal operator. 
-We consider operators in the space spanned by $U^n \hat{O} U^{- n}$ for $\hat{O}$ a traceless hermitian operator acting on a single site 
+To extend to larger systems, we use a matrix product method and assume a specific form of the optimal operator.
+We consider operators in the space spanned by $U^n \hat{O} U^{- n}$ for $\hat{O}$ a traceless hermitian operator acting on a single site
 and taking a finite number of powers of unitary operator $U$ (this case, the Floquet $U_F$).
-We find the operator of the form,
+We find the operator of the following filtered form,
 \begin{align}
  \tilde{A}_N=\sum_{n=-N}^N c_n U^n \hat{O} U^{- n} ~,
  \label{eq:filter}
 \end{align}
-that minimizes $\tilde{\lambda} = \mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U]^\dag)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)$ 
-by varying the coefficients $\{c_n\}$ and the Hermitian $\hat{O}$. 
-This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace, 
-but here we use a matrix product method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}).
-Thus $\tilde{\lambda}$ is a variational upper bound of the true minimum $\lambda$. 
-Note that for the Floquet $U_F$, $\tilde{A}_N$ is supported on $M = 2N+1$ sites. 
-Interestingly, this simple model \footnote{there are only 2$N$+ 4 real variables ($2N+1$ for $c_n's$ and 3 for $\hat{O}$) instead of $4^{2N+1} - 1$ variables 
-in the case of the exhaustive search.} 
-agrees very well with the exhaustive search until $M = 11$ ($N = 5$), which is the largest accessible size by the exact method, 
-with the {\it same} single site operator $\hat{O}$.  
-(Figure Floquet (b)).      
+that minimizes $\tilde{\lambda} = \mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U]^\dag)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)$
+by varying the coefficients $\{c_n\}$ and the Hermitian $\hat{O}$.
+This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace,
+but here we use a matrix product method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}). All data (including the random circuit case we discuss below) have well converged at the bond dimension 80. 
+Thus $\tilde{\lambda}$ is a variational upper bound of the true minimum $\lambda$.
+Note that for the Floquet $U_F$, $\tilde{A}_N$ is supported on $M = 2N+1$ sites.
+Interestingly, this simple model \footnote{there are only 2$N$+ 4 real variables ($2N+1$ for $c_n$'s and 3 for $\hat{O}$) instead of $4^{2N+1} - 1$ variables
+in the case of the exhaustive search.}
+agrees very well with the exhaustive search until $M = 11$ ($N = 5$), which is the largest accessible size by the exact method,
+with the {\it same} single site operator $\hat{O}$, 
+which we find to be $\hat{O} = 0.04\sigma^x  - 0.66\sigma^y + 0.75\sigma^z$ 
+(Figure \ref{fig:floquet} (a)). 
 
-{\bf Figure Floquet: (a) Lanczos result and MPO result are shown in the same plot. (b) Show quantitative agreement between Lanczos and MPO for M = 3,5,7,9,11. (c) Form of $c_n$ of the MPO for N = 10, 40, and 100. It shows cosine form.}
 
-Figure Floquet (a) is the plot of $\lambda (M)$, the minimum value of Eq. \ref{eq:floquet_minimize}, and 
-$\tilde{\lambda}(M)$, which obtained by the form of Eq. \eqref{eq:filter}. 
-$\tilde{\lambda}(M)$ asymptotically decreases very close to $M^{-2}$. 
+Figure Floquet (a) is the plot of $\lambda (M)$, the minimum value of Eq. \ref{eq:floquet_minimize}, and
+$\tilde{\lambda}(M)$, which obtained by the form of Eq. \eqref{eq:filter}.
+$\tilde{\lambda}(M)$ asymptotically decreases very close to $M^{-2}$.
 Comparing Figure Floquet with Figure \ref{fig:hamiltonian} (a),
 we see that $\lambda$ decreases {\it slower} than Hamiltonian cases, which implies that the Floquet system thermalizes
 the local operator {\it faster}. Since the only apparent difference between the Hamiltonian system and the Floquet system
 is the existence of the energy conservation, we attribute this fast relaxation to the absence of conservation law.
 Nevertheless, Figure Figure clearly exhibits that the rate of relaxation in the Floquet system
-becomes slower as the support $M$ increases. 
-Figure Floquet (c) shows that the optimal distribution of $\{ c_n\}$ is a cosine modulation. 
+becomes slower as the support $M$ increases.
+Figure Floquet (b) shows that the optimal distribution of $\{ c_n\}$ is a cosine modulation.
+
+
+\begin{figure}
+\includegraphics[width=1.0\linewidth]{fig_random_circuit.pdf}
+\centering
+\caption{ (color online)  $\tilde{\lambda}(M)$ for a random circuit model computed by matrix product method with the filtered of operators (Eq. \eqref{eq:filter}). $1/2\sigma^z$ is chosen for the single site Hermitian. We averaged by 50 realizations of random circuits. Asymptotically, the data follows very closely with $M^{-2}$.
+Inset: $\lambda(M)$ is the result of exhaustive search without using the filtered form for the same model.
+These values cannot be matched by the simple filtered operator we consider.}
+\label{fig:random_circuit}
+\end{figure}
 
 
 
-%Figure \ref{fig:floquet}, however, shows that $\hat{A}_M$ remembers more about the initial condition as the support $M$ increases.
-%To analyze the structure of this operator, we organize the basis operators of the optimal operator that minimize Eq. \eqref{eq:floquet_minimize}
-%by the distance from the free edge ($M+1$'th site) of a first non-identity operator. For example, when $M = 3$,
-%the basis operator $\sigma^x_1 \sigma^0_2 \sigma^x_3$ has distance 1 and $\sigma^x_1 \sigma^z_2 \sigma^0_3$ has distance 2.
-%We sort the basis operators by distance and sum the square of coefficients of the same distance.
-%Figure \ref{fig:floquet} (b) is the plot of such decomposition.
-%We see that more weights are placed in the sites farther from the free edge although number of such basis operators are exponentially smaller.
+To determine whether this phenomenon is more generally true, we also study a family of quantum circuits, each composed of two rounds, where in the first round, gates act on pairs of sites $...,(1,2),(3,4),...$ and on the second round gates act on pairs $...,(0,1),(2,3),(4,5),...$
+We choose all gates in a given round to be the same, but choose them randomly.
+The results are shown in Fig.~\ref{fig:random_circuit}.
+We find again that even in this random case, slow operators are present.
 
-To determine whether this phenomenon is more generally true, we also study a family of quantum circuits, each composed of two rounds, where in the first round, gates act on pairs of sites $...,(1,2),(3,4),...$ and on the second round gates act on pairs $...,(0,1),(2,3),(4,5),...$ 
-We choose all gates in a given round to be the same, but choose them randomly.  
-The results are shown in Fig.~\ref{fig:random_circuit}. 
-We find again that even in this random case, slow operators are present. 
- 
 We again apply the matrix product method to the same form of the operators, Eq. \eqref{eq:filter},
-to study larger systems. Since our random circuit consists of two alternating non-commuting unitaries, 
-the support of $\tilde{A}_N$ is $4N+1$ instead of $2N+1$.  
-In this random circuits, generally there is no single site Hermitian $\hat{O}$  
-that matches the exact calculation for small system size, unlike in the Flquet operator we studied earlier. 
+to study larger systems. Since our random circuit consists of two alternating non-commuting unitaries,
+the support of $\tilde{A}_N$ is now $4N+1$ instead of $2N+1$.
+In this random circuits, generally there is no single site Hermitian $\hat{O}$
+that matches the exact calculation for small system size, unlike in the Flquet operator we studied earlier.
 Therefore, we choose $\hat{O} = 1/2\sigma^z$ as a single site hermitian.
-The weights $c_n$ again approximately follow a cosine shape and $\lambda$ decays roughly as $1/M^2$.
+The weights $c_n$ again agrees very well with a cosine shape and $\lambda$ decays roughly as $1/M^2$.
 Such a decay $1/M^2$ would be exact if
 ${\rm tr}(\hat{O} U^n \hat{O} U^{- n})=0$ for all $n \neq 0$.
 We are unable to prove this decay in general but show weaker results in the supplemental.
@@ -301,14 +312,6 @@ We are unable to prove this decay in general but show weaker results in the supp
 %\label{fig:lz}
 %\end{figure}
 
-\begin{figure}
-\includegraphics[width=1.0\linewidth]{fig_random_circuit.pdf}
-\centering
-\caption{ (color online)  $\tilde{\lambda}(M)$ for a random circuit model computed by matrix product method with the filtered of operators (Eq. \eqref{eq:filter}). $1/2\sigma^z$ is chosen for the single site Hermitian. We averaged by 50 realizations of random circuits. The data well converged at the bond dimension $D = 80$. Asymptotically, the data converges very close to $M^{-2}$.
-Inset: $\lambda(M)$ is the result of exhaustive search, without using the filtered form, for the same model.
-These values cannot be matched by the simple filtered operator we consider.}
-\label{fig:random_circuit}
-\end{figure}
 
 
 {\it Summary---}
@@ -328,8 +331,8 @@ These operators present a new class of observables; if they can be studied exper
 %\section{Conclusion and Discussion}
 %\section{Acknowledgement}
 
-We thank Fabian Essler for stimulating discussions and Stefan K${\rm{\ddot u}}$hn for helps in numerical algorithms.
-H.K. is grateful for the support and hospitality of Max-Planck-Institute f${\rm{\ddot u}}$r Quantenoptik,
+We thank Fabian Essler for stimulating discussions and Stefan K\"{u}hn for helps in numerical algorithms.
+H.K. is grateful for the support and hospitality of Max-Planck-Institute f\"{u}r Quantenoptik,
 where this work has begun and Korea Institute for Advanced Study, where part of this manuscript was written.
 
 
@@ -555,7 +558,8 @@ This already implies that there is some operator $X$ which is slowly relaxing bu
 In fact, we can always construct an operator $Y$ which is an approximate eigenoperator of ${\cal E}$.  Here is one way.  Consider many disjoint intervals of length $M$.  Let $X_1,X_2,...$ be the operators on these intervals with eigenvalues $z_1,z_2,...$  Choose some subset $S$ of these intervals such that the product of the $z_i$ on that subset is close to $1$: $\prod_{i \in S} z_i \approx 1$.  Then, let $Y=\prod_{i \in S} X_i$.  This requires some analytic estimates to determine the support of $Y$ required: since $Y$ is a product of many operators, the error (in that each $X_i$ is only an approximate eigenoperator) may add, so the support of $Y$ may scale as a fairly large polynomial in the error.  We leave this estimate for later.
 
 \subsection{$1/M^2$ scaling of filtered operators}
-We show $1/M^2$ scaling of filtered operators of the form Eq. \eqref{eq:filter} if $\mathrm{tr}(\hat{O}U^n \hat{O}U^{-n}) = 0$ for all $n\neq 0$.
+We show $1/M^2$ scaling of filtered operators of the form Eq. \eqref{eq:filter} if $\mathrm{tr}(\hat{O}U^n \hat{O}U^{-n}) = 0$ for all $n\neq 0$, 
+where $\hat{O}$ is a traceless Hermitian acting on a single site.
 First, observe that
 \begin{align}
 & \frac{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U])}{\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)} \nonumber\\
@@ -573,9 +577,15 @@ Therefore, the minimum value $\tilde{\lambda}$ for sufficiently large $N$ is
 \tilde{\lambda} &= \mathrm{min}\left[\frac{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U])}{\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)} \right] \nonumber\\
 &= 2 - 2\cos\left(\frac{\pi}{2N}\right) \simeq \frac{\pi^2}{4N^2} \sim \frac{1}{M^2} ~,
 \end{align}
-where we used the fact that the support $M = 4N +1 $.
-Although the condition that $\mathrm{tr}(\hat{O}U^n \hat{O}U^{-n}) = \delta_{n,0}\mathrm{tr}(\hat{O}\hat{O}^\dag)$
-cannot be satisfied for a general random circuit, Figure \ref{fig:random_circuit} (b) is very close to this scaling and to the structure of $\{c_n\}$.
+where we used the fact that the support $M = 4N +1 $. 
+
+Ref. ~\onlinecite{Kim_ETH} has shown that the $U_F$ (Eq. \eqref{eq:floquet_op}) thermalizes a local operator at infinite temperature, 
+and thus $\mathrm{tr}(\hat{O}U^n\hat{O}U^{-n}) = 0$ for a sufficiently large $n$. 
+For the Floquet system, therefore, the above condition is approximately satisfied for a large enough $N$. 
+Figure \ref{fig:floquet} shows that for $N$ = 60 and 100, the form is very close to the cosine 
+and the scaling for large $M = 2N +1$ closely follows $M^{-2}$ scaling. 
+For a general random circuit, Figure \ref{fig:random_circuit} again shows $M^{-2}$ scaling. The structure of $\{c_n\}$ 
+is found to follow cosine modulation similar to the Floquet case (not shown).  
 
 
 \end{document}
