@@ -54,7 +54,7 @@ We argue that such slow relaxation may be a generic feature of local systems, sh
 \maketitle
 
 %\section{Introduction}
-It has been proposed that an isolated quantum system can still thermalize, in the sense that local observables approach their value in thermal  equilibrium\cite{Deutsch:1991,Srednicki:1994,Rigol:2008}.  The presence of conserved quantities such as spin leads to relaxation to a generalized ensemble.  Experimental studies have increased the interest in this question\cite{Polkovnikov:2011, Yukalov:2011}.  One proposed theoretical explanation is the eigenstate thermalization hypothesis (ETH)\cite{Deutsch:1991,Srednicki:1994,Rigol:2008,Santos:2010,Rigol:2012,Kruczenski:2013,Beugeling:2014,Sorg:2014,Kim_ETH,Goldstein:2014}, which argues that many-body eigenstates of non-integrable Hamiltonians have local density matrices that are thermal; then, at late times, decoherence between different energy eigenstates produces a thermal density matrix.
+It has been proposed that an isolated quantum system can still thermalize, in the sense that local observables approach their value in thermal  equilibrium\cite{Deutsch:1991,Srednicki:1994,Rigol:2008}.  The presence of conserved quantities such as spin leads to relaxation to a generalized ensemble.  Experimental studies have increased the interest in this question\cite{Polkovnikov:2011, Yukalov:2011}.  One proposed theoretical explanation is the eigenstate thermalization hypothesis (ETH)\cite{Deutsch:1991,Srednicki:1994,Rigol:2008,Santos:2010,Rigol:2012,Kruczenski:2013,Beugeling:2014,Sorg:2014,Kim_ETH,Goldstein:2014}, which argues that many-body eigenstates of nonintegrable Hamiltonians have local density matrices that are thermal; then, at late times, decoherence between different energy eigenstates produces a thermal density matrix.
 
 However, not all systems show this local thermalization in an accessible time scale\cite{Banuls:2011}.
 One possibility is that the ETH is false for the system of Ref.~\onlinecite{Banuls:2011}; another possibility is that the time scales required to thermalize locally are too long to be numerically accessible.  The question is: how can such a slow time scale arise, when a non-integrable system like the one studied has no conserved local quantities other than energy?
@@ -68,9 +68,11 @@ $D k^2$, where $D$ is diffusivity and the momentum $k$ is inversely proportional
 However, numerically we find that the time scale for the slowest operator that we constructed diverges as a {\it faster} power of length than the decay of the operators associated with energy fluctuations, and for the observed system sizes, the time scale is quantitatively larger.
 
 To further understand the presence of such approximately conserved quantities we then turn to a Floquet system where energy is not a local conserved quantity.
-Nevertheless, we observe some slowly relaxating operators in the Floquet system.
+Nevertheless, we observe some slowly relaxing operators in the Floquet system.
 To test this, we also consider several random unitaries constructed from local quantum circuits, and in every case we again find slowly relaxing operators.
-In fact, we argue that such slow relaxing operators must be present in any Floquet system or in any quantum circuit.  However, these slowly relaxing operators are in a sense morally similar to the slowly relaxing operator in a Hamiltonian system describing energy fluctuations: these operators are present in any such system, so long as locality is present.  They themselves do not inhibit relaxation of the local density matrices ``as fast as possible" (i.e., on a time scale proportional to the length of the interval; see Ref.~\onlinecite{Brandao:2012} for a proof that this happens for random local circuits).  Thus, the real surprise is our numerical observation that there are other operators in some Hamiltonian systems with even slower relaxation.
+In fact, we argue that such slow relaxing operators must be present in any Floquet system or in any quantum circuit.  However, these slowly relaxing operators are in a sense morally similar to the slowly relaxing operator in a Hamiltonian system describing energy fluctuations: these operators are present in any such system, so long as locality is present.  They themselves do not inhibit relaxation of the local density matrices ``as fast as possible" (i.e., on a time scale proportional to the length of the interval; see Ref.~\onlinecite{Brandao:2012} for a proof that this happens for random local circuits).  
+Thus, the real surprise is our numerical observation that there are other operators in some nonintegrable Hamiltonian systems (and possibly in some quantum circuits) with even slower relaxation.
+%Thus, the real surprise is our numerical observation that there are other operators in some Hamiltonian systems with even slower relaxation.
 
 %\section{Model and Method}
 %\subsection{Model}
@@ -99,9 +101,9 @@ H = \sum_{i}^{\infty} g\sigma^x_i + h\sigma^z_i + \sigma^z_i \sigma^z_{i+1} ~,
 \end{align}
 where $\sigma^x_i$ and $\sigma^z_i$ are Pauli matrices of the spin at site $i$.
 Ref.~\onlinecite{Banuls:2011} has found a nonthermalizing state for this model within the accessible time scale.
-We choose $(g,h) = (0.905, 0.809)$, at which this model is known to be robustly nonintegrable even for a relatively small system size \cite{Kim:2013}. 
-See supplemental for another choice of parameters. 
- 
+We choose $(g,h) = (0.905, 0.809)$, at which this model is known to be robustly nonintegrable even for a relatively small system size \cite{Kim:2013}.
+See supplemental for another choice of parameters.
+
 We consider local operators supported on a finite interval; an operator supported on consecutive $M$ sites is said to have ``range $M$".
 For simplicity, we do not assume translation invariance
 \footnote{We have also performed similar analysis in the infinite chain with translation invariance so the action of the local operator is the same on all sites. Most of our main results (figure \ref{fig:hamiltonian})
@@ -162,7 +164,7 @@ In either case, the rate of decrease with $M$ is {\it faster} than $1/M^2$, whic
 {\it Hydrodynamics---}
 A slowly relaxing energy mode can be constructed by considering an energy modulation of wavelength $2M$:
 \begin{align}
-\hat{E}_M = \sum_i c_M(i) h_i 
+\hat{E}_M = \sum_i c_M(i) h_i
 &= \sum_{i=-M/2}^{M/2} \cos\left(\frac{i\pi}{M}\right)(g \sigma^x_i + h\sigma^z_i)\nonumber\\
 &\quad+ \sum_{i=-M/2}^{M/2-1} \cos\left(\frac{(i+1/2)\pi}{M}\right)\sigma^z_i\sigma^z_{i+1} ~,
 \label{eq:energy_modulation}
@@ -204,7 +206,7 @@ from the local conservation law.
 \begin{figure}
 \includegraphics[width=0.95\linewidth]{fig_floquet.pdf}
 \centering
-\caption{(color online) (a) $\lambda(M)$ (blue X) is the exact minimum from exhaustive search and $\tilde{\lambda}(M)$ (green dot) is a variational upper bound from the form of Eq. \eqref{eq:filter}. The fractional difference between $\lambda(M)$ and $\tilde{\lambda}(M)$ is less than 1/200 for $M$ = 3,5,7,9, and 11. $\tilde{\lambda}(M)$ decreases close to $M^{-2}$ asymptotically. Note that there is a strong parity effect in the exact result: $\lambda(2N-1) \simeq \lambda(2N)$. 
+\caption{(color online) (a) $\lambda(M)$ (blue X) is the exact minimum from exhaustive search and $\tilde{\lambda}(M)$ (green dot) is a variational upper bound from the form of Eq. \eqref{eq:filter}. The fractional difference between $\lambda(M)$ and $\tilde{\lambda}(M)$ is less than 1/200 for $M$ = 3,5,7,9, and 11. $\tilde{\lambda}(M)$ decreases close to $M^{-2}$ asymptotically. Note that there is a strong parity effect in the exact result: $\lambda(2N-1) \simeq \lambda(2N)$.
 (b) Structure of coefficients $c_n$ (dots) for $N$ = 20 (blue, most narrow) ,60 (red, intermediate width) , and 100 (black, widest). They all can be well fitted by a cosine function with wavelength $4N+2$ (solid lines) except near $n = 0$ of $N = 20$. }
 \label{fig:floquet}
 \end{figure}
@@ -221,7 +223,6 @@ where $H_x$ is the $\sigma^x$ part ($\sum_i g \sigma^x_i$) and $H_z$ is the $\si
 of the Hamiltonian. We choose $\tau = 0.8$.
 Although $U_F$ does not conserve energy, it acts {\it locally} on the system.
 This type of Floquet operator is shown to thermalize a local operator at infinite temperature ensemble \cite{Kim_ETH,Prosen:2002}.
-%Ref.~\onlinecite{Prosen:2002} has studied a different decomposition of the same model and reports the chaotic behavior of eigenstates.
 
 Again we minimize the square of the Frobenius norm of the commutator with the Floquet operator.
 This time we use a Lanczos method to find the $2^M \times 2^M$ matrix $\hat{A}_M$
@@ -260,23 +261,23 @@ Interestingly, this simple model \footnote{there are only 2$N$+ 4 real variables
 in the case of the exhaustive search.}
 agrees very well with the exhaustive search until $M = 11$ ($N = 5$), which is the largest accessible size by the exact method,
 with the {\it same} single site operator $\hat{O}$.
-We find it to be $\hat{O} = 0.04\sigma^x  - 0.66\sigma^y + 0.75\sigma^z$ for the given model and parameter choice. 
-Note that $\tilde{A}_N$ can only be supported on odd number of sites. 
+We find it to be $\hat{O} = 0.04\sigma^x  - 0.66\sigma^y + 0.75\sigma^z$ for the given model and parameter choice.
+Note that $\tilde{A}_N$ can only be supported on odd number of sites.
 It turns out that the exact operator of even range can be approximated by a simple symmetric extension:
-$\tilde{A}_N\otimes \sigma^0 + \sigma^0\otimes\tilde{A}_N$, where $\sigma^0$ is an identity. 
-\footnote{When $\hat{O}$ acts on two sites, the filtered construction covers even sites. 
-However, this turns out not to be close to the exact result for small $M$.}. 
-Therefore, $\lambda(2N-1) \simeq \lambda(2N)$.  
+$\tilde{A}_N\otimes \sigma^0 + \sigma^0\otimes\tilde{A}_N$, where $\sigma^0$ is an identity.
+\footnote{When $\hat{O}$ acts on two sites, the filtered construction covers even sites.
+However, this turns out not to be close to the exact result for small $M$.}.
+Therefore, $\lambda(2N-1) \simeq \lambda(2N)$.
 
 
 Figure \ref{fig:floquet} (a) is the plot of $\lambda (M)$, the minimum value of Eq. \ref{eq:floquet_minimize}, and
 $\tilde{\lambda}(M)$, which obtained by the form of Eq. \eqref{eq:filter}.
-$\tilde{\lambda}(M)$ asymptotically decreases very close to $M^{-2}$ 
-and its optimal distribution of $\{ c_n\}$ is a close to a cosine modulation (Figure \ref{fig:floquet} (b)), 
-which re-appears in a random circuit model we study later. 
+$\tilde{\lambda}(M)$ asymptotically decreases very close to $M^{-2}$
+and its optimal distribution of $\{ c_n\}$ is a close to a cosine modulation (Figure \ref{fig:floquet} (b)),
+which re-appears in a random circuit model we study later.
 
 
- 
+
 
 
 Comparing Figure \ref{fig:floquet} (a) with Figure \ref{fig:hamiltonian} (a),
@@ -307,7 +308,7 @@ We again apply the matrix product method to the same form of the operators, Eq. 
 to study larger systems. Since our random circuit consists of two alternating non-commuting unitaries,
 the support of $\tilde{A}_N$ is now $4N+1$ instead of $2N+1$.
 In this random circuits, generally there is no single site Hermitian $\hat{O}$
-that matches the exact calculation for small system size, unlike in the Flquet operator we studied earlier.
+that matches the exact calculation for small system size, unlike in the Floquet operator we studied earlier.
 Therefore, we choose $\hat{O} = 1/2\sigma^z$ as a single site hermitian.
 The weights $c_n$ again agrees very well with a cosine shape and $\lambda$ decays roughly as $1/M^2$.
 Such a decay $1/M^2$ would be exact with a cosine if
@@ -477,7 +478,6 @@ Now we can estimate the distance between thermal expectation value and expectati
 where $\langle \ldots \rangle_t$ is expectation value at time $t$.
 Therefore, if we have a sequence of $M$-body operators $\{ \hat{A}_M \}$
 whose operator norm of the commutator with Hamiltonian decays fast with $M$
-%\footnote{When $M\rightarrow\infty$, $\hat{A}_M$ can be a projection onto an eigenstate of Hamiltonian so it commutes with $H$.},
 and an initial state which does not allow fast decrease of $\gamma(M)$,
 the time scale of thermalization of $\hat{A}_M$ is
 \begin{align}
@@ -520,51 +520,35 @@ for two sets of parameters. Unlike the case where all operators are used,
 the decay scaling remains the same as $1/M^2$ as expected from the hydrodynamics.
 Therefore, we again explicitly demonstrate that the longest wavelength energy modulation is the slowest mode of a conserved quantity.
 
-%For the Floquet case, we can find the optimal single site Hermitian operator from which we can construct a filtered operator
-%that matches the exact results. Therefore, we omit the results of another set of paramt
-
-%Figure \ref{fig:floquet_two_parameters} shows the minimum value of the commutator with the Floquet operator in the Flobenius norm.
-%The behavior of decrease with $M$ is very similar to each other,
-%and thus the slow relaxation is not specific to a certain parameter choice.
-%We see that the $M$ scaling does not depend on the parameter choice, unlike Hamiltonian system
-%This may hint us that the mechanism of slowing down the relaxation in the Floquet system, where no local conservation law is present,
-%could be universal.
-%
-%\begin{figure}
-%\includegraphics[width=1.0\linewidth]{semi_infinite_floquet_two_parameters_extended.pdf}
-%\centering
-%\caption{(color online) $\lambda$ is the minimum value of Eq. \eqref{eq:floquet_minimize}. We see that decay behaviors of $\lambda$ are similar for both parameter choices. }
-%\label{fig:floquet_two_parameters}
-%\end{figure}
 
 \subsection{Slow Operators for Arbitrary Quantum Circuits}
 We now show that a slowly relaxing operator must always exist, on an interval of length $M$ with the relaxation rate going to zero as $M$ gets large.  Let $U$ be the unitary of the quantum circuit restricted to an interval of length slightly larger than $M$ (in this way, we can consider only finite dimensional spaces).
 
-Let ${\cal E}(O)$ be a super-operator defined by ${\cal E}(O)=UOU^\dagger$.  The space of operators can be regarded as a vector space, with inner product $(A,B)={\rm tr}(A^\dagger B)$, and with ${\cal E}(O)$ being a linear operator on this space.  The operator ${\cal E}$ is non-Hermitian but it is a normal operator, since its Hermitian conjugate is equal to ${\cal E}^\dagger(O)=U^\dagger O U$ and ${\cal E}({\cal E}^\dagger(O))={\cal E}^\dagger({\cal E}(O))=O$ and so $[{\cal E},{\cal E}^\dagger]=0$.
+Let ${\cal E}(\hat{O})$ be a super-operator defined by ${\cal E}(\hat{O})=U\hat{O}U^\dagger$.  The space of operators can be regarded as a vector space, with inner product $(A,B)={\rm tr}(A^\dagger B)$, and with ${\cal E}(\hat{O})$ being a linear operator on this space.  The operator ${\cal E}$ is non-Hermitian but it is a normal operator, since its Hermitian conjugate is equal to ${\cal E}^\dagger(\hat{O})=U^\dagger \hat{O} U$ and ${\cal E}({\cal E}^\dagger(\hat{O}))={\cal E}^\dagger({\cal E}(\hat{O}))=\hat{O}$ and so $[{\cal E},{\cal E}^\dagger]=0$.
 Let ${\cal E}_h=\frac{1}{2}({\cal E}+{\cal E}^\dagger)$ and ${\cal E}_a=\frac{1}{2i}({\cal E}+{\cal E}^\dagger)$.
 
-We begin by constructing an operator $O$ supported on an interval of length $M$ such that ${\cal E}_h(O)= x O+\epsilon$ for some $x$ and for $\epsilon={\cal O}(1/M)$.  Let $A$ be any traceless operator supported on a single site in the center of the interval.  We consider the Krylov space generated by the vectors $A, {\cal E}_h(A), {\cal E}_h^2(A),...$.  Let $K$ be the number of vectors we take; $K$ will be proportional to $M$ and will be chosen such that all these operators are supported on the interval of length $M$.
-Since ${\cal E}_h$ is Hermitian, using the Lanczos procedure, we can write it as a tridiagonal matrix $T$ in this Krylov space.   We claim that that there exists a vector $v$ supported on the first $K-1$ vectors $w_1,...,w_{K-1}$ such that $|Tv-xv|^2/|v|^2\leq {\cal O}(1/K^2)$.  To verify this claim, let $\psi$ be any eigenvector of $T$ with at least half its weight on the first $K/2$ vectors with $\psi=\sum_k a_k v_k$; let $x$ be the corresponding eigenvalue; let $v=\sum_k a_k (1-k/K) v_k$.
+We begin by constructing an operator $\hat{O}$ supported on an interval of length $M$ such that ${\cal E}_h(\hat{O})= x \hat{O}+\epsilon$ for some $x$ and for $\epsilon={\cal O}(1/M)$.  Let $A$ be any traceless operator supported on a single site in the center of the interval.  We consider the Krylov space generated by the vectors $A, {\cal E}_h(A), {\cal E}_h^2(A),...$.  Let $K$ be the number of vectors we take; $K$ will be proportional to $M$ and will be chosen such that all these operators are supported on the interval of length $M$.
+Since ${\cal E}_h$ is Hermitian, using the Lanczos procedure we can write it as a tridiagonal matrix $T$ in this Krylov space.   We claim that that there exists a vector $v$ supported on the first $K-1$ vectors $w_1,...,w_{K-1}$ such that $|Tv-xv|^2/|v|^2\leq {\cal O}(1/K^2)$.  To verify this claim, let $\psi$ be any eigenvector of $T$ with at least half its weight on the first $K/2$ vectors with $\psi=\sum_k a_k v_k$; let $x$ be the corresponding eigenvalue; let $v=\sum_k a_k (1-k/K) v_k$.
 The basis in which the matrix is tridiagonal has basis vectors $w_1,w_2,...$, with $w_k$ being in the span of the first $k$ vectors $A, {\cal E}_h(A),...$
-Hence, the vector $v$ gives us the desired operator $O$.
+Hence, the vector $v$ gives us the desired operator $\hat{O}$.
 
 Now consider the operators
 \be
-O_{\pm}=(\sqrt{1-x^2} \pm {\cal E}_a) O,
+\hat{O}_{\pm}=(\sqrt{1-x^2} \pm {\cal E}_a) \hat{O},
 \ee
-with $O$ normalized such that $|O|=1$.
-Note that ${\cal E}(O_{\pm})={\cal E}_h(O_{\pm}+i {\cal E}_a(O_{\pm}))=xO_{\pm}+i(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) O + {\cal O}(1/M)$.  Using
-the fact that ${\cal E}_h^2+{\cal E}_a^2$ is equal to the identity super-operator, $(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) O=\sqrt{1-x^2}{\cal E}_a \pm (1-x^2) ) O +{\cal O}(1/M)=\pm\sqrt{1-x^2}O_{\pm}+{\cal O}(1/M)$.
+with $\hat{O}$ normalized such that $||\hat{O}||=1$.
+Note that ${\cal E}(\hat{O}_{\pm})={\cal E}_h(\hat{O}_{\pm}+i {\cal E}_a(\hat{O}_{\pm}))=x\hat{O}_{\pm}+i(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) \hat{O} + {\cal O}(1/M)$.  Using
+the fact that ${\cal E}_h^2+{\cal E}_a^2$ is equal to the identity super-operator, $(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) \hat{O}=\sqrt{1-x^2}{\cal E}_a \pm (1-x^2) ) \hat{O} +{\cal O}(1/M)=\pm\sqrt{1-x^2}\hat{O}_{\pm}+{\cal O}(1/M)$.
 Hence,
 \be
-{\cal E}(O_{\pm})=z O_{\pm}+{\cal O}(1/M)
+{\cal E}(\hat{O}_{\pm})=z \hat{O}_{\pm}+{\cal O}(1/M)
 \ee
 with
 \be
 z=x\pm i \sqrt{1-x^2},
 \ee
 so that $|z|=1$.
-At least one of the two operators $O_{\pm}$ must have non-negligible norm.  Let $X$ be the corresponding operator, normalized to have norm $1$.  Hence, we have constructed an operator $X$ supported on the interval of length $M$ such that ${\cal E}(X)=z X + {\cal O}(1/M)$.
+At least one of the two operators $\hat{O}_{\pm}$ must have non-negligible norm.  Let $X$ be the corresponding operator, normalized to have norm $1$.  Hence, we have constructed an operator $X$ supported on the interval of length $M$ such that ${\cal E}(X)=z X + {\cal O}(1/M)$.
 
 This already implies that there is some operator $X$ which is slowly relaxing but perhaps oscillating; i.e., since $X$ is an approximate eigenoperator of ${\cal E}$, if $z=1$ then $X$ changes slowly over time, while if $z \neq 1$, then the expectation value of $X$ oscillates.
 
