@@ -21,7 +21,8 @@
 
 
 \begin{document}
-\title{Unsuspected conserved quantities in a nonintegrable quantum system}
+\title{Slowest local operators in quantum spin chains}
+%\title{Unsuspected conserved quantities in a nonintegrable quantum system}
 
 \author{Hyungwon Kim}
 \affiliation{Physics Department, Princeton University, Princeton, NJ 08544, USA}
@@ -41,12 +42,17 @@
 \affiliation{Physics Department, Princeton University, Princeton, NJ 08544, USA}
 
 \begin{abstract}
-We numerically construct slowly thermalizing local operators in one-dimensional chain of spin-1/2 with a nonintegrable Hamiltonian.
-Restricting the support of operators to $M$, we exhaustively search for the operator that minimizes the Frobenius norm of the commutator
-with the Hamiltonian and thus changes slowly.  We find that operators are present with significantly slower relaxation than would be
-expected from a hydrodynamic description. Combining methods of the exhaustive search and the matrix product approximation, we found
-similar slowly relaxing operators for a Floquet system and for quantum circuits, in both cases where no local conservation law is present.
-We argue that such slow relaxation may be a generic feature of local systems, showing the existence of unsuspected conserved quantities.
+We numerically construct slowly relaxing local operators in a nonintegrable spin-1/2 chain.
+Restricting the support of the operator to $M$ consecutive spins along the chain,
+we exhaustively search for the operator that minimizes the Frobenius norm of the commutator
+with the Hamiltonian, and thus is ``almost conserved''.  We find slow operators with significantly slower relaxation than
+the slowest simple ``hydrodynamic'' mode due energy diffusion.
+%would be expected from a hydrodynamic description.
+Combining methods of exhaustive search and the matrix product approximation, we find
+similar slowly relaxing operators for a Floquet spin chain and for quantum circuits on spin chains;
+these systems are hydrodynamically ``trivial'', with no conservation laws restricting their dynamics.
+We argue that such slow relaxation may be a generic feature following from locality and unitarity,
+showing the existence of unexpected almost-conserved quantities.
 \end{abstract}
 
 \pacs{}
@@ -54,23 +60,28 @@ We argue that such slow relaxation may be a generic feature of local systems, sh
 \maketitle
 
 %\section{Introduction}
-It has been proposed that an isolated quantum system can still thermalize, in the sense that local observables approach their value in thermal  equilibrium\cite{Deutsch:1991,Srednicki:1994,Rigol:2008}.  The presence of conserved quantities such as spin leads to relaxation to a generalized ensemble.  Experimental studies have increased the interest in this question\cite{Polkovnikov:2011, Yukalov:2011}.  One proposed theoretical explanation is the eigenstate thermalization hypothesis (ETH)\cite{Deutsch:1991,Srednicki:1994,Rigol:2008,Santos:2010,Rigol:2012,Kruczenski:2013,Beugeling:2014,Sorg:2014,Kim_ETH,Goldstein:2014}, which argues that many-body eigenstates of nonintegrable Hamiltonians have local density matrices that are thermal; then, at late times, decoherence between different energy eigenstates produces a thermal density matrix.
+It has been proposed that an isolated quantum many-body system can still thermalize, in the sense that local observables approach their thermal equilibrium values \cite{Deutsch:1991,Srednicki:1994,Rigol:2008}.  The presence of additional conserved quantities leads to relaxation to a generalized ensemble (refs to GGE).  Experimental studies have increased the interest in these questions \cite{Polkovnikov:2011, Yukalov:2011}.  One proposed theoretical explanation is the eigenstate thermalization hypothesis (ETH) \cite{Deutsch:1991,Srednicki:1994,Rigol:2008,Santos:2010,Rigol:2012,Kruczenski:2013,Beugeling:2014,Sorg:2014,Kim_ETH,Goldstein:2014}, which argues that many-body eigenstates of thermalizing nonintegrable Hamiltonians have local reduced density operators that are thermal; then, at long times, dephasing between different energy eigenstates brings small subsystems to thermal equilibrium.
 
-However, not all systems show this local thermalization in an accessible time scale\cite{Banuls:2011}.
-One possibility is that the ETH is false for the system of Ref.~\onlinecite{Banuls:2011}; another possibility is that the time scales required to thermalize locally are too long to be numerically accessible.  The question is: how can such a slow time scale arise, when a non-integrable system like the one studied has no conserved local quantities other than energy?
+However, not all systems show this local thermalization in an accessible time scale \cite{Banuls:2011}.
+One possibility is that the ETH is false for the system of Ref.~\onlinecite{Banuls:2011}; another possibility is that the time scales required to thermalize locally are too long to be numerically accessible.  A question is: how can such slow thermalization arise, when a nonintegrable system like the one studied has no conserved local quantities other than energy?
 
-In this work, we show how such a large time scale can emerge by showing that indeed conserved (or, more precisely, approximately conserved) quantities {\it are} present in many non-integrable systems.  We construct these operators numerically, by explicitly searching for operators with a small commutator with the Hamiltonian.  One source of such operators with a small commutator are those that result from local fluctuations in the energy density.  However, we show numerically, that these are {\it not} the operators with the smallest commutator.  Instead, other operators are present with a much smaller commutator, presenting ``unsuspected conserved quantities" for these systems.  For numerical reasons discussed below, much of our work focuses on the Frobenius norm rather than operator norm to measure relaxation, but we also discuss the operator norm.
+In this work, we show how such slow relaxation can emerge by showing that indeed slow, almost-conserved local quantities {\it are} present in many nonintegrable systems.  We construct these operators numerically, by explicitly searching for operators with a small commutator with the Hamiltonian.  One source of such operators with a small commutator are those that result from the thermal diffusion due to a spatially-smooth inhomogeneity in the energy density.  However, we show numerically that these are {\it not} the operators with the smallest commutator.  Instead, other operators are present with a much smaller commutator.  Thus we find ``unexpected almost-conserved quantities" for these systems.  For numerical reasons discussed below, much of our work focuses on the Frobenius norm rather than operator norm to measure relaxation, but we also discuss the operator norm.
 
+%The time scale of simple energy diffusion is discussed below, where w
+We also construct the pattern of local energy density that gives the slowest operator of that form.  This operator and its commutator with the Hamiltonian
+%s describing local energy diffusion in our subregion of length $M$ spins.  This time scale
+matches the expectations from diffusive hydrodynamics, with the commutator $\sim M^{-2}$ for the slowest such operator on a subregion of the length $M$ spins.
+%$\sim M^2/D$, where $D$ is the thermal diffusivity. %and the momentum $k$ is inversely proportional to the interval length.
+However, numerically we find that the commutator for the slowest operator that we find by exhaustive unrestricted search appears to decrease with a {\it larger} power of length than this diffusive $\sim M^{-2}$, and for the accessible system sizes is quantitatively substantially smaller (slower) than that of the simple diffusive mode.
 
-The time scale of energy relaxation is discussed below, where we construct operators describing local energy fluctuation in a subinterval.  This time scale matches the expectation
- from hydrodynamics:
-$D k^2$, where $D$ is diffusivity and the momentum $k$ is inversely proportional to the interval length.
-However, numerically we find that the time scale for the slowest operator that we constructed diverges as a {\it faster} power of length than the decay of the operators associated with energy fluctuations, and for the observed system sizes, the time scale is quantitatively larger.
-
-To further understand the presence of such approximately conserved quantities we then turn to a Floquet system where energy is not a local conserved quantity.
-Nevertheless, we observe some slowly relaxing operators in the Floquet system.
+To further understand the presence of such approximately conserved quantities we then turn to a Floquet spin chain where energy is not conserved.
+We also find slowly relaxing operators in this Floquet system.
 To test this, we also consider several random unitaries constructed from local quantum circuits, and in every case we again find slowly relaxing operators.
-In fact, we argue that such slow relaxing operators must be present in any Floquet system or in any quantum circuit.  However, these slowly relaxing operators are in a sense morally similar to the slowly relaxing operator in a Hamiltonian system describing energy fluctuations: these operators are present in any such system, so long as locality is present.  They themselves do not inhibit relaxation of the local density matrices ``as fast as possible" (i.e., on a time scale proportional to the length of the interval; see Ref.~\onlinecite{Brandao:2012} for a proof that this happens for random local circuits).  
+In fact, we argue that such slowly relaxing operators must be present in any Floquet system or in any quantum circuit.
+%However, these slowly relaxing operators are in a sense morally similar to the slowly relaxing operator in a Hamiltonian system describing energy fluctuations: these
+Slow operators are present in any such system, so long as the unitary dynamics is local.  Locality restricts an interval of length $M$ from fully relaxing on a time scale faster than $\sim M$, so these slow operators have to exist
+%They themselves do not inhibit relaxation of the local density matrices ``as fast as possible" (i.e., on a time scale proportional to the length of the interval;
+(see Ref.~\onlinecite{Brandao:2012} for a proof that this happens for random local circuits).
 Thus, the real surprise is our numerical observation that there are other operators in some nonintegrable Hamiltonian systems (and possibly in some quantum circuits) with even slower relaxation.
 %Thus, the real surprise is our numerical observation that there are other operators in some Hamiltonian systems with even slower relaxation.
 
@@ -83,12 +94,14 @@ Thus, the real surprise is our numerical observation that there are other operat
 \begin{figure}
 \includegraphics[width=0.95\linewidth]{fig_hamiltonian.pdf}
 \centering
-\caption{(color online) (a) $\lambda(M)$ is the minimum of Eq. \eqref{eq:minimize}. As we increase $M$, the commutator with Hamiltonian decreases
-and thus the local operator relaxes slowly. The decreasing form can be well-fitted by both a power-law and $1/(M\log(M))^2$.
-(b)$\lambda_E(M)$ is the minimum of Eq. \eqref{eq:minimize} when only terms in Hamiltonian are used. As hydrodynamics suggests, it decreases with $1/M^2$. Inset: Structure of the optimal operator of $M = 11$. $X$, $Z$, and $ZZ$, are
+\caption{(color online) (a) $\lambda(M)$ is the minimum of Eq. \eqref{eq:minimize}.  As we increase $M$, the commutator with the Hamiltonian decreases as shown.
+%and thus the local operator relaxes slowly. The decreasing form
+This decrease can be well-fitted by either a power-law or $1/(M\log(M))^2$.
+(b)$\lambda_E(M)$ is the minimum of Eq. \eqref{eq:minimize} when only terms in the Hamiltonian are used.  As thermal diffusion suggests, it decreases as $1/M^2$. Inset: Structure of the optimal operator for $M = 11$. $X$, $Z$, and $ZZ$, are
 abbreviations of $\sigma^x_i$, $\sigma^z_i$, and $\sigma^z_i \sigma^z_{i+1}$, respectively.
-We locate $\sigma^z_i \sigma^z_{i+1}$ term at site $i+1/2$. The coefficients are normalized to have unit square norm ($\sum_\ell c_\ell^2 = 1$).
-It shows a clear energy modulation with the wavelength $2M$ with the relative ratios equal to those of parameters of Hamiltonian. }
+We locate the $\sigma^z_i \sigma^z_{i+1}$ term at position $i+1/2$.  The coefficients are normalized to have unit square norm ($\sum_\ell c_\ell^2 = 1$).
+It shows a clear sinusoidal energy modulation with the expected wavelength $2M$, and with the relative ratios equal to those in the Hamiltonian.
+(the vertical axis in the inset should not say "weight", since weight would be $c_{\ell}^2$.  Maybe it should be labeled $c_{\ell}$) }
 \label{fig:hamiltonian}
 \end{figure}
 
