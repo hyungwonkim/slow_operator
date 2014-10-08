@@ -48,9 +48,9 @@ we exhaustively search for the operator that minimizes the Frobenius norm of the
 with the Hamiltonian and show that the Frobenius norm is related to the time scale of relaxation of the operator.
 Thus the slow operator is ``almost conserved''.
 We find slow operators with significantly slower relaxation than
-the slowest simple ``hydrodynamic'' mode due energy diffusion.
+the slowest simple ``hydrodynamic'' mode due to energy diffusion.
 %would be expected from a hydrodynamic description.
-Combining methods of exhaustive search and the matrix product approximation, we find
+Combining methods of exhaustive search and tensor network techniques, we find
 similar slowly relaxing operators for a Floquet spin chain and for quantum circuits on spin chains;
 these systems are hydrodynamically ``trivial'', with no conservation laws restricting their dynamics.
 We argue that such slow relaxation may be a generic feature following from locality and unitarity,
@@ -120,8 +120,8 @@ See supplemental for another choice of parameters.
 
 We consider local operators supported on a finite interval; an operator supported on consecutive $M$ sites is said to have ``range $M$".
 For simplicity, we do not assume translation invariance
-\footnote{We have also performed similar analysis in the infinite chain with translation invariance so the action of the local operator is the same on all sites. Most of our main results (figure \ref{fig:hamiltonian})
-remains true. Since translation non-invariant system is easier to visualize the local operators and to directly compare with diffusive energy mode, here we present the results on an infinite chain where a local operator is placed at some finite sites.}.
+\footnote{We have also performed similar analysis in the infinite chain with translation invariance so the action of the local operator is the same on all sites. Most of our main results (Figures \ref{fig:hamiltonian} (a), \ref{fig:floquet} (a), and \ref{fig:random_circuit})
+remain true. Since translation non-invariant system is easier to visualize the local operators and to directly compare with diffusive energy mode, here we present the results on an infinite chain where a local operator is placed at some finite sites.}.
 Each traceless operator
 $\hat{A}_M$ can always be expressed by a linear combination of $4^M - 1$ traceless basis operators (excluding the identity).
 Therefore, we write
@@ -162,7 +162,7 @@ is assumed to have unit Frobenius norm.
 Let's define $a_M(t)$ as the expectation value of $\hat{A}_M/\epsilon$ at time $t$:
 $a_M(t) = (1/\epsilon)\mathrm{tr}(\rho \hat{A}_M(t)) = \mathrm{tr}(\hat{A}_M \hat{A}_M(t))$,
 where $\hat{A}_M(t)$ is in the Heisenberg picture.
-Using Cauchy-Schwartz inequality, we can show the following:
+Using Cauchy-Schwarz inequality, we can show the following:
 \begin{align}
 \left|\frac{d^2 a_M(t)}{dt^2}\right| = |\mathrm{tr}([\hat{A}_M(t),H][\hat{A}_M,H])| \leq \lambda(M) ~,
 \end{align}
@@ -178,7 +178,7 @@ Finally, we have
 & \geq 1 - \frac{\lambda(M)t^2}{2} ~.
 \label{eq:hamiltonian_timescale}
 \end{align}
-Therefore, $\lambda(M)$ characterizes the thermalization time scale $\tau$ of $\hat{A}_M$ by $\tau \sim \sqrt{\lambda(M)}$.  
+Therefore, $\lambda(M)$ characterizes the thermalization time scale $\tau$ of $\hat{A}_M$ by $\tau \sim \lambda(M)^{-1/2}$.
 
 %Now we look at how $\hat{A}_M$ changes as a function of time:
 %$\langle \hat{A}_M(t) \rangle = \mathrm{tr(\rho e^{iHt} \hat{A}_M e^{-iHt})} = (\epsilon/Z)\mathrm{tr(\hat{A}_M e^{iHt} \hat{A}_M e^{-iHt})}$.
@@ -220,13 +220,13 @@ where $\partial_i$ is the discrete spatial derivative and $s_M(i)$ is the sine m
 Therefore, the squared Frobenius norm of the commutator of $\hat{E}_M$ scales as $1/M^2$.
 
 Here, we adapt a slightly more conservative approach.
-We do the same numerical search as before but restrict the operator space within the terms in Hamiltonian
+We do the same numerical search as before but restrict the operator space within the terms in the Hamiltonian
 so we only consider $3M-1$ basis operators instead of $4^M-1$.
 Figure \ref{fig:hamiltonian} (b) is the plot of minimum of Eq.~\eqref{eq:minimize} in a restricted space.
 As expected, we have almost perfect $1/M^2$ scaling.
 Furthermore, since there are only a few basis operators, we can easily look at the details of the structure of the optimal operator.
 The inset of Figure \ref{fig:hamiltonian} (b) is the structure of the optimal operator in terms of the local terms in Hamiltonian.
-It is indeed the the form of Eq.~\eqref{eq:energy_modulation} and thus the energy modulation of the longest wavelength is the slowest mode
+It is indeed the form of Eq.~\eqref{eq:energy_modulation} and thus the energy modulation of the longest wavelength is the slowest mode
 from the local conservation law.
 
 %
@@ -269,25 +269,25 @@ limits the largest $M$ that can be explored by the same method to 8. A Lanczos m
 \lambda(M) = \frac{\mathrm{tr}([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)}{\mathrm{tr}(\hat{A}_M\hat{A}_M^\dag)} ~.
 \end{align}
 
-Let us again relate $\lambda(M)$ with the thermalization time scale. 
+Let us again relate $\lambda(M)$ with the thermalization time scale.
 As in the case of Hamiltonian system, we consider the same initial state, Eq. \eqref{eq:initial}.
-Since the time step in the Floquet system is discrete, we define $a_M^{(N)} = \mathrm{tr}(\hat{A}_M(N)\hat{A}_M )$, with 
-$a_M^{(0)} = 1$ and $\hat{A}_M(N) = U_F^{\dag N}\hat{A}_M U_F^N$. Using Cauchy-Schwartz inequality, we can show that 
+Since the time step in the Floquet system is discrete, we define $a_M^{(N)} = \mathrm{tr}(\hat{A}_M(N)\hat{A}_M )$, with
+$a_M^{(0)} = 1$ and $\hat{A}_M(N) = U_F^{\dag N}\hat{A}_M U_F^N$. Using Cauchy-Schwarz inequality, we can show that
 \begin{align}
-|a_M^{(n+1)} - a_M^{(n)}| = |\mathrm{tr}([\hat{A}_M(N),U_F]\hat{A}_M U_F^{\dag})| \leq \sqrt{\lambda(M)} ~. 
+|a_M^{(n+1)} - a_M^{(n)}| = |\mathrm{tr}([\hat{A}_M(N),U_F]\hat{A}_M U_F^{\dag})| \leq \sqrt{\lambda(M)} ~.
 \end{align}
-From this, we have the following inequality: 
+From this, we have the following inequality:
 \begin{align}
 |a_M^{(N)} - a_M^{0}| &= \left|\sum_{n=0}^{N-1}a_M^{(n+1)} - a_M^{(n)}\right| \nonumber\\
-&\leq \sum_{n = 0}^{N-1}|a_M^{(n+1)} - a_M^{(n)}| \leq N \sqrt{\lambda(M)} ~. 
+&\leq \sum_{n = 0}^{N-1}|a_M^{(n+1)} - a_M^{(n)}| \leq N \sqrt{\lambda(M)} ~.
 \end{align}
-In case of the Floquet, the thermal expectation value $\hat{a}_M$ is indeed zero and thus 
+In case of the Floquet, the thermal expectation value $\hat{a}_M$ is indeed zero and thus
 \begin{align}
-|a_M^{(N)} - a_M^{th}| \geq |a_M^{(0)}| - |a_M^{(N)} - a_M^{(0)}| \geq 1 - N \sqrt{\lambda(M)} ~. 
+|a_M^{(N)} - a_M^{th}| \geq |a_M^{(0)}| - |a_M^{(N)} - a_M^{(0)}| \geq 1 - N \sqrt{\lambda(M)} ~.
 \label{eq:floquet_timescale}
 \end{align}
-This proves that $\lambda(M)$ characterizes the thermalization time step $\tau$ of $\hat{A}_M$ by 
-$\tau \sim \lambda(M)^{-1/2}$. 
+This proves that $\lambda(M)$ characterizes the thermalization time step $\tau$ of $\hat{A}_M$ by
+$\tau \sim \lambda(M)^{-1/2}$.
 
 %It is straightforward to show that $\lambda(M)$ is twice of the
 %difference of the expectation value of $\hat{A}_M$ between the initial state and the state after one Floquet driving
@@ -298,7 +298,7 @@ $\tau \sim \lambda(M)^{-1/2}$.
 %where $\hat{A}_M(\tau) = U_F^\dag \hat{A}_M(0) U_F$.
 %When $\hat{A}_M$ changes little by the initial driving, $\lambda(M)$ is small. %Eq. \eqref{eq:floquet_minimize} is small.
 
-To extend to larger systems, we use a matrix product method and assume a specific form of the optimal operator.
+To extend to larger systems, we use a tensor network technique and assume a specific form of the optimal operator.
 We consider operators in the space spanned by $U^n \hat{O} U^{- n}$ for $\hat{O}$ a traceless hermitian operator acting on a single site
 and taking a finite number of powers of unitary operator $U$ (this case, the Floquet $U_F$).
 We find the operator of the following {\it filtered} form,
@@ -309,7 +309,7 @@ We find the operator of the following {\it filtered} form,
 that minimizes $\tilde{\lambda} = \mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U]^\dag)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)$
 by varying the coefficients $\{c_n\}$ and the Hermitian $\hat{O}$.
 This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace,
-but here we use a matrix product method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}). All data (including the random circuit case we discuss below) have well converged at the bond dimension 80.
+but here we use a tensor network method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}). All data (including the random circuit case we discuss below) have well converged at the bond dimension 80.
 Thus $\tilde{\lambda}$ is a variational upper bound of the true minimum $\lambda$.
 Note that for the Floquet $U_F$, $\tilde{A}_N$ is supported on $M = 2N+1$ sites.
 Interestingly, this simple model \footnote{there are only 2$N$+ 4 real variables ($2N+1$ for $c_n$'s and 3 for $\hat{O}$) instead of $4^{2N+1} - 1$ variables
@@ -320,15 +320,15 @@ We find it to be $\hat{O} = 0.04\sigma^x  - 0.66\sigma^y + 0.75\sigma^z$ for the
 Note that $\tilde{A}_N$ can only be supported on odd number of sites.
 It turns out that the exact operator of even range can be approximated by a simple symmetric extension:
 $\tilde{A}_N\otimes \sigma^0 + \sigma^0\otimes\tilde{A}_N$, where $\sigma^0$ is an identity.
-\footnote{When $\hat{O}$ acts on two sites, the filtered construction covers even sites.
-However, this turns out not to be close to the exact result for small $M$.}.
+%\footnote{When $\hat{O}$ acts on two sites, the filtered construction covers even sites.
+%However, this turns out not to be close to the exact result for small $M$.}.
 Therefore, $\lambda(2N-1) \simeq \lambda(2N)$.
 
 
 Figure \ref{fig:floquet} (a) is the plot of $\lambda (M)$, the minimum value of Eq. \ref{eq:floquet_minimize}, and
 $\tilde{\lambda}(M)$, which obtained by the form of Eq. \eqref{eq:filter}.
 $\tilde{\lambda}(M)$ asymptotically decreases very close to $M^{-2}$
-and its optimal distribution of $\{ c_n\}$ is a close to a cosine modulation (Figure \ref{fig:floquet} (b)),
+and its optimal distribution of $\{ c_n\}$ is close to a cosine modulation (Figure \ref{fig:floquet} (b)),
 which re-appears in a random circuit model we study later.
 
 
@@ -340,7 +340,7 @@ we see that $\lambda$ decreases {\it slower} than Hamiltonian cases, which impli
 the local operator {\it faster}. Since the only apparent difference between the Hamiltonian system and the Floquet system
 is the existence of the energy conservation, we attribute this faster relaxation to the absence of conservation law.
 Nevertheless, Figure \ref{fig:floquet} clearly exhibits that the rate of relaxation in the Floquet system
-becomes slower as the support $M$ increases, thus $\hat{A}_M$ is again an approximately conserved quantity. 
+becomes slower as the support $M$ increases, thus $\hat{A}_M$ is again an approximately conserved quantity.
 
 
 \begin{figure}
@@ -387,93 +387,12 @@ and so their origin remains unclear.
 %However the operators involve complicated many-body terms (if we restrict to just the terms in the Hamiltonian, we only obtain simpler operators related to energy currents) and so their origin remains unclear.
 These operators present a new class of observables; if they can be studied experimentally, they may reveal unsuspected slow relaxation.
 
-%\section{Results}
-%\subsection{Comparison with Energy Modulation}
-%\subsection{Comparison with Floquet System}
-%\section{Conclusion and Discussion}
-%\section{Acknowledgement}
-
-We thank Fabian Essler for stimulating discussions and Stefan K\"{u}hn for helps in numerical algorithms.
+We thank Fabian Essler for stimulating discussions and Stefan K\"{u}hn for help in numerical algorithms.
 H.K. is grateful for the support and hospitality of Max-Planck-Institute f\"{u}r Quantenoptik,
 where this work has begun and Korea Institute for Advanced Study, where part of this manuscript was written.
 
 
 \bibliography{slow_operator_bibl}
-
-%\begin{thebibliography}{99}
-%
-%\bibitem{neumann} %von Neumann's quantum ergodic theorem
-%J. von Neumann, Zeitschrift f${\rm \ddot{u}}$r Physik {\bf 57}, 30 (1929).
-%
-%\bibitem{shnirelman} %motivation for ETH
-%A. I. Shnirelman, Usp. Mat. Nauk {\bf 29}, 181 (1974).
-%
-%\bibitem{berry} %berry conjecture
-%M. V. Berry, J. Phys. A {\bf 10}, 2083 (1977).
-%
-%\bibitem{polkovnikov}
-%A. Polkovnikov, K. Sengupta and M. Vengalattore, Rev. Mod. Phys. 83, 863 (2011).
-%
-%\bibitem{yukalov}
-%V.I. Yukalov, Laser Phys. Lett. 8, 485 (2011).
-%
-%\bibitem{deutsch} %ETH original
-%J. M. Deutsch, Phys. Rev. A {\bf 43}, 2046 (1991).
-%
-%\bibitem{srednicki} %ETH original
-%M. Srednicki, Phys. Rev. E {\bf 50}, 888 (1994).
-%
-%\bibitem{rdo} %ETH popular
-%M. Rigol, V. Dunjko and M. Olshanii, Nature (London) {\bf 452}, 854 (2008).
-%
-%\bibitem{santos} %accuracy test of ETH & hard core bosons
-%L. F. Santos and M. Rigol, Phys. Rev. E {\bf 82} 031130 (2010).
-%
-%\bibitem{kruczenski} %thermalization using Krylov method
-%M. Kruczenski and S. Khlebnikov, arXiv:1312.4612v2.
-%
-%\bibitem{sorg} %ETH boson model
-%S. Sorg, L. Vidmar, L. Pollet and F. Heidrich-Meisner, arXiv:1405.5404v1.
-%
-%\bibitem{beugeling} %finitie size scaling of ETH
-%W. Beugeling, R. Moessner and M. Haque, Phys. Rev. E {\bf 89}, 042112 (2014).
-%
-%\bibitem{rs} %checking role of ETH in quantum thermalization
-%M. Rigol and M. Srednicki, Phys. Rev. Lett. {\bf 108}, 110601 (2012).
-%
-%\bibitem{kim_ETH}
-%H. Kim, T. N. Ikeda, and D. A. Huse, arXiv:1408.0535v2.
-%
-%\bibitem{winter} %proof of equilibration
-%N. Linden, S. Popescu, A. J. Short and A. Winter, Phys. Rev. E {\bf 79}, 061103 (2009).
-%
-%\bibitem{ruelle}
-%D. Ruelle, J. Stat. Phys. {\bf 44}, 281 (1986).
-%
-%\bibitem{prosen} %first exploration of dynamics of local operators in detail
-%T. Prosen, J. Phys. A {\bf 35}, L737 (2002).
-%
-%\bibitem{banuls} %observatino of nonthermalization in the model Hamiltonian
-%M. C. Ba${\rm{\tilde n}}$uls, J. I. Cirac, and M. B. Hastings, Phys. Rev. Lett. {\bf 106}, 050405 (2011).
-%
-%\bibitem{kim1} %parameter choice of the model
-%H. Kim and D. A. Huse, Phys. Rev. Lett. {\bf 111}, 127205 (2013).
-%
-%\bibitem{luca} %Circular Ensemble
-%L. D'Alessio and M. Rigol, arXiv:1402.5141v1.
-%
-%\bibitem{lazarides} %floquet 1
-%A. Lazarides, A. Das and R. Moessner, arXiv:1403.2946v1.
-%
-%\bibitem{ponte} %floquet 2
-%P. Ponte, A. Chandran, Z. Papi\'c and D. A. Abanin, arXiv:1403.6480v1.
-%
-%\bibitem{kim_realtime}
-%H. Kim, {\it et. al.}, in preparation.
-%
-%\bibitem{fernando} F. G. S. L. Brandao, A Harrow, and M. Horodecki, arXiv:1208.0692.
-%
-%\end{thebibliography}
 
 \newpage
 \section*{Supplementary Material}
@@ -485,7 +404,7 @@ In this section, we use the operator norm (the largest eigenvalue in magnitude),
 to estimate the thermalization time scale.
 
 
-Assuming that $\hat{A}_M$ satisfies the following:
+Let us assume that $\hat{A}_M$ satisfies the following:
 \begin{align}
 ||[\hat{A}_M, H]|| \leq \chi(M),
 \end{align}
@@ -503,24 +422,24 @@ from its initial configuration. Next, we consider an initial state $\rho$ such t
 \begin{align}
 |\langle \hat{A}_M \rangle_0 - \langle \hat{A}_M \rangle_\beta| = \gamma(M) ~,
 \end{align}
-where $\langle \ldots \rangle_0$ is expectation value of initial condition and $\langle \ldots \rangle_\beta$
+where $\langle \ldots \rangle_0$ is the expectation value of the initial condition, $\langle \ldots \rangle_\beta$
 is thermal expectation value and $\gamma(M)$ is some nonnegative valued function.
-Now we can estimate the distance between thermal expectation value and expectation value at time $t$ (for $t \leq \gamma(M)/\chi(M)$):
+Now we can estimate the distance between the thermal expectation value and the expectation value at time $t$ (for $t \leq \gamma(M)/\chi(M)$):
 \begin{align}
 &|\langle \hat{A}_M \rangle_t - \langle \hat{A}_M \rangle_\beta| \nonumber\\
-&\geq ||\langle \hat{A}_M\rangle_0 - \langle \hat{A}_M\rangle_\beta | -|\langle \hat{A}_M\rangle_t - \langle \hat{A}_M\rangle_0 || \nonumber\\
+&\geq \left | |\langle \hat{A}_M\rangle_0 - \langle \hat{A}_M\rangle_\beta | -|\langle \hat{A}_M\rangle_t - \langle \hat{A}_M\rangle_0 |\right | \nonumber\\
 &\geq \gamma(M) - t \chi(M)
 \end{align}
-where $\langle \ldots \rangle_t$ is expectation value at time $t$.
+where $\langle \ldots \rangle_t$ is the expectation value at time $t$.
 Therefore, if we have a sequence of $M$-body operators $\{ \hat{A}_M \}$
-whose operator norm of the commutator with Hamiltonian decays fast with $M$
+for which the operator norm of the commutator with the Hamiltonian decays fast with $M$
 and an initial state which does not allow fast decrease of $\gamma(M)$,
 the time scale of thermalization of $\hat{A}_M$ is
 \begin{align}
 \tau_M \sim \frac{\gamma(M)}{\chi(M)} ~.
 \end{align}
-In particular, if $\chi(M)$ decrease faster than a power law with $M$,
-thermalization may take longer than polynomially time in the case of diffusion.
+In particular, if $\chi(M)$ decreases faster than a power law with $M$,
+thermalization may take longer than polynomial time in the case of diffusion.
 
 
 
@@ -538,11 +457,11 @@ Two norms give quantitatively similar values.
 For many purposes, the operator norm is mathematically more convenient
 since we can directly interpret the relaxation of the operator in terms of Lieb-Robinson bounds \cite{Lieb:1972,Bravyi:2006}.
 Optimizing the operator norm numerically is, however, very challenging. Therefore, we used the (square of) Frobenius norm in the main text.
-Nevertheless, once we have an operator, it is easy compute the operator norm of the commutator with Hamiltonian.
+Nevertheless, once we have an operator, it is easy to compute the operator norm of the commutator with Hamiltonian.
 Figure \ref{fig:op_norm} plots the decay of the Frobenius norm and the operator norm of $[\hat{A}_M,H]$,
 where $\hat{A}_M$ is obtained in the main text by minimizing the Frobenius norm.
-It shows that the values of $\lambda$ measured by the operator norm is numerically similar to that of the Frobenius norm.
-It appears that the operator norms computed by these operators exhibits exponential-like decrease with $M$ but
+It shows that the value of $\lambda$ measured by the operator norm is numerically similar to that of the Frobenius norm.
+It appears that the operator norms computed for these operators exhibit exponential-like decrease with $M$ but
 the range of $M$ is not enough to draw a conclusion.
 
 
@@ -552,7 +471,7 @@ the range of $M$ is not enough to draw a conclusion.
 \centering
 \caption{(color online) (a) $\lambda(M)$ is the minimum value of the Frobenius norm of the commutator with Hamiltonian.
 Here we choose the parameters to be $(g,h) = (-1.05, 0.5)$. $\lambda$ still decreases faster than $1/M^2$.
-(b) $\lambda_E(M)$ is the same results when we restrict the search space within the terms in Hamiltonian.
+(b) $\lambda_E(M)$ is the same results when we restrict the search space within the terms in the Hamiltonian.
 As expected, it has $M^{-2}$ scaling and the structure is cosine modulation (inset).}
 \label{fig:hamiltonian_other}
 \end{figure}
@@ -619,13 +538,14 @@ the above expression simplifies to
 \begin{align}
 \frac{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U])}{\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)}=2\left(1 - \frac{\sum_{n=-N}^{N-1}c_n c_{n+1}}{\sum_{n=-N}^N c_n^2}\right) ~.
 \end{align}
-This is a trivial quadratic optimization problem and the solution is $c_n = \cos(n\pi/(2N))$.
+This is a trivial quadratic optimization problem and the solution is $c_n = \cos(n\pi/(2N+2))$.
 Therefore, the minimum value $\tilde{\lambda}$ for sufficiently large $N$ is
 \begin{align}
 \tilde{\lambda} &= \mathrm{min}\left[\frac{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U])}{\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)} \right] \nonumber\\
-&= 2 - 2\cos\left(\frac{\pi}{2N}\right) \simeq \frac{\pi^2}{4N^2} \sim \frac{1}{M^2} ~,
+&= 2 - 2\cos\left(\frac{\pi}{2N+2}\right) \simeq \frac{\pi^2}{4(N+1)^2} \sim \frac{1}{M^2} ~,
 \end{align}
-where we used the fact that the support $M = 4N +1 $.
+where we used the fact that the support $M = 4N +1 $. 
+
 
 Ref. ~\onlinecite{Kim_ETH} has shown that the $U_F$ (Eq. \eqref{eq:floquet_op}) thermalizes a local operator at infinite temperature,
 and thus $\mathrm{tr}(\hat{O}U^n\hat{O}U^{-n}) = 0$ for a sufficiently large $n$.
@@ -633,11 +553,24 @@ For the Floquet system, therefore, the above condition is approximately satisfie
 Figure \ref{fig:floquet} shows that for $N$ = 60 and 100, the form is very close to the cosine
 and the scaling for large $M = 2N +1$ closely follows $M^{-2}$ scaling.
 For a general random circuit, Figure \ref{fig:random_circuit} again shows $M^{-2}$ scaling. The structure of $\{c_n\}$
-is found to follow cosine modulation similar to the Floquet case (not shown).
+is found to follow cosine modulation similar to the Floquet case (not shown). 
 
-In the main text, we connected $\lambda(M)$ to the thermalization time scale by $\tau \sim \sqrt{\lambda(M)}$ (Eq. \eqref{eq:floquet_timescale}).
-At first glance, $\tau \sim \sqrt{\lambda(M)} \sim 1/M$ may seem trivial for an operator of support $M$ by Lieb-Robinson bound type argument, 
-but an important point here is that we computed the relaxation of an operator by the Frobenius norm, 
-not the operator norm by which the Lieb-Robinson bound has been computed \cite{Lieb:1972}.   
+One example of quantum circuits that satisfies the condition that $\mathrm{tr}(\hat{O}U^{n} \hat{O}U^{-n}) = 0$ for all $n\neq0$
+is the swap operator $U_{sw}$.
+\begin{align}
+U_{sw} = \prod_n V_{2n,2n+1} \prod_m V_{2m-1,2m} ~,
+\end{align}
+where $V_{x,y}$ swaps the spin $x$ and $y$; $V|i,j\rangle = |j,i\rangle$.
+Then, for an $\hat{O}$ acting on site 0, $U_{sw}$ moves $\hat{O}$ $2n$ sites to the left and $U_{sw}^{-n}$ moves $\hat{O}$ $2n$ sites to the right
+and thus the condition is satisfied.
+In this case, we can write every step analytically and $1/M^2$ scaling and the cosine modulation follows for any $M$.
+In a generic quantum circuit, however, these features are seen for sufficiently large $M$. 
+Furthermore, in a translation invariant system, $U_{sw}$ has an exact local conservation law.
+For instance, any translation invariant single site operator commutes with $U_{sw}$ and thus conserved. 
+
+In the main text, we connected $\lambda(M)$ to the thermalization time scale by $1/\tau \sim \sqrt{\lambda(M)}$ (Eq. \eqref{eq:floquet_timescale}).
+At first glance, $1/\tau \sim \sqrt{\lambda(M)} \sim 1/M$ may seem trivial for an operator of support $M$ by Lieb-Robinson bound type argument,
+but an important point here is that we computed the relaxation of an operator by the Frobenius norm,
+not the operator norm by which the Lieb-Robinson bound has been computed \cite{Lieb:1972}.
 
 \end{document}
