@@ -544,7 +544,7 @@ Therefore, the minimum value $\tilde{\lambda}$ for sufficiently large $N$ is
 \tilde{\lambda} &= \mathrm{min}\left[\frac{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U])}{\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)} \right] \nonumber\\
 &= 2 - 2\cos\left(\frac{\pi}{2N+2}\right) \simeq \frac{\pi^2}{4(N+1)^2} \sim \frac{1}{M^2} ~,
 \end{align}
-where we used the fact that the support $M = 4N +1 $. 
+where we used the fact that the support $M = 4N +1 $.
 
 
 Ref. ~\onlinecite{Kim_ETH} has shown that the $U_F$ (Eq. \eqref{eq:floquet_op}) thermalizes a local operator at infinite temperature,
@@ -553,20 +553,20 @@ For the Floquet system, therefore, the above condition is approximately satisfie
 Figure \ref{fig:floquet} shows that for $N$ = 60 and 100, the form is very close to the cosine
 and the scaling for large $M = 2N +1$ closely follows $M^{-2}$ scaling.
 For a general random circuit, Figure \ref{fig:random_circuit} again shows $M^{-2}$ scaling. The structure of $\{c_n\}$
-is found to follow cosine modulation similar to the Floquet case (not shown). 
+is found to follow cosine modulation similar to the Floquet case (not shown).
 
 One example of quantum circuits that satisfies the condition that $\mathrm{tr}(\hat{O}U^{n} \hat{O}U^{-n}) = 0$ for all $n\neq0$
 is the swap operator $U_{sw}$.
 \begin{align}
 U_{sw} = \prod_n V_{2n,2n+1} \prod_m V_{2m-1,2m} ~,
 \end{align}
-where $V_{x,y}$ swaps the spin $x$ and $y$; $V|i,j\rangle = |j,i\rangle$.
-Then, for an $\hat{O}$ acting on site 0, $U_{sw}$ moves $\hat{O}$ $2n$ sites to the left and $U_{sw}^{-n}$ moves $\hat{O}$ $2n$ sites to the right
+where $V_{x,y}$ swaps the spins ${\bf S}_x$ and ${\bf S}_y$; $V_{x,y}|{\bf S}_x,{\bf S}_y\rangle = |{\bf S}_y, {\bf S}_x\rangle$.
+Then, for an $\hat{O}$ acting on site 0, $U_{sw}$ moves $\hat{O}$ to the site $-2n$ and $U_{sw}^{-n}$ moves $\hat{O}$ to the site $2n$
 and thus the condition is satisfied.
-In this case, we can write every step analytically and $1/M^2$ scaling and the cosine modulation follows for any $M$.
-In a generic quantum circuit, however, these features are seen for sufficiently large $M$. 
+In this case, we can write every step analytically and prove $1/M^2$ scaling and the cosine modulation. 
+In a generic quantum circuit, however, these features are seen only for sufficiently large $M$.
 Furthermore, in a translation invariant system, $U_{sw}$ has an exact local conservation law.
-For instance, any translation invariant single site operator commutes with $U_{sw}$ and thus conserved. 
+For instance, any translation invariant single site operator commutes with $U_{sw}$ and thus conserved.
 
 In the main text, we connected $\lambda(M)$ to the thermalization time scale by $1/\tau \sim \sqrt{\lambda(M)}$ (Eq. \eqref{eq:floquet_timescale}).
 At first glance, $1/\tau \sim \sqrt{\lambda(M)} \sim 1/M$ may seem trivial for an operator of support $M$ by Lieb-Robinson bound type argument,
