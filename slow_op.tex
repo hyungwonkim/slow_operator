@@ -61,7 +61,6 @@ showing the existence of unexpected almost-conserved quantities.
 
 \maketitle
 
-%\section{Introduction}
 It has been proposed that an isolated quantum many-body system can still thermalize, in the sense that local observables approach their thermal equilibrium values \cite{Deutsch:1991,Srednicki:1994,Rigol:2008}.  The presence of additional conserved quantities leads to relaxation to a generalized ensemble \cite{Rigol:2007,Calabrese:2011,Gogolin:2011,Fagotti:2014}.  Experimental studies have increased the interest in these questions \cite{Polkovnikov:2011, Yukalov:2011}.  One proposed theoretical explanation is the eigenstate thermalization hypothesis (ETH) \cite{Deutsch:1991,Srednicki:1994,Rigol:2008,Santos:2010,Rigol:2012,Kruczenski:2013,Beugeling:2014,Sorg:2014,Kim_ETH,Goldstein:2014}, which argues that many-body eigenstates of thermalizing nonintegrable Hamiltonians have local reduced density operators that are thermal; then, at long times, dephasing between different energy eigenstates brings small subsystems to thermal equilibrium.
 
 However, not all systems show this local thermalization in an accessible time scale \cite{Banuls:2011}.
@@ -95,14 +94,14 @@ Thus, the real surprise is our numerical observation that there are other operat
 \begin{figure}
 \includegraphics[width=0.95\linewidth]{fig_hamiltonian.pdf}
 \centering
-\caption{(color online) (a) $\lambda(M)$ is the minimum of Eq. \eqref{eq:minimize}.  As we increase $M$, the commutator with the Hamiltonian decreases as shown.
+\caption{(color online) (a) $\lambda(M)$ vs. $M$.  As we increase $M$, the commutator with the Hamiltonian decreases as shown.
 %and thus the local operator relaxes slowly. The decreasing form
 This decrease can be well-fitted by either a power-law or $1/(M\log(M))^2$.
 (b)$\lambda_E(M)$ is the minimum of Eq. \eqref{eq:minimize} when only terms in the Hamiltonian are used.  As thermal diffusion suggests, it decreases as $1/M^2$. Inset: Structure of the optimal operator for $M = 11$. $X$, $Z$, and $ZZ$, are
-abbreviations of $\sigma^x_i$, $\sigma^z_i$, and $\sigma^z_i \sigma^z_{i+1}$, respectively.
-We locate the $\sigma^z_i \sigma^z_{i+1}$ term at position $i+1/2$.  The coefficients are normalized to have unit square norm ($\sum_\ell c_\ell^2 = 1$).
-It shows a clear sinusoidal energy modulation with the expected wavelength $2M$, and with the relative ratios equal to those in the Hamiltonian.
-(the vertical axis in the inset should not say "weight", since weight would be $c_{\ell}^2$.  Maybe it should be labeled $c_{\ell}$) }
+abbreviations of $\sigma^x_\ell$, $\sigma^z_\ell$, and $\sigma^z_\ell \sigma^z_{\ell+1}$, respectively.
+We locate the $\sigma^z_\ell \sigma^z_{i+1}$ term at position $\ell+1/2$.  The coefficients are normalized to have unit square norm ($\sum_\ell c_\ell^2 = 1$).
+It shows a clear sinusoidal energy modulation with the expected wavelength $2M$, and with the relative ratios equal to those in the Hamiltonian.}
+%(the vertical axis in the inset should not say "weight", since weight would be $c_{\ell}^2$.  Maybe it should be labeled $c_{\ell}$) }
 \label{fig:hamiltonian}
 \end{figure}
 
@@ -118,19 +117,19 @@ Ref.~\onlinecite{Banuls:2011} has found a nonthermalizing state for this model w
 We choose $(g,h) = (0.905, 0.809)$, at which this model is known to be robustly nonintegrable even for a relatively small system size \cite{Kim:2013}.
 See supplemental for another choice of parameters.
 
-We consider local operators supported on a finite interval; an operator supported on consecutive $M$ sites is said to have ``range $M$".
+We consider local operators supported on a finite interval of consecutive $M$ sites. %; an operator supported on consecutive $M$ sites is said to have ``range $M$".
 For simplicity, we do not assume translation invariance
 \footnote{We have also performed similar analysis in the infinite chain with translation invariance so the action of the local operator is the same on all sites. Most of our main results (Figures \ref{fig:hamiltonian} (a), \ref{fig:floquet} (a), and \ref{fig:random_circuit})
 remain true. Since translation non-invariant system is easier to visualize the local operators and to directly compare with diffusive energy mode, here we present the results on an infinite chain where a local operator is placed at some finite sites.}.
-Each traceless operator
-$\hat{A}_M$ can always be expressed by a linear combination of $4^M - 1$ traceless basis operators (excluding the identity).
+Every traceless Hermitian operator
+$\hat{A}_M$ can be expressed by a linear combination of $4^M - 1$ traceless Hermitian basis operators (excluding the identity).
 Therefore, we write
 \begin{align}
-\hat{A}_M = \sum_{\ell = 1}^{4^M - 1} c_\ell \hat{O}_{M,\ell} ~,
+\hat{A}_M = \sum_{\ell = 1}^{4^M - 1} c_\ell \hat{O}_{(M,\ell)} ~,
 \end{align}
-where $c_\ell$ is a real number ($\hat{A}_M$ should be hermitian) and $\hat{O}_{M,\ell}$ is the corresponding basis operator.
-We choose $\hat{O}_{M,\ell}$ to be mutually orthogonal using the Hilbert-Schmidt inner product so that
-$\mathrm{tr(\hat{O}_{M,\ell} \hat{O}_{M,k})} = 0$ for $\ell\neq k$.
+where $c_\ell$ is a real number and $\hat{O}_{(M,\ell)}$ is the corresponding basis operator.
+We choose $\hat{O}_{(M,\ell)}$ to be mutually orthogonal using the Hilbert-Schmidt inner product so that
+$\mathrm{tr(\hat{O}_{(M,\ell)} \hat{O}_{(M,k)})} = 0$ for $\ell\neq k$.
 
 %The time derivative of an operator is proportional to its commutator with the Hamiltonian.
 The dynamics of an operator comes from the commutator with Hamiltonian.
@@ -142,16 +141,20 @@ and the Frobenius norm ($\sqrt{\mathrm{tr(\hat{O}\hat{O}^\dag)}}$). Each norm ha
 Although the operator norm is physically the most relevant one for our purpose,
 we choose the Frobenius norm since it is the easiest to numerically optimize.
 See supplementary material for details of the relevance of the operator norm.},
-we wish to minimize the following quadratic form:
+we minimize the following quadratic form:
 \begin{align}\label{eq:minimize}
-\frac{\mathrm{tr([\hat{A}_M,H][\hat{A}_M,H]^\dag)}}{\mathrm{tr(\hat{A}_M\hat{A}^\dag_M)}} = \sum_{\ell,k}\frac{c_\ell c_k \mathrm{tr([\hat{O}_{M,\ell},H][\hat{O}_{M,k},H]^\dag)}}{\sum_j c_j ^2 \mathrm{tr((\hat{O}_{M,j})^2)}} ~.
+f(\hat{A}_M) &= \frac{\mathrm{tr([\hat{A}_M,H][\hat{A}_M,H]^\dag)}}{\mathrm{tr(\hat{A}_M\hat{A}^\dag_M)}} \nonumber\\
+&= \sum_{\ell,k}\frac{c_\ell c_k \mathrm{tr([\hat{O}_{(M,\ell)},H][\hat{O}_{(M,k)},H]^\dag)}}{\sum_j c_j ^2 \mathrm{tr((\hat{O}_{(M,j)})^2)}} ~.
 \end{align}
-We call the minimum of this expression (and similar for the Floquet system later) $\lambda(M)$.
+We define $\lambda(M)$ to be the minimum of $f(\hat{A}_M)$:
+\begin{align}
+\lambda(M) = \mathrm{min}\{f(\hat{A}_M)\} ~.
+\end{align}
 Since the Hamiltonian has time-reversal symmetry,
 we can consider even and odd operators under time-reversal separately.
-It turns out that for $M\geq 4$, $\hat{A}_M$ that minimizes Eq. \eqref{eq:minimize} always comes from the even sector.
+It turns out that for $M\geq 4$, the minimizer of $f(\hat{A}_M)$ always comes from the even sector.
 
-First, let's understand what this quantity means.
+First, let's understand the physical meaning of this quantity.
 We consider an initial mixed state $\rho$ such as
 \begin{align}\label{eq:initial}
 \rho = \frac{1}{Z}I + \epsilon\hat{A}_M ~,
@@ -164,21 +167,25 @@ $a_M(t) = (1/\epsilon)\mathrm{tr}(\rho \hat{A}_M(t)) = \mathrm{tr}(\hat{A}_M \ha
 where $\hat{A}_M(t)$ is in the Heisenberg picture.
 Using Cauchy-Schwarz inequality, we can show the following:
 \begin{align}
-\left|\frac{d^2 a_M(t)}{dt^2}\right| = |\mathrm{tr}([\hat{A}_M(t),H][\hat{A}_M,H])| \leq \lambda(M) ~,
+\left|\frac{d^2 a_M(t)}{dt^2}\right| = |\mathrm{tr}([\hat{A}_M(t),H][\hat{A}_M,H])| \leq f(\hat{A}_M) ~,
+\label{eq:second_derivative}
 \end{align}
 Therefore, we can bound the distance between $a_M(t)$ and $a_M(0)$.
 \begin{align}
-|a_M(t) - a_M(0)| = \left|\int^t_0 d\tau \int^\tau_0 d\tau' \frac{d^2 a_M(\tau')}{d\tau'^2}\right| \leq \frac{\lambda(M) t^2}{2} ~.
+|a_M(t) - a_M(0)| = \left|\int^t_0 d\tau \int^\tau_0 d\tau' \frac{d^2 a_M(\tau')}{d\tau'^2}\right| \leq \frac{f(\hat{A}_M) t^2}{2} ~.
 \end{align}
 In thermodynamic limit and finite $M$, the thermal expectation value is
-$a_M^{th} \simeq \rm{tr}(\hat{A}_M) = 0$ with negligible correction.
-Finally, we have
+$a_M^{th} \simeq \rm{tr}(\hat{A}_M) = 0$ with negligible error.
+Now, we have the following inequality:
 \begin{align}
 |a_M(t) - a_M^{th}| &\geq |a_M(0) - a_M^{th}| - |a_M(0) - a_M(t)| \nonumber\\
-& \geq 1 - \frac{\lambda(M)t^2}{2} ~.
+& \geq 1 - \frac{f(\hat{A}_M)t^2}{2} ~.
 \label{eq:hamiltonian_timescale}
 \end{align}
-Therefore, $\lambda(M)$ characterizes the thermalization time scale $\tau$ of $\hat{A}_M$ by $\tau \sim \lambda(M)^{-1/2}$.
+$f(\hat{A}_M)$ characterizes the thermalization time scale $\tau$ of $\hat{A}_M$ by $\tau \sim f(\hat{A}_M)^{-1/2}$. 
+Therefore, small $\lambda(M)$ implies a long thermalization time scale of the corresponding $\hat{A}_M$ 
+In addition, since $\lambda(M)$ is the minimum of Eq. \eqref{eq:second_derivative} at $t =0$, 
+the optimal $\hat{A}_M$ is the slowest operator at early time. 
 
 %Now we look at how $\hat{A}_M$ changes as a function of time:
 %$\langle \hat{A}_M(t) \rangle = \mathrm{tr(\rho e^{iHt} \hat{A}_M e^{-iHt})} = (\epsilon/Z)\mathrm{tr(\hat{A}_M e^{iHt} \hat{A}_M e^{-iHt})}$.
@@ -193,8 +200,8 @@ Therefore, $\lambda(M)$ characterizes the thermalization time scale $\tau$ of $\
 %this minimization already gives nontrivial results as we report below.
 
 
-Figure \ref{fig:hamiltonian} (a) plots $\lambda (M)$, defined to be the minimum value of Eq. \eqref{eq:minimize}.
-It is clear that $\lambda$ decreases with $M$.
+Figure \ref{fig:hamiltonian} (a) plots $\lambda (M)$.  %, defined to be the minimum value of Eq. \eqref{eq:minimize}.
+It is clear that $\lambda(M)$ decreases with $M$.
 The data can be well-fitted by two functional forms; power-law decay with exponent $2.62$ and a logarithmic correction to $1/M^2$, which is $1/(M\log(M))^2$.
 In either case, the rate of decrease with $M$ is {\it faster} than $1/M^2$, which is the scaling of the slowest diffusive energy mode as we show now.
 
@@ -209,22 +216,22 @@ A slowly relaxing energy mode can be constructed by considering an energy modula
 where $h_i$ is the energy density operator ($g \sigma^x_i + h\sigma^z_i + 1/2(\sigma^z_{i-1}\sigma^z_i + \sigma^z_i\sigma^z_{i+1}$))
 and $c_M(i)$ is the cosine modulation function restricted in $[-M/2,M/2]$.
 Since the energy is a conserved density, we can use the continuity equation:
-$d h_i/dt = -\nabla \cdot {\bf j}_i$, where ${\bf j}_i$ is the energy current density at site $i$, respectively.
-It is straightforward to show that ${\bf j}_i = g(\sigma^y_i \sigma^z_{i+1} - \sigma^y_{i+1} \sigma^z_i)$.
+$d h_i/dt = -\nabla \cdot {\bf j}_i$, where ${\bf j}_i$ is the energy current density at site $i$: 
+${\bf j}_i = g(\sigma^y_i \sigma^z_{i+1} - \sigma^y_{i+1} \sigma^z_i)$.
 Combining this with the Heisenberg equation of motion, we have the following.
 \begin{align}
  i[H,\hat{E}_M] &= \frac{d}{dt} \hat{E}_M = -\sum_i c_M(i) \partial_i \cdot {\bf j}_i \\
  &= \sum_i {\bf j}_i \partial_i c_M(i) \simeq -\frac{\pi}{M} \sum_i s_M(i) h_i,
 \end{align}
-where $\partial_i$ is the discrete spatial derivative and $s_M(i)$ is the sine modulation function.
-Therefore, the squared Frobenius norm of the commutator of $\hat{E}_M$ scales as $1/M^2$.
+where $\partial_i$ is the discrete spatial derivative and $s_M(i)$ is the sine modulation.
+Therefore, $\mathrm{tr}([H,\hat{E}_M][H,\hat{E}_M]^\dag) \sim 1/M^2$.
 
 Here, we adapt a slightly more conservative approach.
 We do the same numerical search as before but restrict the operator space within the terms in the Hamiltonian
 so we only consider $3M-1$ basis operators instead of $4^M-1$.
-Figure \ref{fig:hamiltonian} (b) is the plot of minimum of Eq.~\eqref{eq:minimize} in a restricted space.
+Figure \ref{fig:hamiltonian} (b) plots the minimum of $f(\hat{A}_M)$ in this restricted space.
 As expected, we have almost perfect $1/M^2$ scaling.
-Furthermore, since there are only a few basis operators, we can easily look at the details of the structure of the optimal operator.
+Since there are only a few basis operators, we can easily look at the details of the structure of the optimal operator.
 The inset of Figure \ref{fig:hamiltonian} (b) is the structure of the optimal operator in terms of the local terms in Hamiltonian.
 It is indeed the form of Eq.~\eqref{eq:energy_modulation} and thus the energy modulation of the longest wavelength is the slowest mode
 from the local conservation law.
@@ -243,7 +250,7 @@ from the local conservation law.
 \begin{figure}
 \includegraphics[width=0.95\linewidth]{fig_floquet.pdf}
 \centering
-\caption{(color online) (a) $\lambda(M)$ (blue X) is the exact minimum from exhaustive search and $\tilde{\lambda}(M)$ (green dot) is a variational upper bound from the form of Eq. \eqref{eq:filter}. The fractional difference between $\lambda(M)$ and $\tilde{\lambda}(M)$ is less than 1/200 for $M$ = 3,5,7,9, and 11. $\tilde{\lambda}(M)$ decreases close to $M^{-2}$ asymptotically. Note that there is a strong parity effect in the exact result: $\lambda(2N-1) \simeq \lambda(2N)$.
+\caption{(color online) (a) $\lambda(M)$ (blue X) is the exact minimum from exhaustive search and $\tilde{\lambda}(M)$ (green dot) is a variational upper bound found in the form of Eq. \eqref{eq:filter}. The fractional difference between $\lambda(M)$ and $\tilde{\lambda}(M)$ is less than 1/200 for $M$ = 3,5,7,9, and 11. $\tilde{\lambda}(M)$ decreases close to $M^{-2}$ asymptotically. Note that there is a strong parity effect in the exact result: $\lambda(2N-1) \simeq \lambda(2N)$.
 (b) Structure of coefficients $c_n$ (dots) for $N$ = 20 (blue, most narrow) ,60 (red, intermediate width) , and 100 (black, widest). They all can be well fitted by a cosine function with wavelength $4N+2$ (solid lines) except near $n = 0$ of $N = 20$. }
 \label{fig:floquet}
 \end{figure}
@@ -261,33 +268,34 @@ of the Hamiltonian. We choose $\tau = 0.8$.
 Although $U_F$ does not conserve energy, it acts {\it locally} on the system.
 This type of Floquet operator is shown to thermalize a local operator at infinite temperature ensemble \cite{Kim_ETH,Prosen:2002}.
 
-Again we minimize the square of the Frobenius norm of the commutator with the Floquet operator.
+We minimize the square of the Frobenius norm of the commutator with the Floquet operator.
 This time we use a Lanczos method to find the $2^M \times 2^M$ matrix $\hat{A}_M$
 that minimizes \footnote{Unlike the Hamiltonian, the Floquet operator makes the matrix of dimension $4^M-1$ in Eq. \eqref{eq:minimize} dense and thus
 limits the largest $M$ that can be explored by the same method to 8. A Lanczos method enables us to access at least up to $M = 11$ exactly.}:
 \begin{align}\label{eq:floquet_minimize}
-\lambda(M) = \frac{\mathrm{tr}([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)}{\mathrm{tr}(\hat{A}_M\hat{A}_M^\dag)} ~.
+g(\hat{A}_M) = \frac{\mathrm{tr}([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)}{\mathrm{tr}(\hat{A}_M\hat{A}_M^\dag)} ~.
 \end{align}
+Again, we define $\lambda(M) = \mathrm{min}\{g(\hat{A}_M)\}$. 
 
-Let us again relate $\lambda(M)$ with the thermalization time scale.
+Let's relate $g(\hat{A}_M) $ with the thermalization time scale.
 As in the case of Hamiltonian system, we consider the same initial state, Eq. \eqref{eq:initial}.
 Since the time step in the Floquet system is discrete, we define $a_M^{(N)} = \mathrm{tr}(\hat{A}_M(N)\hat{A}_M )$, with
 $a_M^{(0)} = 1$ and $\hat{A}_M(N) = U_F^{\dag N}\hat{A}_M U_F^N$. Using Cauchy-Schwarz inequality, we can show that
 \begin{align}
-|a_M^{(n+1)} - a_M^{(n)}| = |\mathrm{tr}([\hat{A}_M(N),U_F]\hat{A}_M U_F^{\dag})| \leq \sqrt{\lambda(M)} ~.
+|a_M^{(n+1)} - a_M^{(n)}| = |\mathrm{tr}([\hat{A}_M(N),U_F]\hat{A}_M U_F^{\dag})| \leq \sqrt{g(\hat{A}_M) } ~.
 \end{align}
-From this, we have the following inequality:
+Then, the following inequality follows:
 \begin{align}
 |a_M^{(N)} - a_M^{0}| &= \left|\sum_{n=0}^{N-1}a_M^{(n+1)} - a_M^{(n)}\right| \nonumber\\
-&\leq \sum_{n = 0}^{N-1}|a_M^{(n+1)} - a_M^{(n)}| \leq N \sqrt{\lambda(M)} ~.
+&\leq \sum_{n = 0}^{N-1}|a_M^{(n+1)} - a_M^{(n)}| \leq N \sqrt{g(\hat{A}_M) } ~.
 \end{align}
 In case of the Floquet, the thermal expectation value $\hat{a}_M$ is indeed zero and thus
 \begin{align}
-|a_M^{(N)} - a_M^{th}| \geq |a_M^{(0)}| - |a_M^{(N)} - a_M^{(0)}| \geq 1 - N \sqrt{\lambda(M)} ~.
+|a_M^{(N)} - a_M^{th}| \geq |a_M^{(0)}| - |a_M^{(N)} - a_M^{(0)}| \geq 1 - N \sqrt{g(\hat{A}_M) } ~.
 \label{eq:floquet_timescale}
 \end{align}
-This proves that $\lambda(M)$ characterizes the thermalization time step $\tau$ of $\hat{A}_M$ by
-$\tau \sim \lambda(M)^{-1/2}$.
+This proves that $g(\hat{A}_M)$ characterizes the thermalization time step $\tau$ of $\hat{A}_M$ by
+$\tau \sim g(\hat{A}_M) ^{-1/2}$. Again, small $\lambda(M)$ implies a long thermalization time step. 
 
 %It is straightforward to show that $\lambda(M)$ is twice of the
 %difference of the expectation value of $\hat{A}_M$ between the initial state and the state after one Floquet driving
@@ -306,7 +314,7 @@ We find the operator of the following {\it filtered} form,
  \tilde{A}_N=\sum_{n=-N}^N c_n U^n \hat{O} U^{- n} ~,
  \label{eq:filter}
 \end{align}
-that minimizes $\tilde{\lambda} = \mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U]^\dag)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)$
+that gives $\tilde{\lambda}(M) = \mathrm{min}\left[\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U]^\dag)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)\right]$
 by varying the coefficients $\{c_n\}$ and the Hermitian $\hat{O}$.
 This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace,
 but here we use a tensor network method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}). All data (including the random circuit case we discuss below) have well converged at the bond dimension 80.
@@ -318,7 +326,7 @@ agrees very well with the exhaustive search until $M = 11$ ($N = 5$), which is t
 with the {\it same} single site operator $\hat{O}$.
 We find it to be $\hat{O} = 0.04\sigma^x  - 0.66\sigma^y + 0.75\sigma^z$ for the given model and the parameter choice.
 Note that $\tilde{A}_N$ can only be supported on odd number of sites.
-It turns out that the exact operator of even range can be approximated by a simple symmetric extension:
+It turns out that the exact operator of even support can be approximated by a simple symmetric extension:
 $\tilde{A}_N\otimes \sigma^0 + \sigma^0\otimes\tilde{A}_N$, where $\sigma^0$ is an identity.
 %\footnote{When $\hat{O}$ acts on two sites, the filtered construction covers even sites.
 %However, this turns out not to be close to the exact result for small $M$.}.
@@ -330,9 +338,6 @@ $\tilde{\lambda}(M)$, which obtained by the form of Eq. \eqref{eq:filter}.
 $\tilde{\lambda}(M)$ asymptotically decreases very close to $M^{-2}$
 and its optimal distribution of $\{ c_n\}$ is close to a cosine modulation (Figure \ref{fig:floquet} (b)),
 which re-appears in a random circuit model we study later.
-
-
-
 
 
 Comparing Figure \ref{fig:floquet} (a) with Figure \ref{fig:hamiltonian} (a),
@@ -563,7 +568,7 @@ U_{sw} = \prod_n V_{2n,2n+1} \prod_m V_{2m-1,2m} ~,
 where $V_{x,y}$ swaps the spins ${\bf S}_x$ and ${\bf S}_y$; $V_{x,y}|{\bf S}_x,{\bf S}_y\rangle = |{\bf S}_y, {\bf S}_x\rangle$.
 Then, for an $\hat{O}$ acting on site 0, $U_{sw}$ moves $\hat{O}$ to the site $-2n$ and $U_{sw}^{-n}$ moves $\hat{O}$ to the site $2n$
 and thus the condition is satisfied.
-In this case, we can write every step analytically and prove $1/M^2$ scaling and the cosine modulation. 
+In this case, we can write every step analytically and prove $1/M^2$ scaling and the cosine modulation.
 In a generic quantum circuit, however, these features are seen only for sufficiently large $M$.
 Furthermore, in a translation invariant system, $U_{sw}$ has an exact local conservation law.
 For instance, any translation invariant single site operator commutes with $U_{sw}$ and thus conserved.
