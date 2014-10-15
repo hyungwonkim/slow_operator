@@ -51,7 +51,7 @@ We find %slow
 operators with significantly slower relaxation than
 the slowest simple ``hydrodynamic'' mode due to energy diffusion.
 %would be expected from a hydrodynamic description.
-Combining methods of exhaustive search and tensor network techniques, we find
+Using both exhaustive search and tensor network techniques, we find
 similar slowly relaxing operators for a Floquet spin chain and for quantum circuits on spin chains;
 these systems are hydrodynamically ``trivial'', with no conservation laws restricting their dynamics.
 We argue that such slow relaxation may be a generic feature following from locality and unitarity.
@@ -73,9 +73,9 @@ One of such operators with a small commutator is the one that results from the t
 %The time scale of simple energy diffusion is discussed below, where w
 We also construct the pattern of local energy density that gives the slowest operator of that form.  This operator and its commutator with the Hamiltonian
 %s describing local energy diffusion in our subregion of length $M$ spins.  This time scale
-matches the expectations from diffusive hydrodynamics, with the square of the Frobenius norm of the commutator $\sim M^{-2}$ for the slowest such operator on a subregion containing $M$ spins.
+match the expectations from diffusive hydrodynamics, with the square of the Frobenius norm of the commutator $\sim M^{-2}$ for the slowest such operator on a subregion containing $M$ spins.
 %$\sim M^2/D$, where $D$ is the thermal diffusivity. %and the momentum $k$ is inversely proportional to the interval length.
-However, numerically we find that the commutator for the slowest operator that we find by exhaustive unrestricted search appears to decrease with a {\it larger} power of length than this diffusive $\sim M^{-2}$, and for the accessible system sizes is quantitatively substantially smaller (slower) than that of the simple diffusive mode.
+However, numerically we observe that the commutator for the slowest operator that we find by exhaustive unrestricted search appears to decrease with a {\it larger} power of length than this diffusive $\sim M^{-2}$, and for the accessible system sizes is quantitatively substantially smaller (slower) than that of the simple diffusive mode.
 
 To further understand the presence of such approximately conserved quantities we then turn to a Floquet spin chain where energy is not conserved.
 We also find slowly relaxing operators in this Floquet system.
@@ -122,7 +122,7 @@ See supplemental for another choice of parameters.
 We consider local operators supported on a finite interval of $M$ consecutive sites. %; an operator supported on consecutive $M$ sites is said to have ``range $M$".
 For simplicity, we do not assume translation invariance
 \footnote{We have also performed similar analysis in the infinite chain with translation invariance so the action of the local operator is the same on all sites. Most of our main results (Figures \ref{fig:hamiltonian} (a), \ref{fig:floquet} (a), and \ref{fig:random_circuit})
-remain true. Since translation non-invariant system is easier to visualize the local operators and to directly compare with diffusive energy mode, here we present the results on an infinite chain where the local operator is placed $M$ specific consecutive sites.}.
+remain true. Since it is easier to visualize the local operators and to directly compare with diffusive energy mode in a translationally non-invariant system, here we present the results on an infinite chain where the local operator is placed on $M$ specific consecutive sites.}.
 Every traceless Hermitian operator
 $\hat{A}_M$ can be expressed by a linear combination of $4^M - 1$ traceless Hermitian basis operators (excluding the identity).
 Therefore, we write
@@ -217,8 +217,8 @@ A slowly relaxing energy mode can be constructed by considering an energy modula
 \label{eq:energy_modulation}
 \end{align}
 where $h_i$ is the energy density operator ($g \sigma^x_i + h\sigma^z_i + 1/2(\sigma^z_{i-1}\sigma^z_i + \sigma^z_i\sigma^z_{i+1}$))
-and $c_M(i)$ is the cosine modulation function restricted in $[-M/2,M/2]$.
-Since the energy is a conserved density, we can use the continuity equation:
+and $c_M(i)$ is the cosine modulation function restricted to lie in $[-M/2,M/2]$.
+Since the energy is conserved, we can use the continuity equation:
 $d h_i/dt = -\nabla \cdot {\bf j}_i$, where ${\bf j}_i$ is the energy current density at site $i$:
 ${\bf j}_i = g(\sigma^y_i \sigma^z_{i+1} - \sigma^y_{i+1} \sigma^z_i)$.
 Combining this with the Heisenberg equation of motion, we have the following.
@@ -273,10 +273,10 @@ Although $U_F$ does not conserve energy, it acts {\it locally} on the system.
 This type of Floquet operator is shown to thermalize a local operator to the infinite temperature ensemble \cite{Kim_ETH,Prosen:2002}.
 
 We minimize the square of the Frobenius norm of the commutator with the Floquet operator.
-This time we use a Lanczos method to find the $2^M \times 2^M$ matrix $\hat{A}_M$ up to $M = 11$ and a tensor network method for $M = 12, 14, 16$  
+This time we use a Lanczos method to find the $2^M \times 2^M$ matrix $\hat{A}_M$ up to $M = 11$ and a tensor network method for $M = 12, 14, 16$
 that minimizes \footnote{Unlike the Hamiltonian, the Floquet operator makes the matrix of dimension $4^M-1$ in Eq. \eqref{eq:minimize} dense and thus
-limits the largest $M$ that can be explored by the same method to 8. A Lanczos method enables us to access at least up to $M = 11$ exactly. 
-Using a tensor network method, we obtain convergent results with bond dimension 220 up to $M$ = 16.}:
+limits the largest $M$ that can be explored by the same method to 8. A Lanczos method enables us to access at least up to $M = 11$ exactly.
+Using a tensor network method, we obtain convergent results with bond dimension of order 200 up to $M$ = 16.}:
 \begin{align}\label{eq:floquet_minimize}
 g(\hat{A}_M) = \frac{\mathrm{tr}([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)}{\mathrm{tr}(\hat{A}_M\hat{A}_M^\dag)} ~.
 \end{align}
@@ -295,7 +295,7 @@ Then, the following inequality follows:
 |a_M^{(N)} - a_M^{0}| &= \left|\sum_{n=0}^{N-1}a_M^{(n+1)} - a_M^{(n)}\right| \nonumber\\
 &\leq \sum_{n = 0}^{N-1}|a_M^{(n+1)} - a_M^{(n)}| \leq N \sqrt{g(\hat{A}_M) } ~.
 \end{align}
-In case of the Floquet, the thermal expectation value $\hat{a}_M$ is indeed zero and thus
+In case of the Floquet system, the thermal expectation value $\hat{a}_M$ is indeed zero and thus
 \begin{align}
 |a_M^{(N)} - a_M^{th}| \geq |a_M^{(0)}| - |a_M^{(N)} - a_M^{(0)}| \geq 1 - N \sqrt{g(\hat{A}_M) } ~.
 \label{eq:floquet_timescale}
@@ -315,22 +315,23 @@ $N \geq g(\hat{A}_M) ^{-1/2}$. Again, small $\lambda(M)$ implies a long thermali
 To extend to larger systems, we use a tensor network technique and assume a specific form of the optimal operator.
 We consider operators in the space spanned by $U^n \hat{O} U^{- n}$ for $\hat{O}$ a traceless hermitian operator acting on a single site
 and taking a finite number of powers of unitary operator $U$ (this case, the Floquet $U_F$).
-We find the operator of the following {\it filtered} form,
+Considering the operator of the following {\it filtered} form,
 \begin{align}
  \tilde{A}_N=\sum_{n=-N}^N c_n U^n \hat{O} U^{- n} ~,
  \label{eq:filter}
 \end{align}
-that gives $\tilde{\lambda}(M) = \mathrm{min}\left[\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U]^\dag)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)\right]$
+where $\tilde{A}_N$ is supported on $M = 2N+1$ sites for the Floquet ($U = U_F$),  
+we find $\tilde{A}_N$ that gives $\tilde{\lambda}(M) = \mathrm{min}\left[\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U]^\dag)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)\right]$
 by varying the coefficients $\{c_n\}$ and $\hat{O}$.
 This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace,
 but here we use a tensor network method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}). All data (including the random circuit case we discuss below) have well converged at the bond dimension 80.
 Thus $\tilde{\lambda}$ is a variational upper bound of the true minimum $\lambda$.
-Note that for the Floquet $U_F$, $\tilde{A}_N$ is supported on $M = 2N+1$ sites.
 Interestingly, this simple model \footnote{there are only 2$N$+ 4 real variables ($2N+1$ for $c_n$'s and 3 for $\hat{O}$) instead of $4^{2N+1} - 1$ variables
 in the case of the exhaustive search.}
-agrees very well with the exhaustive search until $M = 11$ ($N = 5$), which is the largest accessible size by the exact method,
-with the {\it same} single site operator $\hat{O}$.
-We find it to be $\hat{O} = 0.04\sigma^x  - 0.66\sigma^y + 0.75\sigma^z$ for the given model and the parameter choice.
+agrees very well with the exhaustive search until $M = 11$ ($N = 5$), which is the largest accessible size by the exact method.
+Moreover, we find that the filtered $\hat{A}_N$ that gives $\tilde{\lambda}(M)$ 
+is obtained from the same single site operator $\hat{O}$ for all values of $N$. 
+For the given model and the parameters, $\hat{O} = 0.04\sigma^x  - 0.66\sigma^y + 0.75\sigma^z$. 
 Note that $\tilde{A}_N$ can only be supported on odd number of sites.
 It turns out that the exact operator of even support can be approximated by a simple symmetric extension:
 $\tilde{A}_N\otimes \sigma^0 + \sigma^0\otimes\tilde{A}_N$, where $\sigma^0$ is an identity.
@@ -340,7 +341,7 @@ Therefore, $\lambda(2N-1) \simeq \lambda(2N)$.
 
 
 Figure \ref{fig:floquet} (a) is the plot of $\lambda (M)$, the minimum value of Eq. \ref{eq:floquet_minimize}, and
-$\tilde{\lambda}(M)$, which obtained by the form of Eq. \eqref{eq:filter}.
+$\tilde{\lambda}(M)$, which was obtained by the form of Eq. \eqref{eq:filter}.
 $\tilde{\lambda}(M)$ asymptotically decreases very close to $M^{-2}$
 and its optimal distribution of $\{ c_n\}$ is close to a cosine modulation (Figure \ref{fig:floquet} (b)),
 which re-appears in a random circuit model we study later.
@@ -376,7 +377,7 @@ the support of $\tilde{A}_N$ is now $4N+1$ instead of $2N+1$.
 In this random circuits, generally there is no single site Hermitian $\hat{O}$
 that matches the exact calculation for a small system size, unlike in the Floquet operator we studied earlier.
 Therefore, we just choose $\hat{O} = 1/2\sigma^z$ as a single site hermitian.
-The weights $c_n$ again agrees very well with a cosine shape and $\lambda$ decays close to $1/M^2$.
+The weights $c_n$ again agree very well a cosine shape and $\lambda$ decays close to $1/M^2$.
 This hints that $1/M^2$ would be a generic feature.
 
 Such a decay $1/M^2$ would be exact with a cosine if
@@ -392,7 +393,7 @@ We have numerically constructed a series of local operators that relax slower th
 We have also performed the same analysis in the similar system without energy conservation,
 the Floquet system and for a family of quantum circuits, again finding slowly relaxing operators.
 %The structure of the operators found displays some spatial modulation, with smaller coefficients for terms nears the edge.
-The structure of the operators found turn out to be very complicated, involving all basis operators
+The structure of the operators found turns out to be very complicated, involving all basis operators
 (if we restrict to just the terms in the Hamiltonian, we only obtain simpler operators related to energy currents),
 and so their origin remains unclear.
 %However the operators involve complicated many-body terms (if we restrict to just the terms in the Hamiltonian, we only obtain simpler operators related to energy currents) and so their origin remains unclear.
@@ -507,9 +508,9 @@ Therefore, we again explicitly demonstrate that the longest wavelength energy mo
 We now show that a slowly relaxing operator must always exist, on an interval of length $M$ with the relaxation rate going to zero as $M$ gets large.  Let $U$ be the unitary of the quantum circuit restricted to an interval of length slightly larger than $M$ (in this way, we can consider only finite dimensional spaces).
 
 Let ${\cal E}(\hat{O})$ be a super-operator defined by ${\cal E}(\hat{O})=U\hat{O}U^\dagger$.  The space of operators can be regarded as a vector space, with inner product $(A,B)={\rm tr}(A^\dagger B)$, and with ${\cal E}(\hat{O})$ being a linear operator on this space.  The operator ${\cal E}$ is non-Hermitian but it is a normal operator, since its Hermitian conjugate is equal to ${\cal E}^\dagger(\hat{O})=U^\dagger \hat{O} U$ and ${\cal E}({\cal E}^\dagger(\hat{O}))={\cal E}^\dagger({\cal E}(\hat{O}))=\hat{O}$ and so $[{\cal E},{\cal E}^\dagger]=0$.
-Let ${\cal E}_h=\frac{1}{2}({\cal E}+{\cal E}^\dagger)$ and ${\cal E}_a=\frac{1}{2i}({\cal E}+{\cal E}^\dagger)$.
+Let ${\cal E}_h=\frac{1}{2}({\cal E}+{\cal E}^\dagger)$ and ${\cal E}_a=\frac{1}{2i}({\cal E}-{\cal E}^\dagger)$.
 
-We begin by constructing an operator $\hat{O}$ supported on an interval of length $M$ such that ${\cal E}_h(\hat{O})= x \hat{O}+\epsilon$ for some $x$ and for $\epsilon={\cal O}(1/M)$.  Let $A$ be any traceless operator supported on a single site in the center of the interval.  We consider the Krylov space generated by the vectors $A, {\cal E}_h(A), {\cal E}_h^2(A),...$.  Let $K$ be the number of vectors we take; $K$ will be proportional to $M$ and will be chosen such that all these operators are supported on the interval of length $M$.
+We begin by constructing an operator $\hat{O}$ supported on an interval of length $M$ such that ${\cal E}_h(\hat{O})= x \hat{O}+\hat{\epsilon}$ for some $x$ and for $\hat{\epsilon}={\cal O}(1/M)$.  Let $A$ be any traceless operator supported on a single site in the center of the interval.  We consider the Krylov space generated by the vectors $A, {\cal E}_h(A), {\cal E}_h^2(A),...$.  Let $K$ be the number of vectors we take; $K$ will be proportional to $M$ and will be chosen such that all these operators are supported on the interval of length $M$.
 Since ${\cal E}_h$ is Hermitian, using the Lanczos procedure we can write it as a tridiagonal matrix $T$ in this Krylov space.   We claim that that there exists a vector $v$ supported on the first $K-1$ vectors $w_1,...,w_{K-1}$ such that $|Tv-xv|^2/|v|^2\leq {\cal O}(1/K^2)$.  To verify this claim, let $\psi$ be any eigenvector of $T$ with at least half its weight on the first $K/2$ vectors with $\psi=\sum_k a_k v_k$; let $x$ be the corresponding eigenvalue; let $v=\sum_k a_k (1-k/K) v_k$.
 The basis in which the matrix is tridiagonal has basis vectors $w_1,w_2,...$, with $w_k$ being in the span of the first $k$ vectors $A, {\cal E}_h(A),...$
 Hence, the vector $v$ gives us the desired operator $\hat{O}$.
@@ -519,7 +520,7 @@ Now consider the operators
 \hat{O}_{\pm}=(\sqrt{1-x^2} \pm {\cal E}_a) \hat{O},
 \ee
 with $\hat{O}$ normalized such that $||\hat{O}||=1$.
-Note that ${\cal E}(\hat{O}_{\pm})={\cal E}_h(\hat{O}_{\pm}+i {\cal E}_a(\hat{O}_{\pm}))=x\hat{O}_{\pm}+i(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) \hat{O} + {\cal O}(1/M)$.  Using
+Note that ${\cal E}(\hat{O}_{\pm})={\cal E}_h(\hat{O}_{\pm})+i {\cal E}_a(\hat{O}_{\pm})=x\hat{O}_{\pm}+i(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) \hat{O} + {\cal O}(1/M)$.  Using
 the fact that ${\cal E}_h^2+{\cal E}_a^2$ is equal to the identity super-operator, $(\sqrt{1-x^2}{\cal E}_a \pm {\cal E}_a^2) \hat{O}=\sqrt{1-x^2}{\cal E}_a \pm (1-x^2) ) \hat{O} +{\cal O}(1/M)=\pm\sqrt{1-x^2}\hat{O}_{\pm}+{\cal O}(1/M)$.
 Hence,
 \be
