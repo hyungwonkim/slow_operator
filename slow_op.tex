@@ -22,7 +22,6 @@
 
 \begin{document}
 \title{Slowest local operators in quantum spin chains}
-%\title{Unsuspected conserved quantities in a nonintegrable quantum system}
 
 \author{Hyungwon Kim}
 \affiliation{Physics Department, Princeton University, Princeton, NJ 08544, USA}
@@ -46,16 +45,13 @@ We numerically construct slowly relaxing local operators in a nonintegrable spin
 Restricting the support of the operator to $M$ consecutive spins along the chain,
 we exhaustively search for the operator that minimizes the Frobenius norm of the commutator
 with the Hamiltonian and show that the Frobenius norm bounds the time scale of relaxation of the operator.
-%Thus the slow operator is ``almost conserved''.
-We find %slow
+We find 
 operators with significantly slower relaxation than
 the slowest simple ``hydrodynamic'' mode due to energy diffusion.
-%would be expected from a hydrodynamic description.
 Using both exhaustive search and tensor network techniques, we find
 similar slowly relaxing operators for a Floquet spin chain and for quantum circuits on spin chains;
 these systems are hydrodynamically ``trivial'', with no conservation laws restricting their dynamics.
 We argue that such slow relaxation may be a generic feature following from locality and unitarity.
-%showing the existence of unexpected almost-conserved quantities.
 \end{abstract}
 
 \pacs{}
@@ -70,11 +66,9 @@ One possibility is that the ETH is false for the system of Ref.~\onlinecite{Banu
 In this work, we illustrate how such slow relaxation can emerge by showing that indeed slow, almost-conserved local quantities {\it are} present in many nonintegrable systems.  We construct these operators numerically, by explicitly searching for operators with a small commutator with the Hamiltonian.
 One of such operators with a small commutator is the one that results from the thermal diffusion due to a spatially-smooth inhomogeneity in the energy density.  However, we show numerically that these are {\it not} the operators with the smallest commutator.  Instead, other operators are present with a much smaller commutator.  Thus we find ``unexpected almost-conserved quantities" for these systems.  For numerical reasons discussed below, much of our work focuses on the Frobenius norm rather than operator norm to measure relaxation, but we also discuss the operator norm.
 
-%The time scale of simple energy diffusion is discussed below, where w
+
 We also construct the pattern of local energy density that gives the slowest operator of that form.  This operator and its commutator with the Hamiltonian
-%s describing local energy diffusion in our subregion of length $M$ spins.  This time scale
 match the expectations from diffusive hydrodynamics, with the square of the Frobenius norm of the commutator $\sim M^{-2}$ for the slowest such operator on a subregion containing $M$ spins.
-%$\sim M^2/D$, where $D$ is the thermal diffusivity. %and the momentum $k$ is inversely proportional to the interval length.
 However, numerically we observe that the commutator for the slowest operator that we find by exhaustive unrestricted search appears to decrease with a {\it larger} power of length than this diffusive $\sim M^{-2}$, and for the accessible system sizes is quantitatively substantially smaller (slower) than that of the simple diffusive mode.
 
 To further understand the presence of such approximately conserved quantities we then turn to a Floquet spin chain where energy is not conserved.
@@ -85,11 +79,6 @@ However, these slowly relaxing operators are in a sense morally similar to the s
 slow operators are present in any such system, so long as the unitary dynamics is local.  They themselves do not inhibit relaxation of the local density matrices ``as fast as possible" i.e., on a time scale proportional to the length of the interval;
 (see Ref.~\onlinecite{Brandao:2012} for a proof that this happens for random local circuits).
 Thus, the real surprise is our numerical observation that there are other operators in some nonintegrable Hamiltonian systems (and possibly in some quantum circuits) with even slower relaxation.
-%Thus, the real surprise is our numerical observation that there are other operators in some Hamiltonian systems with even slower relaxation.
-
-%\section{Model and Method}
-%\subsection{Model}
-%\subsection{Method}
 
 
 
@@ -97,13 +86,11 @@ Thus, the real surprise is our numerical observation that there are other operat
 \includegraphics[width=0.95\linewidth]{fig_hamiltonian.pdf}
 \centering
 \caption{(color online) (a) $\lambda(M)$ is the minimum of Eq. \eqref{eq:minimize}.  As we increase $M$, the commutator with the Hamiltonian decreases as shown.
-%and thus the local operator relaxes slowly. The decreasing form
 This decrease can be well-fitted by either a power-law or $1/(M\log(M))^2$.
 (b)$\lambda_E(M)$ is the minimum of Eq. \eqref{eq:minimize} when only terms in the Hamiltonian are used.  As thermal diffusion suggests, it decreases as $1/M^2$. Inset: Structure of the optimal operator for $M = 11$. $X$, $Z$, and $ZZ$, are
 abbreviations of $\sigma^x_\ell$, $\sigma^z_\ell$, and $\sigma^z_\ell \sigma^z_{\ell+1}$, respectively.
 We locate the $\sigma^z_\ell \sigma^z_{i+1}$ term at position $\ell+1/2$.  The coefficients are normalized to have unit square norm ($\sum_\ell c_\ell^2 = 1$).
 It shows a clear sinusoidal energy modulation with the expected wavelength $2M$, and with the relative ratios equal to those in the Hamiltonian.}
-%(the vertical axis in the inset should not say "weight", since weight would be $c_{\ell}^2$.  Maybe it should be labeled $c_{\ell}$) }
 \label{fig:hamiltonian}
 \end{figure}
 
@@ -119,7 +106,7 @@ Ref.~\onlinecite{Banuls:2011} has found a nonthermalizing state for this model w
 We choose $(g,h) = (0.905, 0.809)$, at which this model is known to be robustly nonintegrable even for a relatively small system size \cite{Kim:2013}.
 See supplemental for another choice of parameters.
 
-We consider local operators supported on a finite interval of $M$ consecutive sites. %; an operator supported on consecutive $M$ sites is said to have ``range $M$".
+We consider local operators supported on a finite interval of $M$ consecutive sites. 
 For simplicity, we do not assume translation invariance
 \footnote{We have also performed similar analysis in the infinite chain with translation invariance so the action of the local operator is the same on all sites. Most of our main results (Figures \ref{fig:hamiltonian} (a), \ref{fig:floquet} (a), and \ref{fig:random_circuit})
 remain true. Since it is easier to visualize the local operators and to directly compare with diffusive energy mode in a translationally non-invariant system, here we present the results on an infinite chain where the local operator is placed on $M$ specific consecutive sites.}.
@@ -133,12 +120,11 @@ where $c_\ell$ is a real number and $\hat{O}_{(M,\ell)}$ is the corresponding ba
 We choose $\hat{O}_{(M,\ell)}$ to be mutually orthogonal using the Hilbert-Schmidt inner product so that
 $\mathrm{tr(\hat{O}_{(M,\ell)} \hat{O}_{(M,k)})} = 0$ for $\ell\neq k$.
 
-%The time derivative of an operator is proportional to its commutator with the Hamiltonian.
 The dynamics of an operator comes from the commutator with Hamiltonian.
 Therefore, we want to {\it minimize} the magnitude of $[\hat{A}_M, H]$
 to construct a slowly relaxing local operator of length $M$.
 Using the square of the Frobenius norm, $\mathrm{tr(\hat{O}\hat{O}^\dag)}$, to measure this magnitude\footnote{There are three widely used norms of an operator;
-the operator norm (largest absolute value of the operator), the trace norm ($\mathrm{tr(\sqrt{\hat{O}\hat{O}^\dag})}$),
+the operator norm (largest absolute eigenvalue of the operator), the trace norm ($\mathrm{tr(\sqrt{\hat{O}\hat{O}^\dag})}$),
 and the Frobenius norm ($\sqrt{\mathrm{tr(\hat{O}\hat{O}^\dag)}}$). Each norm has its own meaning.
 Although the operator norm is physically the most relevant one for our purpose,
 we choose the Frobenius norm since it is the easiest to numerically optimize.
@@ -179,31 +165,19 @@ Therefore, we can bound the distance between $a_M(t)$ and $a_M(0)$.
 \end{align}
 In thermodynamic limit and finite $M$, the thermal expectation value is
 $a_M^{th} = \rm{tr}(\hat{A}_M) = 0$.
-Now, we have the following inequality:
+Now we have the following inequality:
 \begin{align}
 |a_M(t) - a_M^{th}| &\geq |a_M(0) - a_M^{th}| - |a_M(0) - a_M(t)| \nonumber\\
 & \geq 1 - \frac{f(\hat{A}_M)t^2}{2} ~.
 \label{eq:hamiltonian_timescale}
 \end{align}
-$f(\hat{A}_M)$ is a lower bound of the thermalization time scale $\tau$ of $\hat{A}_M$ by $\tau \geq f(\hat{A}_M)^{-1/2}$.
-Therefore, small $\lambda(M)$ implies a long thermalization time scale of the corresponding $\hat{A}_M$.
+Consequently, $f(\hat{A}_M)$ is a lower bound of the thermalization time scale $\tau$ of $\hat{A}_M$ by $\tau \geq f(\hat{A}_M)^{-1/2}$, 
+and small $\lambda(M)$ implies a long thermalization time scale of the corresponding $\hat{A}_M$.
 In addition, since $\lambda(M)$ is the minimum of Eq. \eqref{eq:second_derivative} at $t =0$,
-the optimal $\hat{A}_M$ is the slowest operator at early time.
-
-%Now we look at how $\hat{A}_M$ changes as a function of time:
-%$\langle \hat{A}_M(t) \rangle = \mathrm{tr(\rho e^{iHt} \hat{A}_M e^{-iHt})} = (\epsilon/Z)\mathrm{tr(\hat{A}_M e^{iHt} \hat{A}_M e^{-iHt})}$.
-%This is a two-point correlation of $\hat{A}_M$ in the time domain with the infinite temperature background.
-%Trivially, the first order time derivative at $t = 0$ is zero. The second order time derivative at $t = 0$ is
-%\begin{align}
-%\frac{d^2}{dt^2}\langle \hat{A}_M(t)\rangle\bigg|_{t=0} = \frac{\epsilon}{Z}\mathrm{tr([\hat{A}_M,H][\hat{A}_M,H]^\dag)} ~.
-%\end{align}
-%Therefore,by minimizing Eq. \eqref{eq:minimize},
-%we search for the slowest relaxing operator at early time.
-%Although we instead want a slowly relaxing operator at long time,
-%this minimization already gives nontrivial results as we report below.
+the optimal $\hat{A}_M$ is {\it the} slowest operator at early time.
 
 
-Figure \ref{fig:hamiltonian} (a) plots $\lambda (M)$.  %, defined to be the minimum value of Eq. \eqref{eq:minimize}.
+Figure \ref{fig:hamiltonian} (a) plots $\lambda (M)$.  
 It is clear that $\lambda(M)$ decreases with $M$ as it should.
 The data can be well-fitted by two functional forms; power-law decay with exponent $2.62$ and a logarithmic correction to $1/M^2$, which is $1/(M\log(M))^2$.
 In either case, the rate of decrease with $M$ is {\it faster} than $1/M^2$, which is the scaling of the slowest diffusive energy mode as we show now.
@@ -238,17 +212,6 @@ Since there are only a few basis operators, we can easily look at the details of
 The inset of Figure \ref{fig:hamiltonian} (b) is the structure of the optimal operator in terms of the local terms in Hamiltonian.
 It is indeed the form of Eq.~\eqref{eq:energy_modulation} and thus the energy modulation of the longest wavelength is the slowest energy mode.
 Note also the fact that apart from displaying a different scaling, $\lambda(M)$ is much smaller than $\lambda_E(M)$
-%from the local conservation law.
-
-%
-%\begin{figure}
-%\includegraphics[width=1.0\linewidth]{fig_floquet.pdf}
-%\centering
-%\caption{(color online) (a) $\lambda$ is the minimum value of Eq. \eqref{eq:floquet_minimize}. In comparison with Figure \ref{fig:full_optimal}, the Floquet system relaxes a local operator faster than the Hamiltonian system for having rather moderate decay tendency.
-%%(b) Decomposition of optimal operators sorted by the distance from the free edge ($M+1$'th site). Most weight is in the farthest site.}
-%}
-%\label{fig:floquet}
-%\end{figure}
 
 
 \begin{figure}
@@ -303,15 +266,6 @@ In case of the Floquet system, the thermal expectation value $\hat{a}_M$ is inde
 This proves that $g(\hat{A}_M)$ is a lower bound of the thermalization time of $\hat{A}_M$ by
 $N \geq g(\hat{A}_M) ^{-1/2}$. Again, small $\lambda(M)$ implies a long thermalization time.
 
-%It is straightforward to show that $\lambda(M)$ is twice of the
-%difference of the expectation value of $\hat{A}_M$ between the initial state and the state after one Floquet driving
-%[Note that time is discrete (integer multiple of $\tau$) in the Floquet system.].
-%\begin{align}
-%2\left(\langle \hat{A}_M(0) \rangle - \langle \hat{A}_M(\tau) \rangle \right) = \frac{\epsilon}{Z}\mathrm{tr([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)} ~,
-%\end{align}
-%where $\hat{A}_M(\tau) = U_F^\dag \hat{A}_M(0) U_F$.
-%When $\hat{A}_M$ changes little by the initial driving, $\lambda(M)$ is small. %Eq. \eqref{eq:floquet_minimize} is small.
-
 To extend to larger systems, we use a tensor network technique and assume a specific form of the optimal operator.
 We consider operators in the space spanned by $U^n \hat{O} U^{- n}$ for $\hat{O}$ a traceless hermitian operator acting on a single site
 and taking a finite number of powers of unitary operator $U$ (this case, the Floquet $U_F$).
@@ -320,23 +274,21 @@ Considering the operator of the following {\it filtered} form,
  \tilde{A}_N=\sum_{n=-N}^N c_n U^n \hat{O} U^{- n} ~,
  \label{eq:filter}
 \end{align}
-where $\tilde{A}_N$ is supported on $M = 2N+1$ sites for the Floquet ($U = U_F$),  
-we find $\tilde{A}_N$ that gives $\tilde{\lambda}(M) = \mathrm{min}\left[\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U]^\dag)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)\right]$
+where $\tilde{A}_N$ is supported on $M = 2N+1$ sites for the Floquet system,  
+we find $\tilde{A}_N$ that gives $\tilde{\lambda}(M) = \mathrm{min}\{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U]^\dag)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)\}$
 by varying the coefficients $\{c_n\}$ and $\hat{O}$.
 This method can be considered as a version of the Lanczos method as it also works in a Krylov subspace,
 but here we use a tensor network method to approximate the traces ${\rm tr}(\hat{O}^\dagger U^n \hat{O} U^{-n})$ needed to compute the ratio in Eq.~(\ref{eq:floquet_minimize}). All data (including the random circuit case we discuss below) have well converged at the bond dimension 80.
 Thus $\tilde{\lambda}$ is a variational upper bound of the true minimum $\lambda$.
 Interestingly, this simple model \footnote{there are only 2$N$+ 4 real variables ($2N+1$ for $c_n$'s and 3 for $\hat{O}$) instead of $4^{2N+1} - 1$ variables
 in the case of the exhaustive search.}
-agrees very well with the exhaustive search until $M = 11$ ($N = 5$), which is the largest accessible size by the exact method.
+agrees very well with the exhaustive search until $M = 11$ ($N = 5$), which is the largest accessible size by the Lanczos method.
 Moreover, we find that the filtered $\hat{A}_N$ that gives $\tilde{\lambda}(M)$ 
 is obtained from the same single site operator $\hat{O}$ for all values of $N$. 
 For the given model and the parameters, $\hat{O} = 0.04\sigma^x  - 0.66\sigma^y + 0.75\sigma^z$. 
 Note that $\tilde{A}_N$ can only be supported on odd number of sites.
 It turns out that the exact operator of even support can be approximated by a simple symmetric extension:
 $\tilde{A}_N\otimes \sigma^0 + \sigma^0\otimes\tilde{A}_N$, where $\sigma^0$ is an identity.
-%\footnote{When $\hat{O}$ acts on two sites, the filtered construction covers even sites.
-%However, this turns out not to be close to the exact result for small $M$.}.
 Therefore, $\lambda(2N-1) \simeq \lambda(2N)$.
 
 
@@ -348,7 +300,7 @@ which re-appears in a random circuit model we study later.
 
 
 Comparing Figure \ref{fig:floquet} (a) with Figure \ref{fig:hamiltonian} (a),
-we see that $\lambda$ decreases {\it slower} than Hamiltonian cases, which indicates that the Floquet system thermalizes
+we see that $\lambda(M)$ decreases {\it slower} than Hamiltonian cases, which indicates that the Floquet system thermalizes
 the local operator {\it faster}. Since the only apparent difference between the Hamiltonian system and the Floquet system
 is the existence of the energy conservation, we attribute this faster relaxation to the absence of conservation law.
 Nevertheless, Figure \ref{fig:floquet} clearly exhibits that the rate of relaxation in the Floquet system
@@ -392,11 +344,9 @@ which would be very interesting.
 We have numerically constructed a series of local operators that relax slower than local energy fluctuations do.
 We have also performed the same analysis in the similar system without energy conservation,
 the Floquet system and for a family of quantum circuits, again finding slowly relaxing operators.
-%The structure of the operators found displays some spatial modulation, with smaller coefficients for terms nears the edge.
 The structure of the operators found turns out to be very complicated, involving all basis operators
 (if we restrict to just the terms in the Hamiltonian, we only obtain simpler operators related to energy currents),
 and so their origin remains unclear.
-%However the operators involve complicated many-body terms (if we restrict to just the terms in the Hamiltonian, we only obtain simpler operators related to energy currents) and so their origin remains unclear.
 These operators present a new class of observables; if they can be studied experimentally, they may reveal unsuspected slow relaxation.
 
 We thank Fabian Essler for stimulating discussions and Stefan K\"{u}hn for help in numerical algorithms.
