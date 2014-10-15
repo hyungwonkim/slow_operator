@@ -67,12 +67,13 @@ It has been proposed that an isolated quantum many-body system can still thermal
 However, not all systems show this local thermalization in an accessible time scale \cite{Banuls:2011}.
 One possibility is that the ETH is false for the system of Ref.~\onlinecite{Banuls:2011}; another possibility is that the time scales required to thermalize locally are too long to be numerically accessible.  A question is: how can such slow thermalization arise, when a nonintegrable system like the one studied has no conserved local quantities other than energy?
 
-In this work, we illustrate how such slow relaxation can emerge by showing that indeed slow, almost-conserved local quantities {\it are} present in many nonintegrable systems.  We construct these operators numerically, by explicitly searching for operators with a small commutator with the Hamiltonian.  One source of such operators with a small commutator are those that result from the thermal diffusion due to a spatially-smooth inhomogeneity in the energy density.  However, we show numerically that these are {\it not} the operators with the smallest commutator.  Instead, other operators are present with a much smaller commutator.  Thus we find ``unexpected almost-conserved quantities" for these systems.  For numerical reasons discussed below, much of our work focuses on the Frobenius norm rather than operator norm to measure relaxation, but we also discuss the operator norm.
+In this work, we illustrate how such slow relaxation can emerge by showing that indeed slow, almost-conserved local quantities {\it are} present in many nonintegrable systems.  We construct these operators numerically, by explicitly searching for operators with a small commutator with the Hamiltonian.  
+One of such operators with a small commutator is the one that results from the thermal diffusion due to a spatially-smooth inhomogeneity in the energy density.  However, we show numerically that these are {\it not} the operators with the smallest commutator.  Instead, other operators are present with a much smaller commutator.  Thus we find ``unexpected almost-conserved quantities" for these systems.  For numerical reasons discussed below, much of our work focuses on the Frobenius norm rather than operator norm to measure relaxation, but we also discuss the operator norm.
 
 %The time scale of simple energy diffusion is discussed below, where w
 We also construct the pattern of local energy density that gives the slowest operator of that form.  This operator and its commutator with the Hamiltonian
 %s describing local energy diffusion in our subregion of length $M$ spins.  This time scale
-matches the expectations from diffusive hydrodynamics, with the square of the Frobenius norm of the commutator $\sim M^{-2}$ for the slowest such operator on a subregion of the length $M$ spins.
+matches the expectations from diffusive hydrodynamics, with the square of the Frobenius norm of the commutator $\sim M^{-2}$ for the slowest such operator on a subregion containing $M$ spins.
 %$\sim M^2/D$, where $D$ is the thermal diffusivity. %and the momentum $k$ is inversely proportional to the interval length.
 However, numerically we find that the commutator for the slowest operator that we find by exhaustive unrestricted search appears to decrease with a {\it larger} power of length than this diffusive $\sim M^{-2}$, and for the accessible system sizes is quantitatively substantially smaller (slower) than that of the simple diffusive mode.
 
@@ -118,7 +119,7 @@ Ref.~\onlinecite{Banuls:2011} has found a nonthermalizing state for this model w
 We choose $(g,h) = (0.905, 0.809)$, at which this model is known to be robustly nonintegrable even for a relatively small system size \cite{Kim:2013}.
 See supplemental for another choice of parameters.
 
-We consider local operators supported on a finite interval of consecutive $M$ sites. %; an operator supported on consecutive $M$ sites is said to have ``range $M$".
+We consider local operators supported on a finite interval of $M$ consecutive sites. %; an operator supported on consecutive $M$ sites is said to have ``range $M$".
 For simplicity, we do not assume translation invariance
 \footnote{We have also performed similar analysis in the infinite chain with translation invariance so the action of the local operator is the same on all sites. Most of our main results (Figures \ref{fig:hamiltonian} (a), \ref{fig:floquet} (a), and \ref{fig:random_circuit})
 remain true. Since translation non-invariant system is easier to visualize the local operators and to directly compare with diffusive energy mode, here we present the results on an infinite chain where the local operator is placed $M$ specific consecutive sites.}.
@@ -166,7 +167,7 @@ $\hat{A}_M$ serves as a small inhomogeneity in the infinite temperature ensemble
 is assumed to have unit Frobenius norm.
 Let's define $a_M(t)$ as the expectation value of $\hat{A}_M/\epsilon$ at time $t$:
 $a_M(t) = (1/\epsilon)\mathrm{tr}(\rho \hat{A}_M(t)) = \mathrm{tr}(\hat{A}_M \hat{A}_M(t))$,
-where $\hat{A}_M(t)$ is in the Heisenberg picture.
+where $\hat{A}_M(t)$ is in the Heisenberg picture. [Note that $a_M(0) = 1$.] 
 Using Cauchy-Schwarz inequality, we can show the following:
 \begin{align}
 \left|\frac{d^2 a_M(t)}{dt^2}\right| = |\mathrm{tr}([\hat{A}_M(t),H][\hat{A}_M,H])| \leq f(\hat{A}_M) ~,
@@ -177,7 +178,7 @@ Therefore, we can bound the distance between $a_M(t)$ and $a_M(0)$.
 |a_M(t) - a_M(0)| = \left|\int^t_0 d\tau \int^\tau_0 d\tau' \frac{d^2 a_M(\tau')}{d\tau'^2}\right| \leq \frac{f(\hat{A}_M) t^2}{2} ~.
 \end{align}
 In thermodynamic limit and finite $M$, the thermal expectation value is
-$a_M^{th} = \rm{tr}(\hat{A}_M) = 0$ with negligible error.
+$a_M^{th} = \rm{tr}(\hat{A}_M) = 0$.
 Now, we have the following inequality:
 \begin{align}
 |a_M(t) - a_M^{th}| &\geq |a_M(0) - a_M^{th}| - |a_M(0) - a_M(t)| \nonumber\\
@@ -185,7 +186,7 @@ Now, we have the following inequality:
 \label{eq:hamiltonian_timescale}
 \end{align}
 $f(\hat{A}_M)$ is a lower bound of the thermalization time scale $\tau$ of $\hat{A}_M$ by $\tau \geq f(\hat{A}_M)^{-1/2}$.
-Therefore, small $\lambda(M)$ implies a long thermalization time scale of the corresponding $\hat{A}_M$. 
+Therefore, small $\lambda(M)$ implies a long thermalization time scale of the corresponding $\hat{A}_M$.
 In addition, since $\lambda(M)$ is the minimum of Eq. \eqref{eq:second_derivative} at $t =0$,
 the optimal $\hat{A}_M$ is the slowest operator at early time.
 
@@ -231,11 +232,12 @@ Therefore, $\mathrm{tr}([H,\hat{E}_M][H,\hat{E}_M]^\dag) \sim 1/M^2$.
 Here, we adapt a slightly more conservative approach.
 We do the same numerical search as before but restrict the operator space within the terms in the Hamiltonian
 so we only consider $3M-1$ basis operators instead of $4^M-1$.
-Figure \ref{fig:hamiltonian} (b) plots the minimum of $f(\hat{A}_M)$ in this restricted space.
+Figure \ref{fig:hamiltonian} (b) plots $\lambda_E(M)$, the minimum of $f(\hat{A}_M)$ in this restricted space.
 As expected, we have almost perfect $1/M^2$ scaling.
 Since there are only a few basis operators, we can easily look at the details of the structure of the optimal operator.
 The inset of Figure \ref{fig:hamiltonian} (b) is the structure of the optimal operator in terms of the local terms in Hamiltonian.
-It is indeed the form of Eq.~\eqref{eq:energy_modulation} and thus the energy modulation of the longest wavelength is the slowest energy mode.
+It is indeed the form of Eq.~\eqref{eq:energy_modulation} and thus the energy modulation of the longest wavelength is the slowest energy mode. 
+Note also the fact that apart from displaying a different scaling, $\lambda(M)$ is much smaller than $\lambda_E(M)$
 %from the local conservation law.
 
 %
