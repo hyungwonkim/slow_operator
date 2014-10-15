@@ -67,7 +67,7 @@ It has been proposed that an isolated quantum many-body system can still thermal
 However, not all systems show this local thermalization in an accessible time scale \cite{Banuls:2011}.
 One possibility is that the ETH is false for the system of Ref.~\onlinecite{Banuls:2011}; another possibility is that the time scales required to thermalize locally are too long to be numerically accessible.  A question is: how can such slow thermalization arise, when a nonintegrable system like the one studied has no conserved local quantities other than energy?
 
-In this work, we illustrate how such slow relaxation can emerge by showing that indeed slow, almost-conserved local quantities {\it are} present in many nonintegrable systems.  We construct these operators numerically, by explicitly searching for operators with a small commutator with the Hamiltonian.  
+In this work, we illustrate how such slow relaxation can emerge by showing that indeed slow, almost-conserved local quantities {\it are} present in many nonintegrable systems.  We construct these operators numerically, by explicitly searching for operators with a small commutator with the Hamiltonian.
 One of such operators with a small commutator is the one that results from the thermal diffusion due to a spatially-smooth inhomogeneity in the energy density.  However, we show numerically that these are {\it not} the operators with the smallest commutator.  Instead, other operators are present with a much smaller commutator.  Thus we find ``unexpected almost-conserved quantities" for these systems.  For numerical reasons discussed below, much of our work focuses on the Frobenius norm rather than operator norm to measure relaxation, but we also discuss the operator norm.
 
 %The time scale of simple energy diffusion is discussed below, where w
@@ -167,7 +167,7 @@ $\hat{A}_M$ serves as a small inhomogeneity in the infinite temperature ensemble
 is assumed to have unit Frobenius norm.
 Let's define $a_M(t)$ as the expectation value of $\hat{A}_M/\epsilon$ at time $t$:
 $a_M(t) = (1/\epsilon)\mathrm{tr}(\rho \hat{A}_M(t)) = \mathrm{tr}(\hat{A}_M \hat{A}_M(t))$,
-where $\hat{A}_M(t)$ is in the Heisenberg picture. [Note that $a_M(0) = 1$.] 
+where $\hat{A}_M(t)$ is in the Heisenberg picture. [Note that $a_M(0) = 1$.]
 Using Cauchy-Schwarz inequality, we can show the following:
 \begin{align}
 \left|\frac{d^2 a_M(t)}{dt^2}\right| = |\mathrm{tr}([\hat{A}_M(t),H][\hat{A}_M,H])| \leq f(\hat{A}_M) ~,
@@ -236,7 +236,7 @@ Figure \ref{fig:hamiltonian} (b) plots $\lambda_E(M)$, the minimum of $f(\hat{A}
 As expected, we have almost perfect $1/M^2$ scaling.
 Since there are only a few basis operators, we can easily look at the details of the structure of the optimal operator.
 The inset of Figure \ref{fig:hamiltonian} (b) is the structure of the optimal operator in terms of the local terms in Hamiltonian.
-It is indeed the form of Eq.~\eqref{eq:energy_modulation} and thus the energy modulation of the longest wavelength is the slowest energy mode. 
+It is indeed the form of Eq.~\eqref{eq:energy_modulation} and thus the energy modulation of the longest wavelength is the slowest energy mode.
 Note also the fact that apart from displaying a different scaling, $\lambda(M)$ is much smaller than $\lambda_E(M)$
 %from the local conservation law.
 
@@ -273,9 +273,10 @@ Although $U_F$ does not conserve energy, it acts {\it locally} on the system.
 This type of Floquet operator is shown to thermalize a local operator to the infinite temperature ensemble \cite{Kim_ETH,Prosen:2002}.
 
 We minimize the square of the Frobenius norm of the commutator with the Floquet operator.
-This time we use a Lanczos method to find the $2^M \times 2^M$ matrix $\hat{A}_M$
+This time we use a Lanczos method to find the $2^M \times 2^M$ matrix $\hat{A}_M$ up to $M = 11$ and a tensor network method for $M = 12, 14, 16$  
 that minimizes \footnote{Unlike the Hamiltonian, the Floquet operator makes the matrix of dimension $4^M-1$ in Eq. \eqref{eq:minimize} dense and thus
-limits the largest $M$ that can be explored by the same method to 8. A Lanczos method enables us to access at least up to $M = 11$ exactly.}:
+limits the largest $M$ that can be explored by the same method to 8. A Lanczos method enables us to access at least up to $M = 11$ exactly. 
+Using a tensor network method, we obtain convergent results with bond dimension 220 up to $M$ = 16.}:
 \begin{align}\label{eq:floquet_minimize}
 g(\hat{A}_M) = \frac{\mathrm{tr}([\hat{A}_M,U_F][\hat{A}_M,U_F]^\dag)}{\mathrm{tr}(\hat{A}_M\hat{A}_M^\dag)} ~.
 \end{align}
