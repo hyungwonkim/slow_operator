@@ -39,13 +39,13 @@
 
 \author{David A. Huse}
 \affiliation{Physics Department, Princeton University, Princeton, NJ 08544, USA}
+\begin{abstract}
 
+\end{abstract}
 
 \maketitle
 
-
-
-\subsection{Operator Norm}
+\section{Operator Norm}
 In the main text, we have used the square of the Frobenius norm to quantify the commutator with the Hamiltonian
 and related it to the time scale of thermalization of the local operator.
 In this section, we use the operator norm (the largest eigenvalue in magnitude),
@@ -84,8 +84,9 @@ for which the operator norm of the commutator with the Hamiltonian decays fast w
 and an initial state which does not allow fast decrease of $\gamma(M)$,
 the time scale of thermalization of $\hat{A}_M$ is
 \begin{align}
-\tau_M \sim \frac{\gamma(M)}{\chi(M)} ~.
+\tau_M \sim \frac{\gamma(M)}{\chi(M)} ~,
 \end{align}
+which is an increasing function of $M$. 
 In particular, if $\chi(M)$ decreases faster than a power law with $M$,
 thermalization may take longer than polynomial time in the case of diffusion.
 
@@ -102,18 +103,20 @@ Two norms give quantitatively similar values.
 \label{fig:op_norm}
 \end{figure}
 
-For many purposes, the operator norm is mathematically more convenient
+Mathematically, the operator norm is more convenient
 since we can directly interpret the relaxation of the operator in terms of Lieb-Robinson bounds \cite{Lieb:1972,Bravyi:2006}.
-Optimizing the operator norm numerically is, however, very challenging. Therefore, we used the (square of) Frobenius norm in the main text.
+Optimizing the operator norm numerically is, however, very challenging. Therefore, we used the (square of) Frobenius norm in the main text 
+and related it with the time scale for a particular initial state, $\rho = I/Z + \epsilon \hat{A}_M$. 
 Nevertheless, once we have an operator, it is easy to compute the operator norm of the commutator with Hamiltonian.
 Figure \ref{fig:op_norm} plots the decay of the Frobenius norm and the operator norm of $[\hat{A}_M,H]$,
 where $\hat{A}_M$ is obtained in the main text by minimizing the Frobenius norm.
-It shows that the value of $\lambda$ measured by the operator norm is numerically similar to that of the Frobenius norm.
+It shows that the value of $\lambda$ measured by the operator norm is numerically similar to that of the Frobenius norm 
+for the range of $M$ we studied.
 It appears that the operator norms computed for these operators exhibit exponential-like decrease with $M$ but
-the range of $M$ is not enough to draw a conclusion.
+the range of $M$ is not enough to draw a reliable conclusion.
 
 
-\subsection{Results of another set of parameters}
+\section{Results of another set of parameters}
 \begin{figure}
 \includegraphics[width=1.0\linewidth]{fig_hamiltonian_other.pdf}
 \centering
@@ -127,7 +130,7 @@ In this section, we show that the results in the main body do not depend on the 
 We choose another set of parameters $(g,h) = (-1.05, 0.5)$, which is the parameter choice of Ref.~\onlinecite{Banuls:2011}.
 
 Figure \ref{fig:hamiltonian_other} (a) is the minimum value of $f(\hat{A}_M)$ (Eqs. (3) and (4) in the main text) with the other parameter choice.
-We can see that it decays faster than $1/M^2$. As is the case of the parameter choice in the main body,
+We can see that it decays faster than $1/M^2$. As is the case of the parameter choice in the main text,
 the data can be well-fitted by two methods; a power-law and a logarithmic correction to $1/M^2$.
 Since the power-law exponent could depend on the parameter choice, we do not attempt to draw a strong conclusion from this data
 except that $\lambda(M)$ decreases faster than $1/M^2$,
@@ -139,7 +142,7 @@ the decay scaling remains the same as $1/M^2$ as expected from the hydrodynamics
 Therefore, we again explicitly demonstrate that the longest wavelength energy modulation is the slowest mode of a conserved quantity.
 
 
-\subsection{Slow Operators for Arbitrary Quantum Circuits}
+\section{Slow Operators for Arbitrary Quantum Circuits}
 We now show that a slowly relaxing operator must always exist, on an interval of length $M$ with the relaxation rate going to zero as $M$ gets large.  Let $U$ be the unitary of the quantum circuit restricted to an interval of length slightly larger than $M$ (in this way, we can consider only finite dimensional spaces).
 
 Let ${\cal E}(\hat{O})$ be a super-operator defined by ${\cal E}(\hat{O})=U\hat{O}U^\dagger$.  The space of operators can be regarded as a vector space, with inner product $(A,B)={\rm tr}(A^\dagger B)$, and with ${\cal E}(\hat{O})$ being a linear operator on this space.  The operator ${\cal E}$ is non-Hermitian but it is a normal operator, since its Hermitian conjugate is equal to ${\cal E}^\dagger(\hat{O})=U^\dagger \hat{O} U$ and ${\cal E}({\cal E}^\dagger(\hat{O}))={\cal E}^\dagger({\cal E}(\hat{O}))=\hat{O}$ and so $[{\cal E},{\cal E}^\dagger]=0$.
@@ -172,14 +175,15 @@ This already implies that there is some operator $X$ which is slowly relaxing bu
 
 In fact, we can always construct an operator $Y$ which is an approximate eigenoperator of ${\cal E}$.  Here is one way.  Consider many disjoint intervals of length $M$.  Let $X_1,X_2,...$ be the operators on these intervals with eigenvalues $z_1,z_2,...$  Choose some subset $S$ of these intervals such that the product of the $z_i$ on that subset is close to $1$: $\prod_{i \in S} z_i \approx 1$.  Then, let $Y=\prod_{i \in S} X_i$.  This requires some analytic estimates to determine the support of $Y$ required: since $Y$ is a product of many operators, the error (in that each $X_i$ is only an approximate eigenoperator) may add, so the support of $Y$ may scale as a fairly large polynomial in the error.  We leave this estimate for later.
 
-\subsection{$1/M^2$ scaling of filtered operators}
+\section{$1/M^2$ scaling of filtered operators}
 We show $1/M^2$ scaling of filtered operators of the form (Eq. (17) in the main text) if $\mathrm{tr}(\hat{O}U^n \hat{O}U^{-n}) = 0$ for all $n\neq 0$,
 where $\hat{O}$ is a traceless Hermitian acting on a single site.
+\begin{widetext}
 First, observe that
 \begin{align}
-& \frac{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U])}{\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)} \nonumber\\
-&=2 - \bigg(\sum_{n,m = -N}^{N}c_n c_m \mathrm{tr}(U^{n-m-1}\hat{O}U^{-n+m+1}\hat{O} \nonumber\\
-&\quad\quad\quad\quad\quad + U^{n-m+1}\hat{O}U^{-n+m-1}\hat{O})\bigg)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag) ~.
+\frac{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U])}{\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)} 
+=2 - \bigg(\sum_{n,m = -N}^{N}c_n c_m \mathrm{tr}(U^{n-m-1}\hat{O}U^{-n+m+1}\hat{O} 
++ U^{n-m+1}\hat{O}U^{-n+m-1}\hat{O})\bigg)/\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag) ~.
 \end{align}
 Therefore, if $\mathrm{tr}(\hat{O}U^n \hat{O}U^{-n}) = \delta_{n,0}\mathrm{tr}(\hat{O}\hat{O}^\dag)$,
 the above expression simplifies to
@@ -189,11 +193,10 @@ the above expression simplifies to
 This is a trivial quadratic optimization problem and the solution is $c_n = \cos(n\pi/(2N+2))$.
 Therefore, the minimum value $\tilde{\lambda}$ for sufficiently large $N$ is
 \begin{align}
-\tilde{\lambda} &= \mathrm{min}\left[\frac{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U])}{\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)} \right] \nonumber\\
-&= 2 - 2\cos\left(\frac{\pi}{2N+2}\right) \simeq \frac{\pi^2}{4(N+1)^2} \sim \frac{1}{M^2} ~,
+\tilde{\lambda} &= \mathrm{min}\left[\frac{\mathrm{tr}([\tilde{A}_N,U][\tilde{A}_N,U])}{\mathrm{tr}(\tilde{A}_N\tilde{A}_N^\dag)} \right] = 2 - 2\cos\left(\frac{\pi}{2N+2}\right) \simeq \frac{\pi^2}{4(N+1)^2} \sim \frac{1}{M^2} ~,
 \end{align}
 where we used the fact that the support $M = 4N +1 $.
-
+\end{widetext}
 
 Ref. ~\onlinecite{Kim_ETH} has shown that the $U_F = e^{-i H_x \tau} e^{-i H_z \tau}$ (Eq. (12) in the main text) thermalizes a local operator at infinite temperature,
 and thus $\mathrm{tr}(\hat{O}U^n\hat{O}U^{-n}) = 0$ for a sufficiently large $n$.
